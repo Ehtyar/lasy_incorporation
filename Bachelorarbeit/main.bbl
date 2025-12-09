@@ -74,6 +74,12 @@ A~Irman, JP~Couperus, A~Debus, A~Köhler, JM~Krämer, R~Pausch, O~Zarini, and
   self-truncated ionization injection.
 \newblock {\em Plasma Physics and Controlled Fusion}, 60, 2018.
 
+\bibitem{github}
+Edgar Marquardt.
+\newblock lasy\_incorporation.
+\newblock \url{https://github.com/Ehtyar/lasy_incorporation}.
+\newblock Repository containing this work and all code written for it.
+
 \bibitem{Miller:2023}
 Kyle~G. Miller, Jacob~R. Pierce, Manfred~V. Ambat, Jessica~L. Shaw, Kale
   Weichman, Warren~B. Mori, Dustin~H. Froula, and John~P. Palastro.
