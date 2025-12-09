@@ -1,0 +1,24 @@
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+/home/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+slurmstepd: error: *** JOB 15492179 ON ga014 CANCELLED AT 2025-12-08T21:06:17 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 15492179 STEPD TERMINATED ON ga014 AT 2025-12-08T21:09:17 DUE TO JOB NOT ENDING WITH SIGNALS ***

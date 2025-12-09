@@ -1,0 +1,30 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\nonumberline Introduction}{vii}
+\contentsline {section}{\numberline {1}Laser wakefield acceleration (LWFA)}{vii}
+\contentsline {section}{\numberline {2}The problem of Dephasing}{vii}
+\contentsline {section}{\numberline {3}The Axiparabola}{vii}
+\contentsline {section}{\numberline {4}Spatio-temporal control}{vii}
+\contentsline {section}{\numberline {5}Simulation tools}{vii}
+\contentsline {subsection}{\numberline {5.1}PIConGPU}{vii}
+\contentsline {subsection}{\numberline {5.2}Lasy}{vii}
+\contentsline {chapter}{\nonumberline New Simulations}{ix}
+\contentsline {section}{\numberline {1}generating the pulse}{ix}
+\contentsline {subsection}{\numberline {1.1}my additions}{ix}
+\contentsline {section}{\numberline {2}saving the pulse}{ix}
+\contentsline {subsection}{\numberline {2.1}calculating the full field}{ix}
+\contentsline {subsection}{\numberline {2.2}PIConGPU friendly openPMD}{x}
+\contentsline {subsection}{\numberline {2.3}PIConGPU simulation}{xii}
+\contentsline {subsubsection}{\nonumberline Courant-Friedrich-Levy condition}{xii}
+\contentsline {subsection}{\numberline {2.4}displaying the openPMD data}{xii}
+\contentsline {section}{\numberline {3}the axiparabola laser}{xii}
+\contentsline {subsection}{\numberline {3.1}RGD}{xii}
+\contentsline {subsubsection}{\nonumberline shape as expected?}{xii}
+\contentsline {subsection}{\numberline {3.2}axiparabola}{xii}
+\contentsline {subsection}{\numberline {3.3}RGD + axiparabola}{xii}
+\contentsline {subsubsection}{\nonumberline all the tests}{xii}
+\contentsline {section}{\numberline {4}Zwischenfazit}{xii}
+\contentsline {chapter}{\nonumberline Summary and Outlook}{xiii}
+\contentsline {chapter}{\nonumberline Bibliography}{xv}
+\contentsline {chapter}{\nonumberline Appendix}{xvii}
+\contentsline {section}{\numberline {1}Documentation of my code}{xvii}
+\contentsline {section}{\numberline {2}Code}{xvii}

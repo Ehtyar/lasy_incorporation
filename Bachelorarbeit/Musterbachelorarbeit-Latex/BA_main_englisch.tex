@@ -1,0 +1,199 @@
+\input{preamble}
+\begin{document}
+
+\frontmatter
+
+
+% Titelpageseite
+\begin{titlepage}
+ \begin{tabularx}{\linewidth}{X}
+  \includegraphics[width=6cm]{TU_Logo_SW} \\\hline\hline
+
+  \vspace{4.5em}
+
+  \begin{singlespace}\begin{center}\bfseries\Huge
+  
+  Title of Bachelor thesis
+  
+  \end{center}\end{singlespace}
+
+  \vspace{5.5em}
+
+  \begin{singlespace}\begin{center}\large
+   Bachelor-Arbeit \\ zur Erlangung des Hochschulgrades \\ 
+   Bachelor of Science \\ 
+   im Bachelor-Studiengang Physik
+  \end{center}\end{singlespace}\medskip
+
+  \begin{center}vorgelegt von\end{center}
+  \begin{center}
+   {\large EDGAR MARQUARDT} \\ geboren am 07.09.2002 in Leipzig
+  \end{center}\medskip
+
+  \begin{singlespace}\begin{center}\large
+   Institut für Kern- und Teilchenphysik \\
+   Fakultät Physik \\
+   Bereich Mathematik und Naturwissenschaften \\
+   Technische Universität Dresden \\ 2025
+  \end{center}\end{singlespace}
+ \end{tabularx}
+\end{titlepage}
+
+
+% Gutachterseite
+\thispagestyle{empty}\vspace*{48em}
+
+Eingereicht am 05. Januar 2026\vspace{1.5em}
+\par{\large\begin{tabular}{ll}
+ 1. Gutachter: & Prof.~Dr.~Ulrich Schramm \\
+ 2. Gutachter: & Prof.~Dr.~Thomas Cowan \\
+\end{tabular}}
+
+
+% Abstractseite
+\newpage
+\begin{center}\large\bfseries Summary\end{center}
+
+
+Abstract \\ 
+English: \\
+
+\vspace{20em}
+Abstract \\ 
+Deutsch \\
+ 
+ 
+% Inhaltsverzeichnis
+
+%\cleardoublepage
+\tableofcontents
+
+
+
+% Hauptteil
+
+\chapter{Introduction}
+\section{Laser wakefield acceleration (LWFA)}
+
+\section{The problem of Dephasing}
+
+\section{The Axiparabola}
+In 2019 Smartsev et al proposed and tested a new optical device called the axiparabola \cite{Smartsev:2019}. It is a mirror shaped similarly to an off-axis parabola
+\begin{equation}
+s(r) = a_2\cdot r^2+a_4\cdot r^4+a_6\cdot r^6 + O(r^8)\cite{Smartsev:2019}
+\end{equation}
+
+
+\section{Spatio-temporal control}
+While The axiparabola allows for spacial control over where the focus point moves it can not steer, when it arrives at the place. However, because the focus point moves as $z=z(r)$ this behavior can be modified using a radial group delay echelon. By delaying the laser pulse depending on on r by $\Delta t = \tau_D(r)$ it is possible to adjust $z=z(r(t))=z(t)$ as needed by setting the function $\tau_D(r)$ accordingly.
+
+\section{Simulation tools}
+\subsection{PIConGPU}
+\cite{PIConGPU2013}
+\subsection{Lasy}
+Lasy is a python library designed to simulate laser pulses on basis of the axiprop library. It uses an angular spectrum propagator and applies optical elements by adding a phase to a semi-Fourier-space.
+
+
+\chapter{New Simulations}
+\section{generating the pulse}
+The Lasy library offers some tools to generate, modify and propagate a laser pulse as a simulation. 
+\subsection{my additions}
+\begin{python}
+print
+\end{python}
+
+
+
+\section{saving the pulse}
+The goal of this section was to save the laser pulse in such a way that it could be fed as an incident field into PIConGPU simulations. This would happen via the file format openPMD and the pulse profile FromOpenPMDPulse in PIConGPU.
+\subsection{calculating the full field}
+Because the laser pulse is in its lasy representation only the complex envelope is directly available. Lasy does offer a function to help here:
+\begin{python}
+field = lasy.utils.laser_utils.get_full_field(laser)
+\end{python}
+This even offers the option to specify, how many time points to sample. That is neccessary to be able to resolve the wavelength of the laser properly. However, whatever you do, this function will only ever give you a 2D cut though the field. We want to have the full 3D field for our simulations in PIConGPU. Therefore I wrote a new function, based on the function that lasy provides: 
+\begin{python}
+field = full_field.get_full_field(laser)
+\end{python}
+It offers a range of options the lasy function does not have. First of all it will generate a 3D field if the laser field is already 3D. Secondly one can specify a number of transversal points beyond which the field will be cut. This is useful when a laser pulse is being focused: we are of course only interested in the focal region, there is no need to calculate out to the edge of the focusing mirror. It is also possible to force the time step to a specific value, if, for example, you want your wavelength to be resolved by a specific number of points or if you need a resolution that works with your PIC simulation.\\
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.7\textwidth]{../Images/lasy_gauss_focus.png}
+\caption{Full electric field of a gaussian laser pulse at its focus}
+\label{l_g_focus}
+\end{figure}\\
+This function now enables another function I wrote:
+\begin{python}
+full_field.show_field(laser)
+\end{python}
+This function first generates the full field (or a region of it) and displays it in a sym-log plot using \pyth{matplotlib}. An example of this can be seen in figure \ref{l_g_focus}.
+
+\subsection{PIConGPU friendly openPMD}
+Lasy offers a function in its laser class to write an openPMD file already:
+\begin{python}
+laser.write_to_file()
+\end{python}
+This function writes a file containing the envelope data that lasy itself uses. PIConGPU can not work with this so I wrote my own function:
+\begin{python}
+full_field.write_to_openpmd_file(directory, filename, array, extent)
+\end{python}
+This function saves the content of the given array of field values to the file at the location directory/filename. It also adds all the metadata PIConGPU needs. Of note may be, that the field is stored in single precision float values to save some memory space. This is especially important when loading the file onto the GPU memory for a simulation. To further save space this function therefore also offers the option to just save every $n$-th field value into the file.\\
+The use of this function may be considered somewhat cumbersome because the array containing the field values feeds to be calculated first so I wrote a function combining the \pyth{get_full_field} and the \pyth{write_to_openpmd_file} functions:
+\begin{python}
+full_field.laser_to_openPMD(laser, filename)
+\end{python}
+It is relatively simple: the field of \pyth{laser} is saved to \pyth{filename}. However, there are a lot of additional options. These are all listed in the documentation in the appendix \ref{docs}. With the \pyth{show=True} option the saved field like in figure \ref{l_g_saved} is displayed.
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.7\textwidth]{../Images/lasy_gauss_saved.png}
+\caption{The field that has been saved as an openPMD file, one Rayleigh length before the focus}
+\label{l_g_saved}
+\end{figure}
+Importantly, this function is also able to generate and then save the field of a laser that has been simulated just radially.
+
+\subsection{PIConGPU simulation}
+
+
+\subsubsection{Courant-Friedrich-Levy condition}
+
+\subsection{displaying the openPMD data}
+
+\section{the axiparabola laser}
+\subsection{RGD}
+\subsubsection{shape as expected?}
+
+\subsection{axiparabola}
+
+\subsection{RGD + axiparabola}
+\subsubsection{all the tests}
+
+\section{Zwischenfazit}
+
+\chapter{Summary and Outlook}
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\newpage
+\chapter{Appendix}
+\section{Documentation of my code}
+\label{docs}
+
+\section{Code}
+
+
+% Erklärung
+\clearpage
+\thispagestyle{empty}
+\minisec{Erklärung}\vspace*{1.5em}
+
+Hiermit erkläre ich, dass ich diese Arbeit im Rahmen der Betreuung am Institut
+für ??? Physik ohne unzulässige Hilfe Dritter verfasst und alle Quellen als solche gekennzeichnet habe.
+
+\vspace*{45em}
+
+Vorname Nachname \par
+Dresden, Monat 2019
+
+\end{document}

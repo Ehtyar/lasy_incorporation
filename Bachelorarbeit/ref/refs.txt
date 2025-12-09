@@ -1,0 +1,36 @@
+Axiparabola: a new tool for high-intensity optics
+
+Kosta Oubrerie, Igor A Andriyash, Ronan Lahaye, Slava Smartsev, Victor Malka and Cédric Thaury
+
+Published 7 March 2022 • © 2022 IOP Publishing Ltd
+Journal of Optics, Volume 24, Number 4
+Citation Kosta Oubrerie et al 2022 
+J. Opt. 24 045503
+DOI 10.1088/2040-8986/ac57d2
+-------------------------------------------------
+Slava Smartsev, Clément Caizergues, Kosta Oubrerie, Julien Gautier, Jean-Philippe Goddet, Amar Tafzi, Kim Ta Phuoc, Victor Malka, and Cédric Thaury, 
+"Axiparabola: a long-focal-depth, high-resolution mirror for broadband high-intensity lasers," 
+Opt. Lett. 44, 3414-3417 (2019)
+-------------------------------------------------------
+@article{10.1063/5.0109643,
+    author = {Geng, Pan-Fei and Chen, Min and Zhu, Xin-Zhe and Liu, Wei-Yuan and Sheng, Zheng-Ming and Zhang, Jie},
+    title = {Propagation of axiparabola-focused laser pulses in uniform plasmas},
+    journal = {Physics of Plasmas},
+    volume = {29},
+    number = {11},
+    pages = {112301},
+    year = {2022},
+    month = {11},
+    abstract = {An axiparabola-based flying focus laser possesses a long focal depth, a small focal spot, and a controllable group velocity. It has been proposed for wide applications, such as phase-locked laser wakefield acceleration and photon acceleration. We numerically study the propagation of axiparabola-focused laser pulses in plasmas and find that such lasers can propagate stably over long distances in plasmas at low intensity. When the laser intensity increases to the relativistic intensity, they no longer propagate stably. Pulse front deformation and fracture appear due to the formation of plasma density modulations. We propose three schemes to mitigate the unstable propagation of axiparabola-focused lasers: (i) adding a radially dependent pulse front delay, (ii) placing the plasma away from the beginning of the focal line, and (iii) using an axiparabola mirror with a negative focal line. All these methods are relatively easy to implement. Our studies can provide guidance for applications of axiparabola-focused lasers.},
+    issn = {1070-664X},
+    doi = {10.1063/5.0109643},
+    url = {https://doi.org/10.1063/5.0109643},
+    eprint = {https://pubs.aip.org/aip/pop/article-pdf/doi/10.1063/5.0109643/16626373/112301_1_online.pdf},
+}
+----------------------------------------------------
+lasy docu
+-------------------------------------------------
+picongpu docu
+------------------------------------------------
+openPMD docu
+-----------------------------------------------

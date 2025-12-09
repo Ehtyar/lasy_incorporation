@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{PIConGPU2013}
+M.~Bussmann, H.~Burau, T.~E. Cowan, A.~Debus, A.~Huebl, G.~Juckeland, T.~Kluge,
+  W.~E. Nagel, R.~Pausch, F.~Schmitt, U.~Schramm, J.~Schuchart, and R.~Widera.
+\newblock Radiative signatures of the relativistic kelvin-helmholtz
+  instability.
+\newblock In {\em Proceedings of the International Conference on High
+  Performance Computing, Networking, Storage and Analysis}, SC '13, pages
+  5:1--5:12, New York, NY, USA, 2013. ACM.
+
+\bibitem{Smartsev:2019}
+Slava Smartsev, Clement Caizergues, Kosta Oubrerie, Julien Gautier,
+  Jean-Philippe Goddet, Amar Tafzi, Kim~Ta Phuoc, Victor Malka, and Cedric
+  Thaury.
+\newblock Axiparabola: a long-focal-depth, high-resolution mirror for broadband
+  high-intensity lasers.
+\newblock {\em Optics Letters}, 44, 2019.
+
+\end{thebibliography}

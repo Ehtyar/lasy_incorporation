@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: refs.bib
+Warning--to sort, need author or key in lasydoc
+Warning--to sort, need author or key in openPMDdoc
+Warning--to sort, need author or key in PICdoc
+You've used 17 entries,
+            2118 wiz_defined-function locations,
+            605 strings with 7893 characters,
+and the built_in function-call counts, 6863 in all, are:
+= -- 589
+> -- 618
+< -- 1
++ -- 247
+- -- 230
+* -- 570
+:= -- 1246
+add.period$ -- 53
+call.type$ -- 17
+change.case$ -- 166
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 166
+empty$ -- 340
+format.name$ -- 230
+if$ -- 1315
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 11
+newline$ -- 89
+num.names$ -- 28
+pop$ -- 176
+preamble$ -- 1
+purify$ -- 149
+quote$ -- 0
+skip$ -- 132
+stack$ -- 0
+substring$ -- 120
+swap$ -- 25
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 3
+while$ -- 31
+width$ -- 19
+write$ -- 185
+(There were 3 warnings)

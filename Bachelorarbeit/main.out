@@ -1,0 +1,27 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Motivation: Laser wakefield acceleration \(LWFA\)}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{The problem of Dephasing}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{The Axiparabola}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Spatio-temporal control}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Simulation tools}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Lasy}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{openPMD}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{PIConGPU}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Additional modules}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Gaussian pulses in Lasy}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Testing Gaussian pulses}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{Gaussian pulse and parabolic mirror}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Lasy pulses in PIConGPU}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Courant-Friedrich-Levy \(CFL\) condition}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Comparitative test with the Gauss laser}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{The flying focus laser}{}% 17
+\BOOKMARK [1][-]{section.5.1}{Testing the radial group delay}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.2}{Testing the axiparabola}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.3}{The complete assembly}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.4}{Testing different propagators}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Summary and Outlook}{}% 22
+\BOOKMARK [1][-]{section.6.1}{Summary}{chapter.6}% 23
+\BOOKMARK [1][-]{section.6.2}{Outlook}{chapter.6}% 24
+\BOOKMARK [1][-]{section.6.3}{Code availability}{chapter.6}% 25
+\BOOKMARK [0][-]{section.6.3}{Bibliography}{}% 26
+\BOOKMARK [0][-]{chapter*.28}{List of Figures}{}% 27

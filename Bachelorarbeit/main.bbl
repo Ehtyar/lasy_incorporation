@@ -1,0 +1,115 @@
+\begin{thebibliography}{10}
+
+\bibitem{lasydoc}
+Lasy 0.6.2 documentation.
+\newblock \url{https://lasydoc.readthedocs.io/en/latest}.
+\newblock Accessed october 2025.
+
+\bibitem{openPMDdoc}
+openpmd 0.16.1 documentation.
+\newblock \url{https://openpmd-api.readthedocs.io/en/0.16.1}.
+\newblock Accessed october 2025.
+
+\bibitem{PICdoc}
+Picongpu 0.7.0 documentation.
+\newblock \url{https://picongpu.readthedocs.io/en/0.7.0}.
+\newblock Accessed october 2025.
+
+\bibitem{Ambat:2023}
+M.~V. Ambat, J.~L. Shaw, J.~J. Pigeon, K.~G. Miller, T.~T. Simpson, D.~H.
+  Froula, and J.~P. Palastro.
+\newblock Programmable-trajectory ultrafast flying focus pulses.
+\newblock {\em Optics Express}, 31(19), 2023.
+
+\bibitem{PIConGPU2013}
+M.~Bussmann, H.~Burau, T.~E. Cowan, A.~Debus, A.~Huebl, G.~Juckeland, T.~Kluge,
+  W.~E. Nagel, R.~Pausch, F.~Schmitt, U.~Schramm, J.~Schuchart, and R.~Widera.
+\newblock Radiative signatures of the relativistic kelvin-helmholtz
+  instability.
+\newblock In {\em Proceedings of the International Conference on High
+  Performance Computing, Networking, Storage and Analysis}, SC '13, pages
+  5:1--5:12, New York, NY, USA, 2013. ACM.
+
+\bibitem{LWFA3}
+J.~P. Couperus, R.~Pausch, A.~Köhler, O.~Zarini, J.~M. Krämer, M.~Garten,
+  A.~Huebl, R.~Gebhardt, U.~Helbig, S.~Bock, K.~Zeil, A.~Debus, M.~Bussmann,
+  U.~Schramm, and A.~Irman.
+\newblock Demonstration of a beam loaded nanocoulomb-class laser wakefield
+  accelerator.
+\newblock {\em Nature Communications}, 8, 2017.
+
+\bibitem{LWFAd}
+Alexander Debus, Richard Pausch, Axel Huebl, Klaus Steiniger, René Widera,
+  Thomas~E. Cowan, Ulrich Schramm, and Michael Bussmann.
+\newblock Circumventing the dephasing and depletion limits of laser-wakefield
+  acceleration.
+\newblock {\em Physical Review X}, 9, 2019.
+
+\bibitem{fabia}
+Fabia Dietrich.
+\newblock Implementation and validation of a method for using experimentally
+  measured laser profiles in laser-plasma simulations with picongpu.
+\newblock Master's thesis, HZDR, TU Dresden, 2024.
+
+\bibitem{LWFA2}
+A~Hannasch, AL~Garcia, M~LaBerge, R~Zgadzaj, A~Köhler, JPC Cabadag, O~Zarini,
+  T~Kurz, A~Ferrari, M~Molodtsova, L~Naumann, TE~Cowan, U~Schramm, A~Irman, and
+  MC~Downer.
+\newblock Compact spectroscopy of kev to mev x-rays from a laser wakefield
+  accelerator.
+\newblock {\em Scientific reports}, 11, 2021.
+
+\bibitem{openPMDstandard}
+Axel Huebl, R{\'e}mi Lehe, Jean-Luc Vay, David~P. Grote, Ivo Sbalzarini,
+  Stephan Kuschel, David Sagan, Christopher Mayes, Fr{\'e}d{\'e}ric P{\'e}rez,
+  Fabian Koller, Franz Poeschel, Carsten Fortmann-Grote, Angel Ferran~Pousa,
+  Juncheng E, Maxence Th{\'e}venet, and Michael Bussmann.
+\newblock {openPMD: A meta data standard for particle and mesh based data}.
+\newblock https://github.com/openPMD, 2015.
+
+\bibitem{LWFA1}
+A~Irman, JP~Couperus, A~Debus, A~Köhler, JM~Krämer, R~Pausch, O~Zarini, and
+  U~Schramm.
+\newblock Improved performance of laser wakefield acceleration by tailored
+  self-truncated ionization injection.
+\newblock {\em Plasma Physics and Controlled Fusion}, 60, 2018.
+
+\bibitem{Miller:2023}
+Kyle~G. Miller, Jacob~R. Pierce, Manfred~V. Ambat, Jessica~L. Shaw, Kale
+  Weichman, Warren~B. Mori, Dustin~H. Froula, and John~P. Palastro.
+\newblock Dephasingless laser wakefield acceleration in the bubble regime.
+\newblock {\em Sci. Rep.}, 13, 2023.
+
+\bibitem{Oubrerie:2022}
+Kosta Oubrerie, Igor~A Andriyash, Ronan Lahaye, Slava Smartsev, Victor Malka,
+  and Cédric Thaury.
+\newblock Axiparabola: a new tool for high-intensity optics.
+\newblock {\em J. Opt.}, 24, 2022.
+
+\bibitem{Palastro:2020}
+J.~P. Palastro, J.~L. Shaw, P.~Franke, D.~Ramsey, T.~T. Simpson, and D.~H.
+  Froula.
+\newblock Dephasingless laser wakefield acceleration.
+\newblock {\em Phys. Rew. Letters}, 124, 2020.
+
+\bibitem{Smartsev:2019}
+Slava Smartsev, Clement Caizergues, Kosta Oubrerie, Julien Gautier,
+  Jean-Philippe Goddet, Amar Tafzi, Kim~Ta Phuoc, Victor Malka, and Cedric
+  Thaury.
+\newblock Axiparabola: a long-focal-depth, high-resolution mirror for broadband
+  high-intensity lasers.
+\newblock {\em Optics Letters}, 44, 2019.
+
+\bibitem{PICartefact}
+Klaus Steiniger.
+\newblock Issue 5269 todo in laser refactoring.
+\newblock
+  \url{https://github.com/ComputationalRadiationPhysics/picongpu/issues/5269}.
+\newblock Accessed october 2025.
+
+\bibitem{LWFA}
+T~Tajima and JM~Dawson.
+\newblock Laser electron-accelerator.
+\newblock {\em Physical Review Letters}, 43(4), 1979.
+
+\end{thebibliography}
