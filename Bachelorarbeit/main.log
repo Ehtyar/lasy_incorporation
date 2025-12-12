@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  9 DEC 2025 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  12 DEC 2025 09:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1181,118 +1181,7 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
-)
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
-)
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
-Package atveryend Info: \AP@enddocument detected (standard20110627).
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-)
-\@linkdim=\dimen285
-\Hy@linkcounter=\count322
-\Hy@pagecounter=\count323
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-\Hy@SavedSpaceFactor=\count324
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
-Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count325
-LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen286
-\Fld@menulength=\count326
-\Field@Width=\dimen287
-\Fld@charsize=\dimen288
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count327
-\c@Item=\count328
-\c@Hfootnote=\count329
-)
-Package hyperref Info: Driver (autodetected): hpdftex.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count330
-\c@bookmark@seq@number=\count331
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
-)
-\Hy@SectionHShift=\skip71
-)
-(./main.aux)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -1307,26 +1196,64 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count332
-\scratchdimen=\dimen289
+\scratchcounter=\count322
+\scratchdimen=\dimen285
 \scratchbox=\box65
-\nofMPsegments=\count333
-\nofMParguments=\count334
+\nofMPsegments=\count323
+\nofMParguments=\count324
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count335
-\MPscratchDim=\dimen290
-\MPnumerator=\count336
-\makeMPintoPDFobject=\count337
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen286
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks47
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
@@ -1355,28 +1282,9 @@ babelbib extension \bibsenglish added to \extrasenglish
 babelbib extension \btxifchangecaseon added to \extrasenglish
 )
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count338
-\AtBeginShipoutBox=\box66
-Package hyperref Info: Link coloring OFF on input line 41.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
-)
-\c@section@level=\count339
-)
-LaTeX Info: Redefining \ref on input line 41.
-LaTeX Info: Redefining \pageref on input line 41.
-LaTeX Info: Redefining \nameref on input line 41.
-
-(./main.out) (./main.out)
-\@outlinefile=\write5
-\openout5 = `main.out'.
-
+\c@lstlisting=\count328
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
@@ -1402,14 +1310,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--100
 ] [4
 
 ] (./main.toc)
-\tf@toc=\write6
-\openout6 = `main.toc'.
+\tf@toc=\write5
+\openout5 = `main.toc'.
 
  [5
 
 ]
 Chapter 1.
-<Images/LWFA.png, id=177, 1084.05pt x 726.3135pt>
+<Images/LWFA.png, id=33, 1084.05pt x 726.3135pt>
 File: Images/LWFA.png Graphic file (type png)
 <use Images/LWFA.png>
 Package pdftex.def Info: Images/LWFA.png  used on input line 111.
@@ -1417,12 +1325,12 @@ Package pdftex.def Info: Images/LWFA.png  used on input line 111.
 [6
 
 ]
-<Images/axiparabola.png, id=204, 1467.4825pt x 596.2275pt>
+<Images/axiparabola.png, id=40, 1467.4825pt x 596.2275pt>
 File: Images/axiparabola.png Graphic file (type png)
 <use Images/axiparabola.png>
 Package pdftex.def Info: Images/axiparabola.png  used on input line 127.
 (pdftex.def)             Requested size: 314.99863pt x 127.97716pt.
-<Images/palastro_flfoc.png, id=207, 1956.30875pt x 608.2725pt>
+<Images/palastro_flfoc.png, id=41, 1956.30875pt x 608.2725pt>
 File: Images/palastro_flfoc.png Graphic file (type png)
 <use Images/palastro_flfoc.png>
 Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 133.
@@ -1448,49 +1356,49 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 192.
-<Images/lasy_parabol_focus.png, id=281, 629.4717pt x 505.1673pt>
+<Images/lasy_parabol_focus.png, id=74, 629.4717pt x 505.1673pt>
 File: Images/lasy_parabol_focus.png Graphic file (type png)
 <use Images/lasy_parabol_focus.png>
 Package pdftex.def Info: Images/lasy_parabol_focus.png  used on input line 196.
 
 (pdftex.def)             Requested size: 314.99863pt x 252.79114pt.
-<Images/lasy_parabol_saved.png, id=282, 635.976pt x 505.1673pt>
+<Images/lasy_parabol_saved.png, id=75, 635.976pt x 505.1673pt>
 File: Images/lasy_parabol_saved.png Graphic file (type png)
 <use Images/lasy_parabol_saved.png>
 Package pdftex.def Info: Images/lasy_parabol_saved.png  used on input line 202.
 
 (pdftex.def)             Requested size: 314.99863pt x 250.2089pt.
  [11]
-<Images/tau_Ds.png, id=305, 428.5611pt x 312.9291pt>
+<Images/tau_Ds.png, id=82, 428.5611pt x 312.9291pt>
 File: Images/tau_Ds.png Graphic file (type png)
 <use Images/tau_Ds.png>
 Package pdftex.def Info: Images/tau_Ds.png  used on input line 231.
 (pdftex.def)             Requested size: 314.99863pt x 230.02159pt.
  [12 <./Images/lasy_parabol_focus.png> <./Images/lasy_parabol_saved.png>] [13 <
 ./Images/tau_Ds.png>]
-<Images/pic_parabol_focus.png, id=354, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_focus.png, id=93, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_focus.png Graphic file (type png)
 <use Images/pic_parabol_focus.png>
 Package pdftex.def Info: Images/pic_parabol_focus.png  used on input line 270.
 (pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
  [14] [15 <./Images/pic_parabol_focus.png>]
 Chapter 3.
-<Images/lasy_gauss_1.png, id=379, 450.2421pt x 326.6604pt>
+<Images/lasy_gauss_1.png, id=101, 450.2421pt x 326.6604pt>
 File: Images/lasy_gauss_1.png Graphic file (type png)
 <use Images/lasy_gauss_1.png>
 Package pdftex.def Info: Images/lasy_gauss_1.png  used on input line 306.
 (pdftex.def)             Requested size: 215.99808pt x 156.71046pt.
-<Images/lasy_gauss_2.png, id=380, 459.6372pt x 326.6604pt>
+<Images/lasy_gauss_2.png, id=102, 459.6372pt x 326.6604pt>
 File: Images/lasy_gauss_2.png Graphic file (type png)
 <use Images/lasy_gauss_2.png>
 Package pdftex.def Info: Images/lasy_gauss_2.png  used on input line 307.
 (pdftex.def)             Requested size: 215.99808pt x 153.51047pt.
-<Images/lasy_gauss_ws.png, id=381, 408.3255pt x 312.9291pt>
+<Images/lasy_gauss_ws.png, id=103, 408.3255pt x 312.9291pt>
 File: Images/lasy_gauss_ws.png Graphic file (type png)
 <use Images/lasy_gauss_ws.png>
 Package pdftex.def Info: Images/lasy_gauss_ws.png  used on input line 313.
 (pdftex.def)             Requested size: 215.99808pt x 165.53647pt.
-<Images/lasy_gauss_ts.png, id=382, 417.7206pt x 312.9291pt>
+<Images/lasy_gauss_ts.png, id=104, 417.7206pt x 312.9291pt>
 File: Images/lasy_gauss_ts.png Graphic file (type png)
 <use Images/lasy_gauss_ts.png>
 Package pdftex.def Info: Images/lasy_gauss_ts.png  used on input line 314.
@@ -1498,13 +1406,13 @@ Package pdftex.def Info: Images/lasy_gauss_ts.png  used on input line 314.
 [16
 
 ]
-<Images/lasy_parabol_parabola.png, id=395, 450.2421pt x 325.215pt>
+<Images/lasy_parabol_parabola.png, id=109, 450.2421pt x 325.215pt>
 File: Images/lasy_parabol_parabola.png Graphic file (type png)
 <use Images/lasy_parabol_parabola.png>
 Package pdftex.def Info: Images/lasy_parabol_parabola.png  used on input line 3
 38.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_parabol_example.png, id=396, 450.2421pt x 325.215pt>
+<Images/lasy_parabol_example.png, id=110, 450.2421pt x 325.215pt>
 File: Images/lasy_parabol_example.png Graphic file (type png)
 <use Images/lasy_parabol_example.png>
 Package pdftex.def Info: Images/lasy_parabol_example.png  used on input line 33
@@ -1514,17 +1422,17 @@ Package pdftex.def Info: Images/lasy_parabol_example.png  used on input line 33
 ss_ws.png> <./Images/lasy_gauss_ts.png>] [18 <./Images/lasy_parabol_parabola.pn
 g> <./Images/lasy_parabol_example.png>]
 Chapter 4.
-<Images/pic_parabol_zr1.png, id=420, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_zr1.png, id=124, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_zr1.png Graphic file (type png)
 <use Images/pic_parabol_zr1.png>
 Package pdftex.def Info: Images/pic_parabol_zr1.png  used on input line 370.
 (pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
-<Images/pic_parabol_zr2.png, id=421, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_zr2.png, id=125, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_zr2.png Graphic file (type png)
 <use Images/pic_parabol_zr2.png>
 Package pdftex.def Info: Images/pic_parabol_zr2.png  used on input line 376.
 (pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
-<Images/pic_parabol_ws.png, id=422, 411.2163pt x 312.9291pt>
+<Images/pic_parabol_ws.png, id=126, 411.2163pt x 312.9291pt>
 File: Images/pic_parabol_ws.png Graphic file (type png)
 <use Images/pic_parabol_ws.png>
 Package pdftex.def Info: Images/pic_parabol_ws.png  used on input line 382.
@@ -1538,17 +1446,17 @@ Underfull \vbox (badness 7595) has occurred while \output is active []
 [20 <./Images/pic_parabol_zr1.png> <./Images/pic_parabol_zr2.png>] [21 <./Image
 s/pic_parabol_ws.png>]
 Chapter 5.
-<Images/lasy_rgd0.png, id=456, 456.7464pt x 325.215pt>
+<Images/lasy_rgd0.png, id=140, 456.7464pt x 325.215pt>
 File: Images/lasy_rgd0.png Graphic file (type png)
 <use Images/lasy_rgd0.png>
 Package pdftex.def Info: Images/lasy_rgd0.png  used on input line 399.
 (pdftex.def)             Requested size: 215.99808pt x 153.79887pt.
-<Images/lasy_rgd4.png, id=457, 456.7464pt x 325.215pt>
+<Images/lasy_rgd4.png, id=141, 456.7464pt x 325.215pt>
 File: Images/lasy_rgd4.png Graphic file (type png)
 <use Images/lasy_rgd4.png>
 Package pdftex.def Info: Images/lasy_rgd4.png  used on input line 400.
 (pdftex.def)             Requested size: 215.99808pt x 153.79887pt.
-<Images/lasy_rgd_ts.png, id=458, 424.9476pt x 313.6518pt>
+<Images/lasy_rgd_ts.png, id=142, 424.9476pt x 313.6518pt>
 File: Images/lasy_rgd_ts.png Graphic file (type png)
 <use Images/lasy_rgd_ts.png>
 Package pdftex.def Info: Images/lasy_rgd_ts.png  used on input line 406.
@@ -1556,70 +1464,70 @@ Package pdftex.def Info: Images/lasy_rgd_ts.png  used on input line 406.
 [22
 
 ]
-<Images/lasy_axiparabola.png, id=470, 459.6372pt x 325.215pt>
+<Images/lasy_axiparabola.png, id=146, 459.6372pt x 325.215pt>
 File: Images/lasy_axiparabola.png Graphic file (type png)
 <use Images/lasy_axiparabola.png>
 Package pdftex.def Info: Images/lasy_axiparabola.png  used on input line 416.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_axiparabola_focus2.png, id=471, 459.6372pt x 325.215pt>
+<Images/lasy_axiparabola_focus2.png, id=147, 459.6372pt x 325.215pt>
 File: Images/lasy_axiparabola_focus2.png Graphic file (type png)
 <use Images/lasy_axiparabola_focus2.png>
 Package pdftex.def Info: Images/lasy_axiparabola_focus2.png  used on input line
  417.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_axiparabola_focus.png, id=472, 629.4717pt x 505.1673pt>
+<Images/lasy_axiparabola_focus.png, id=148, 629.4717pt x 505.1673pt>
 File: Images/lasy_axiparabola_focus.png Graphic file (type png)
 <use Images/lasy_axiparabola_focus.png>
 Package pdftex.def Info: Images/lasy_axiparabola_focus.png  used on input line 
 423.
 (pdftex.def)             Requested size: 314.99863pt x 252.79114pt.
-<Images/ambat_axisim.png, id=473, 1597.97pt x 403.5075pt>
+<Images/ambat_axisim.png, id=149, 1597.97pt x 403.5075pt>
 File: Images/ambat_axisim.png Graphic file (type png)
 <use Images/ambat_axisim.png>
 Package pdftex.def Info: Images/ambat_axisim.png  used on input line 429.
 (pdftex.def)             Requested size: 440.99808pt x 111.35587pt.
-<Images/lasy_axiparabola_ws.png, id=480, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_ws.png, id=150, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_ws.png>
 Package pdftex.def Info: Images/lasy_axiparabola_ws.png  used on input line 435
 .
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_dir_ws.png, id=481, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_dir_ws.png, id=151, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ws.png>
 Package pdftex.def Info: Images/lasy_axiparabola_dir_ws.png  used on input line
  436.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_ts.png, id=482, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_ts.png, id=152, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_ts.png>
 Package pdftex.def Info: Images/lasy_axiparabola_ts.png  used on input line 437
 .
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_dir_ts.png, id=483, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_dir_ts.png, id=153, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ts.png>
 Package pdftex.def Info: Images/lasy_axiparabola_dir_ts.png  used on input line
  438.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/pic_axiparabola_ws.png, id=484, 401.0985pt x 324.4923pt>
+<Images/pic_axiparabola_ws.png, id=154, 401.0985pt x 324.4923pt>
 File: Images/pic_axiparabola_ws.png Graphic file (type png)
 <use Images/pic_axiparabola_ws.png>
 Package pdftex.def Info: Images/pic_axiparabola_ws.png  used on input line 444.
 
 (pdftex.def)             Requested size: 215.99808pt x 174.74295pt.
-<Images/pic_axiparabola_lps.png, id=485, 428.5611pt x 324.4923pt>
+<Images/pic_axiparabola_lps.png, id=155, 428.5611pt x 324.4923pt>
 File: Images/pic_axiparabola_lps.png Graphic file (type png)
 <use Images/pic_axiparabola_lps.png>
 Package pdftex.def Info: Images/pic_axiparabola_lps.png  used on input line 445
 .
 (pdftex.def)             Requested size: 215.99808pt x 163.54794pt.
-<Images/axiparabola_abs.png, id=486, 409.7709pt x 312.9291pt>
+<Images/axiparabola_abs.png, id=156, 409.7709pt x 312.9291pt>
 File: Images/axiparabola_abs.png Graphic file (type png)
 <use Images/axiparabola_abs.png>
 Package pdftex.def Info: Images/axiparabola_abs.png  used on input line 451.
 (pdftex.def)             Requested size: 215.99808pt x 164.94916pt.
-<Images/axiparabola_rel.png, id=487, 403.2666pt x 324.4923pt>
+<Images/axiparabola_rel.png, id=157, 403.2666pt x 324.4923pt>
 File: Images/axiparabola_rel.png Graphic file (type png)
 <use Images/axiparabola_rel.png>
 Package pdftex.def Info: Images/axiparabola_rel.png  used on input line 452.
@@ -1634,81 +1542,81 @@ mages/lasy_axiparabola_focus.png> <./Images/ambat_axisim.png>] [25 <./Images/la
 sy_axiparabola_ws.png> <./Images/lasy_axiparabola_dir_ws.png> <./Images/lasy_ax
 iparabola_ts.png> <./Images/lasy_axiparabola_dir_ts.png> <./Images/pic_axiparab
 ola_ws.png> <./Images/pic_axiparabola_lps.png>]
-<Images/lasy_flfoc_102_axiparabola.png, id=543, 459.6372pt x 325.215pt>
+<Images/lasy_flfoc_102_axiparabola.png, id=181, 459.6372pt x 325.215pt>
 File: Images/lasy_flfoc_102_axiparabola.png Graphic file (type png)
 <use Images/lasy_flfoc_102_axiparabola.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_axiparabola.png  used on input l
 ine 472.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_flfoc_102_focus2.png, id=544, 450.2421pt x 325.215pt>
+<Images/lasy_flfoc_102_focus2.png, id=182, 450.2421pt x 325.215pt>
 File: Images/lasy_flfoc_102_focus2.png Graphic file (type png)
 <use Images/lasy_flfoc_102_focus2.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_focus2.png  used on input line 4
 73.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_flfoc_98_axiparabola.png, id=545, 459.6372pt x 325.215pt>
+<Images/lasy_flfoc_98_axiparabola.png, id=183, 459.6372pt x 325.215pt>
 File: Images/lasy_flfoc_98_axiparabola.png Graphic file (type png)
 <use Images/lasy_flfoc_98_axiparabola.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_axiparabola.png  used on input li
 ne 474.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_flfoc_98_focus2.png, id=546, 450.2421pt x 325.215pt>
+<Images/lasy_flfoc_98_focus2.png, id=184, 450.2421pt x 325.215pt>
 File: Images/lasy_flfoc_98_focus2.png Graphic file (type png)
 <use Images/lasy_flfoc_98_focus2.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_focus2.png  used on input line 47
 5.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_flfoc_102_focus.png, id=547, 629.4717pt x 505.1673pt>
+<Images/lasy_flfoc_102_focus.png, id=185, 629.4717pt x 505.1673pt>
 File: Images/lasy_flfoc_102_focus.png Graphic file (type png)
 <use Images/lasy_flfoc_102_focus.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_focus.png  used on input line 48
 1.
 (pdftex.def)             Requested size: 215.99808pt x 173.3425pt.
-<Images/lasy_flfoc_98_focus.png, id=548, 629.4717pt x 505.1673pt>
+<Images/lasy_flfoc_98_focus.png, id=186, 629.4717pt x 505.1673pt>
 File: Images/lasy_flfoc_98_focus.png Graphic file (type png)
 <use Images/lasy_flfoc_98_focus.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_focus.png  used on input line 482
 .
 (pdftex.def)             Requested size: 215.99808pt x 173.3425pt.
-<Images/lasy_flfoc_98_ws.png, id=549, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_ws.png, id=187, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_98_ws.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_ws.png  used on input line 488.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_dir_ws.png, id=550, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_dir_ws.png, id=188, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_dir_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_98_dir_ws.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_dir_ws.png  used on input line 48
 9.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_ts.png, id=551, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_ts.png, id=189, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_98_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_ts.png  used on input line 490.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_dir_ts.png, id=552, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_dir_ts.png, id=190, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_dir_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_98_dir_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_dir_ts.png  used on input line 49
 1.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_ws.png, id=553, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_ws.png, id=191, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_102_ws.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_ws.png  used on input line 497.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_dir_ws.png, id=554, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_dir_ws.png, id=192, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_dir_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_102_dir_ws.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_dir_ws.png  used on input line 4
 98.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_ts.png, id=555, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_ts.png, id=193, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_ts.png  used on input line 499.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_dir_ts.png, id=556, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_dir_ts.png, id=194, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_dir_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_dir_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_dir_ts.png  used on input line 5
@@ -1737,65 +1645,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 110--115
-[]\T1/cmr/m/n/10 Klaus Steiniger.  Is-sue 5269 todo in laser refac-tor-ing.  []
-$\T1/cmtt/m/n/10 https : / / github . com /
+[]\T1/cmr/m/n/10 Klaus Steiniger.  Is-sue 5269 todo in laser refac-tor-ing.  $\
+T1/cmtt/m/n/10 https : / / github . com /
  []
 
 ) [33] (./main.lof [34
 
 
 ])
-\tf@lof=\write7
-\openout7 = `main.lof'.
+\tf@lof=\write6
+\openout6 = `main.lof'.
 
  [35] [36
 
-] [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
- (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3140FDB9661E9E330399D6F7A225D1BA;1737.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 562.
- ) 
+] [37] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 31774 strings out of 492982
- 594719 string characters out of 6134896
- 804145 words of memory out of 5000000
- 34622 multiletter control sequences out of 15000+600000
+ 28296 strings out of 492982
+ 541413 string characters out of 6134896
+ 720124 words of memory out of 5000000
+ 31320 multiletter control sequences out of 15000+600000
  552162 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,69p,10373b,1540s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (37 pages, 5858659 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sftt1200.pfb>
+Output written on main.pdf (37 pages, 5843148 bytes).
 PDF statistics:
- 850 PDF objects out of 1000 (max. 8388607)
- 669 compressed objects within 7 object streams
- 163 named destinations out of 1000 (max. 500000)
- 479 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 341 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 
