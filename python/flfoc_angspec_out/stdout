@@ -1,11 +1,44 @@
 Running program...
 starting...
+vf: 305788307.16
+w0 = 2.3484903402640077e-05
+w/w0 = 42.580545589452335
+(3000, 3000, 3000)
+0.0016439432381848056
+0.0041671151662
+time: 1.9405889550844828 min
+time: 46.82772514820099 min
+time: 140.33947989940643 min
+time: 225.10871136188507 min
+time: 346.12998289664586 min
+w = nan
+time: 349.5482411066691 min
+[3000, 3000, 3000]
+nan
+t: nan
+t expect -4.360314969908855e-14
+w: nan
+w expect 2.3927674061305775e-05
+z: 0.07066666666666667
+time: 474.06586208343504 min
+t: nan
+t expect -8.72062993981771e-14
+w: nan
+w expect 1.6919420586770772e-05
+z: 0.07133333333333335
+time: 596.2376476446788 min
+t: nan
+t expect -1.3080944909731736e-13
+w: nan
+w expect 1.3814649060376516e-05
+z: 0.07200000000000001
+time: 717.717571636041 min
 
 ------------------------------
 - - - - - job epilog - - - - -
 ------------------------------
-Job ID: 15492179
-was running on nodes: ga014
+Job ID: 15500191
+was running on nodes: ga010
 by user: marqua27
 in partition: gpu_a100_+
 using account: low
@@ -13,8 +46,8 @@ number of CPUs used: 16
 number of nodes requested: 1
 ------------------------------
 walltime reqd: 1-00:00:00
-walltime used: 1-00:00:25
+walltime used: 11:58:40
 ------------------------------
-Mon Dec 8 21:06:18 CET 2025
+Wed Dec 10 03:47:03 CET 2025
 ------------------------------
 
