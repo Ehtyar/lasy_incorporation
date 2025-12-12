@@ -275,7 +275,7 @@ def show_w(filename=None, series=None, iteration=None, forward=0, density=None, 
             
     return np.sqrt(2) * np.abs(coeff[2]), w
 
-def plot_w(filename=None, series=None, forward=0, ret=False, rem_zero=False, maxtime=np.inf, apply_maxtime_to_measurement=True, comp_func=None, title="", unit=1, unitname="m", ret_ax=False):
+def plot_w(filename=None, series=None, forward=0, ret=False, startit=0, maxtime=np.inf, apply_maxtime_to_measurement=True, comp_func=None, title="", unit=1, unitname="m", ret_ax=False):
     """calculates the values of w for all the iterations in the series and plots them against time.
     
     Parameters:
@@ -294,9 +294,9 @@ def plot_w(filename=None, series=None, forward=0, ret=False, rem_zero=False, max
     ret : bool (optional)
         Wether to return the found arrays after plotting
 
-    rem_zero : bool (optional)
-        Wether to ignore the first iteration in the series.
-        Meant for PIC-simulations where the first iteration is just zeros.
+    startit : int (optional)
+        At which iteration to start the calculation.
+        Meant for PIC-simulations where in the first iterations the pulse is still entering the moving window.
 
     maxtime : float (optional)
         A maximum time of the iterations beyond which the values are neither calculated nor plotted.
@@ -356,33 +356,28 @@ def plot_w(filename=None, series=None, forward=0, ret=False, rem_zero=False, max
         assert forward in [0, 1, 2], "forward must be a direction or valid index."
         
     print("calculating w")
-    if rem_zero:
-        N = len(series.iterations) - 1
-    else:
-        N = len(series.iterations)
+    N = len(series.iterations)
     ws = np.zeros(N)
     ts = np.zeros(N)
     Nmax = N
+    Nmin = 0
     if tqdm_available:
         pbar = tqdm(total=N, bar_format=bar_format)
     for n, n_i in enumerate(series.iterations):
-        if rem_zero:
-            if n == 0:
-                continue
-            else:
-                n_ = n-1
+        if n_i < startit:
+            Nmin = n+1
         else:
-            n_ = n
-        ts[n_] = series.iterations[n_i].get_attribute("time") * series.iterations[n_i].get_attribute("timeUnitSI")
-        if (ts[n_] >= maxtime) and (Nmax == N):
-            Nmax = n_
-            if apply_maxtime_to_measurement:
-                break
-        ws[n_] = show_w(series=series, iteration=n_i, forward=forward, method="stat", p=False)
+            ts[n] = series.iterations[n_i].get_attribute("time") * series.iterations[n_i].get_attribute("timeUnitSI")
+            if (ts[n] >= maxtime) and (Nmax == N):
+                Nmax = n
+                if apply_maxtime_to_measurement:
+                    print("maxtime reached")
+                    break
+            ws[n] = show_w(series=series, iteration=n_i, forward=forward, method="stat", p=False)
         if tqdm_available:
             pbar.update(1)
         else:
-            print(n_+1, "out of", N, "complete")
+            print(n+1, "out of", N, "complete")
 
     if tqdm_available:
         pbar.close()
@@ -396,19 +391,19 @@ def plot_w(filename=None, series=None, forward=0, ret=False, rem_zero=False, max
         try:
             comp_func[0]
             mul=True
-        except TypeError:
+        except (TypeError, IndexError):
             mul=False
         if mul:
             for func in comp_func:
-                ax.plot(ts[:Nmax], func(ts[:Nmax])/unit, label=func.__doc__)
+                ax.plot(ts[Nmin:Nmax], func(ts[Nmin:Nmax])/unit, label=func.__doc__)
         else:
-            ax.plot(ts[:Nmax], comp_func(ts[:Nmax])/unit, label=comp_func.__doc__)
+            ax.plot(ts[Nmin:Nmax], comp_func(ts[Nmin:Nmax])/unit, label=comp_func.__doc__)
     ax.set_xlabel("$t$/s")
     ax.set_ylabel("$w$/"+unitname)
     if apply_maxtime_to_measurement:
-        ax.plot(ts[:Nmax], ws[:Nmax]/unit, ".", label="measured w")
+        ax.plot(ts[Nmin:Nmax], ws[Nmin:Nmax]/unit, ".", label="measured w")
     else:
-        ax.plot(ts, ws/unit, ".", label="measured w")
+        ax.plot(ts[Nmin:], ws[Nmin:]/unit, ".", label="measured w")
     ax.set_title(title)
     if comp_func is not None:
         ax.legend()
@@ -520,7 +515,7 @@ def show_lpeak(filename=None, series=None, iteration=None, forward=0, density=No
         print("Peak at", l_peak, "m")
     return l_peak
 
-def plot_lpeak(filename=None, series=None, forward=0, ret=False, rem_zero=False, maxtime=np.inf, apply_maxtime_to_measurement=True, comp_func=None, title="", ret_ax=False):
+def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxtime=np.inf, apply_maxtime_to_measurement=True, comp_func=None, title="", ret_ax=False):
     """calculates the values of lpeak for all the iterations in the series and plots them against time.
     
     Parameters:
@@ -539,9 +534,9 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, rem_zero=False,
     ret : bool (optional)
         Wether to return the found arrays after plotting
 
-    rem_zero : bool (optional)
-        Wether to ignore the first iteration in the series.
-        Meant for PIC-simulations where the first iteration is just zeros.
+    startit : int (optional)
+        The iteration at which the calculation should be started.
+        Meant for PIC-simulations where the pulse needs to move into the moving window first.
 
     maxtime : float (optional)
         A maximum time of the iterations beyond which the values are neither calculated nor plotted.
@@ -594,37 +589,33 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, rem_zero=False,
         assert forward in [0, 1, 2], "forward must be a direction or valid index."
         
     print("calculating lpeak")
-    if rem_zero:
-        N = len(series.iterations) - 1
-    else:
-        N = len(series.iterations)
+    N = len(series.iterations)
     lpeaks = np.zeros(N)
     ts = np.zeros(N)
     if tqdm_available:
         pbar = tqdm(total=N, bar_format=bar_format)
     lps = 0
     Nmax = N
+    Nmin = 0
+    lps = None
     for n, n_i in enumerate(series.iterations):
-        if rem_zero:
-            if n == 0:
-                continue
+        if n_i < startit:
+            Nmin = n+1
+        else:
+            ts[n] = series.iterations[n_i].get_attribute("time") * series.iterations[n_i].get_attribute("timeUnitSI")
+            if (ts[n] >= maxtime) and (Nmax == N):
+                Nmax = n
+                if apply_maxtime_to_measurement:
+                    print("maxtime reached")
+                    break
+            if lps is None:
+                lps = show_lpeak(series=series, iteration=n_i, forward=forward, method="stat", p=False)
             else:
-                n_ = n-1
-        else:
-            n_ = n
-        ts[n_] = series.iterations[n_i].get_attribute("time") * series.iterations[n_i].get_attribute("timeUnitSI")
-        if (ts[n_] >= maxtime) and (Nmax == N):
-            Nmax = n_
-            if apply_maxtime_to_measurement:
-                break
-        if n_ == 0:
-            lps = show_lpeak(series=series, iteration=n_i, forward=forward, method="stat", p=False)
-        else:
-            lpeaks[n_] = show_lpeak(series=series, iteration=n_i, forward=forward, method="stat", p=False) - lps
+                lpeaks[n] = show_lpeak(series=series, iteration=n_i, forward=forward, method="stat", p=False) - lps
         if tqdm_available:
             pbar.update(1)
         else:
-            print(n_+1, "out of", N, "complete")
+            print(n+1, "out of", N, "complete")
 
     if tqdm_available:
         pbar.close()
@@ -635,11 +626,11 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, rem_zero=False,
     fig = plt.figure()
     ax = fig.add_subplot()
     if comp_func is not None:
-        ax.plot(ts[:Nmax], comp_func(ts[:Nmax]), label=comp_func.__doc__)
+        ax.plot(ts[Nmin:Nmax], comp_func(ts[Nmin:Nmax])-comp_func(ts[Nmin]), label=comp_func.__doc__)
     if apply_maxtime_to_measurement:
-        ax.plot(ts[:Nmax], lpeaks[:Nmax], ".", label="measured lpeak")
+        ax.plot(ts[Nmin:Nmax], lpeaks[Nmin:Nmax], ".", label="measured lpeak")
     else:
-        ax.plot(ts[:], lpeaks[:], ".", label="measured lpeak")
+        ax.plot(ts[Nmin:], lpeaks[Nmin:], ".", label="measured lpeak")
     ax.set_xlabel("$t$/s")
     ax.set_ylabel("$l_{peak}$/m")
     ax.set_title(title)
@@ -781,136 +772,6 @@ def _showit(n_i, series, direction="x", cutdim="x", cutfrac=0.5, Nx=None, Nz=Non
     
     show(np.squeeze(field), extent, cutdim=l[cutdim], transpose=transpose, linthresh_frac=linthresh_frac,
             title=title, xlabel=xlabel, ylabel=ylabel, alabel=alabel, flipx=flipx, figsize=figsize)
-
-def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=False, show_lwfa=False, **kwargs):
-    """shows the E-field in the iterations of the openPMD-file.
-
-    Parameters:
-    filename : str
-        Complete path to the file including the name
-
-    itstep : int (optional)
-        Only show every itstep iteration. Make sure the iterations you want to see are a multiple of this value.
-
-    metadata : bool (optional)
-        Show metadata before showing the contents.
-
-    iteration : int or list of int (optional)
-        Only show specific iteration(s). ignores itstep.
-
-    show_time : bool (optional)
-        prints the runtime when an iteration is done.
-
-    show_lwfa : bool (optional)
-        If false uses the show function to show the electric field on a symlog plot.
-        If True uses the show_lwfa function to display a plot showing LWFA.
-        In that case it is assumed, that the file is a standard PIConGPU output.
-        
-
-    Other Parameters:
-    title : str (optional)
-        The title for the plots
-
-    titleit : bool (optional)
-        Wether the iteration number should be added to the title of each plot.
-
-    titleit_mul : float or int (optional)
-        If titleit is set to True it will be multiplied by this number.
-
-    titleit_after : str (optional)
-        If titleit is set to True this text will be after the iteration number in the title.
-
-    figsize : tuple of float (optional)
-        Sets the size of the matplotlib figure.
-        
-
-    Parameters specific to show_lwfa=False:
-    direction : "x", "y" or "z" (optional)
-        The field direction which is to be shown
-
-    cutdim : "x", "y" or "z" (optional)
-        Defines the dimension of the array going out of the screen in the plot.
-
-    cutfrac : float [0,1] (optional)
-        Defines, where along the cutdim the plot should be in terms of fraction along it.
-
-    Nx, Ny, Nz : int (optional)
-        Only show the central N points in each direction respectively
-
-    center_Nx, center_Nx, center_Nx : int (optional)
-        Only relevant, if the respective N is given. This is the center point to be shown.
-
-    linthresh_frac : float (optional)
-        Fraction of the absolute maximum from where the normalistion should be linear.
-
-    show_SI : bool (optional)
-        If True the axes are written in SI-units, otherwise they are written in points.
-
-    show_w : bool (optional)
-        wether to calculate and print the beam waist at this point.
-
-    show_lpeak : bool (optional)
-        wether to calculate and print the peak position on the longitudinal axis.
-
-
-    Parameters specific to show_lwfa=True:
-    n : int (optional)
-        only show every nth electron.
-        
-    xmax : float in [0, 1] (optional)
-        Only plot electron this far from the center. 
-        This is a fraction of the longest distance of an electron and the center. 
-        
-    s : float (optional)
-        the size of the drawn electrons.
-        
-    xbound, ybound : tuple of float (optional)
-        Draw the plot only wwithin these bounds. In SI units.
-    """
-    if show_time:
-        start = time.time()
-    series = io.Series(filename, io.Access.read_only)
-    
-    if metadata:
-        show_metadata(iteration=iteration, series=series)
-        print("\nData:")
-
-    func = _showit
-    if show_lwfa:
-        func = _show_lwfa
-    
-    if iteration is not None:
-        try:
-            n = iteration[0]
-
-            mul = True
-        except TypeError:
-            mul = False
-        
-        if mul:
-            # show the specified iterations
-            for n_i in iterations:
-                if n_i in series.iterations:
-                    func(n_i, series, **kwargs)
-                    if show_time:
-                        print("time:", time.time()-start, "s")
-                else:
-                    print("Warning: Iteration", n_i, "does not exist.")
-        else:
-            # show just one iteration
-            assert iteration in series.iteration, "Specified iteration does not exist."
-            func(iteration, series, **kwargs)
-            if show_time:
-                print("time:", time.time()-start, "s")
-    else:
-        # show multiple iterations
-        for n in range(int(max(series.iterations)/itstep)+1):
-            if itstep * n in series.iterations:
-                func(itstep * n, series, **kwargs)
-                if show_time:
-                    print("time:", time.time()-start, "s")
-    series.close()
-    plt.show()
 
 def show_metadata(filename=None, iteration=None, series=None, s_ser=True, s_it=True, s_mesh=True, s_meshes=True,
                   s_rec=True, s_rec_c=True, s_part=True, s_parts=True, h_meshes=[], h_particles=[]):
@@ -1186,3 +1047,134 @@ def _show_lwfa(n_i, series, title="", titleit=False, titleit_mul=1, titleit_afte
     if titleit:
         title += str(n_i * titleit_mul) + titleit_after
     return show_lwfa(series=series, iteration=n_i, title=title, **kwargs)
+
+def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=False, show_lwfa=False, **kwargs):
+    """shows the E-field in the iterations of the openPMD-file.
+
+    Parameters:
+    filename : str
+        Complete path to the file including the name
+
+    itstep : int (optional)
+        Only show every itstep iteration. Make sure the iterations you want to see are a multiple of this value.
+
+    metadata : bool (optional)
+        Show metadata before showing the contents.
+
+    iteration : int or list of int (optional)
+        Only show specific iteration(s). ignores itstep.
+
+    show_time : bool (optional)
+        prints the runtime when an iteration is done.
+
+    show_lwfa : bool (optional)
+        If false uses the show function to show the electric field on a symlog plot.
+        If True uses the show_lwfa function to display a plot showing LWFA.
+        In that case it is assumed, that the file is a standard PIConGPU output.
+        
+
+    Other Parameters:
+    title : str (optional)
+        The title for the plots
+
+    titleit : bool (optional)
+        Wether the iteration number should be added to the title of each plot.
+
+    titleit_mul : float or int (optional)
+        If titleit is set to True it will be multiplied by this number.
+
+    titleit_after : str (optional)
+        If titleit is set to True this text will be after the iteration number in the title.
+
+    figsize : tuple of float (optional)
+        Sets the size of the matplotlib figure.
+        
+
+    Parameters specific to show_lwfa=False:
+    direction : "x", "y" or "z" (optional)
+        The field direction which is to be shown
+
+    cutdim : "x", "y" or "z" (optional)
+        Defines the dimension of the array going out of the screen in the plot.
+
+    cutfrac : float [0,1] (optional)
+        Defines, where along the cutdim the plot should be in terms of fraction along it.
+
+    Nx, Ny, Nz : int (optional)
+        Only show the central N points in each direction respectively
+
+    center_Nx, center_Nx, center_Nx : int (optional)
+        Only relevant, if the respective N is given. This is the center point to be shown.
+
+    linthresh_frac : float (optional)
+        Fraction of the absolute maximum from where the normalistion should be linear.
+
+    show_SI : bool (optional)
+        If True the axes are written in SI-units, otherwise they are written in points.
+
+    show_w : bool (optional)
+        wether to calculate and print the beam waist at this point.
+
+    show_lpeak : bool (optional)
+        wether to calculate and print the peak position on the longitudinal axis.
+
+
+    Parameters specific to show_lwfa=True:
+    n : int (optional)
+        only show every nth electron.
+        
+    xmax : float in [0, 1] (optional)
+        Only plot electron this far from the center. 
+        This is a fraction of the longest distance of an electron and the center. 
+        
+    s : float (optional)
+        the size of the drawn electrons.
+        
+    xbound, ybound : tuple of float (optional)
+        Draw the plot only wwithin these bounds. In SI units.
+    """
+    if show_time:
+        start = time.time()
+    series = io.Series(filename, io.Access.read_only)
+    
+    if metadata:
+        show_metadata(iteration=iteration, series=series)
+        print("\nData:")
+
+    func = _showit
+    if show_lwfa:
+        func = _show_lwfa
+    
+    if iteration is not None:
+        try:
+            n = iteration[0]
+
+            mul = True
+        except (TypeError, IndexError):
+            mul = False
+        
+        if mul:
+            # show the specified iterations
+            for n_i in iterations:
+                if n_i in series.iterations:
+                    func(n_i, series, **kwargs)
+                    if show_time:
+                        print("time:", time.time()-start, "s")
+                else:
+                    print("Warning: Iteration", n_i, "does not exist.")
+        else:
+            # show just one iteration
+            assert iteration in series.iteration, "Specified iteration does not exist."
+            func(iteration, series, **kwargs)
+            if show_time:
+                print("time:", time.time()-start, "s")
+    else:
+        # show multiple iterations
+        for n in range(int(max(series.iterations)/itstep)+1):
+            if itstep * n in series.iterations:
+                func(itstep * n, series, **kwargs)
+                if show_time:
+                    print("time:", time.time()-start, "s")
+    series.close()
+    plt.show()
+

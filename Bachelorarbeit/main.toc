@@ -24,12 +24,10 @@
 \contentsline {section}{\numberline {5.1}Testing the radial group delay}{22}
 \contentsline {section}{\numberline {5.2}Testing the axiparabola}{23}
 \contentsline {section}{\numberline {5.3}The complete assembly}{26}
-\contentsline {section}{\numberline {5.4}Testing different propagators}{30}
-\contentsline {subsection}{\numberline {5.4.1}\lstinline [style=mypythoninline]{AngularSpectrumPropagator}}{30}
-\contentsline {subsection}{\numberline {5.4.2}\lstinline [style=mypythoninline]{FresnelChirpZPropagator}}{30}
-\contentsline {chapter}{\numberline {6}Summary and Outlook}{31}
-\contentsline {section}{\numberline {6.1}Summary}{31}
-\contentsline {section}{\numberline {6.2}Outlook}{31}
+\contentsline {chapter}{\numberline {6}Summary and Outlook}{30}
+\contentsline {section}{\numberline {6.1}Summary}{30}
+\contentsline {section}{\numberline {6.2}Outlook}{30}
+\contentsline {subsection}{\numberline {6.2.1}Testing different propagators}{30}
 \contentsline {section}{\numberline {6.3}Code availability}{31}
 \contentsline {chapter}{Bibliography}{32}
 \contentsline {chapter}{List of Figures}{34}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  12 DEC 2025 09:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  12 DEC 2025 12:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1629,18 +1629,16 @@ es/lasy_flfoc_98_axiparabola.png> <./Images/lasy_flfoc_98_focus2.png> <./Images
 sy_flfoc_98_ws.png> <./Images/lasy_flfoc_98_dir_ws.png> <./Images/lasy_flfoc_98
 _ts.png> <./Images/lasy_flfoc_98_dir_ts.png>] [29 <./Images/lasy_flfoc_102_ws.p
 ng> <./Images/lasy_flfoc_102_dir_ws.png> <./Images/lasy_flfoc_102_ts.png> <./Im
-ages/lasy_flfoc_102_dir_ts.png>] [30
-
-]
+ages/lasy_flfoc_102_dir_ts.png>]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 529--530
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
-[31
+[30
 
-] (./main.bbl [32
+] [31] (./main.bbl [32
 
 
 ]
@@ -1660,10 +1658,10 @@ T1/cmtt/m/n/10 https : / / github . com /
 
 ] [37] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 28296 strings out of 492982
- 541413 string characters out of 6134896
+ 28292 strings out of 492982
+ 541297 string characters out of 6134896
  720124 words of memory out of 5000000
- 31320 multiletter control sequences out of 15000+600000
+ 31316 multiletter control sequences out of 15000+600000
  552162 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,69p,10373b,1540s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1692,7 +1690,7 @@ uper/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sftt1200.pfb>
-Output written on main.pdf (37 pages, 5844372 bytes).
+Output written on main.pdf (37 pages, 5844145 bytes).
 PDF statistics:
  341 PDF objects out of 1000 (max. 8388607)
  176 compressed objects within 2 object streams

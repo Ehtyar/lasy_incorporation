@@ -506,18 +506,6 @@ The field is now shaped quite different to what it was before, as can be seen in
 It is no longer symmetrical in the propagation direction. However, the two plots look like mirror images of each other. This makes sense, as the peak of the pulse is supposed to be moving in opposite directions relative to the speed of light. Because the axiparabola cuts the pulse off at a specific radius $R$ and the RGD introduces sudden jumps as well the defraction artefacts are more pronounced than before but they should be mostly physical.\\
 The figures \ref{l_f98_wsts} and \ref{l_f102_wsts} show the results of lasy simulations with the flying focus assembly. Like in figure \ref{l_a_wsts} a consecutive and a pointwise separate simulation are shown. Of course theoretical formula for the beam waist, equation \ref{axiparabola_wz}, does not neccessarily apply for this setup. First of all the beam waist is appearently larger in this case, according to the simulation. The curve is shown only for the lack of a better formula. However, the other diagram is of major importance here. The flying focus assembly is meant to make the focus point move at vacuum speed of light in the plasma of an LWFA chamber. For that the focus time must move like the theoretical lines in the bottom plots of the two figures. This is clearly not the case. The RGD did not manage to fix the problem with the axiparabola in the flying focus case.
 
-\section{Testing different propagators}
-One reason for the differences between theory and the previous simulations might still be the propagation of the laser from the axiparabola to its focus. In chapter \ref{lasyprop} is shown, that the propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. Therefore the following other propagators were also tested. One can simply apply such a propagator after initialisation to a Lasy laser as follows:
-\begin{python}
-laser.add_propagator(propagator)
-\end{python}
-However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that it is a lot more memeory intesive meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work.
-
-\subsection{\pyth{AngularSpectrumPropagator}}
-
-
-\subsection{\pyth{FresnelChirpZPropagator}}
-
 
 \chapter{Summary and Outlook}
 
@@ -527,6 +515,15 @@ However, it was not possible to replicate the findings in other papers (Ambat et
 
 \section{Outlook}
 In the future people will be able to use this new framework to use more complicated laser setups for their PIConGPU simulations. Hopefully someone will be able to find the reasons for the descrepancy between the description of the axiparabola in the papers and the simulation results in this work.\\
+
+[
+\subsection{Testing different propagators}
+One reason for the differences between theory and the previous simulations might still be the propagation of the laser from the axiparabola to its focus. In chapter \ref{lasyprop} is shown, that the propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. Therefore the following other propagators were also tested. One can simply apply such a propagator after initialisation to a Lasy laser as follows:
+\begin{python}
+laser.add_propagator(propagator)
+\end{python}
+However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that it is a lot more memeory intesive meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work.
+?]
 
 \definecolor{ow}{RGB}{250, 180, 0}
 \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}

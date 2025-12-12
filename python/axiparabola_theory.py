@@ -187,7 +187,7 @@ def rtf(tf, axiparabola):
     try:
         tf[0]
         mul = True
-    except TypeError:
+    except (TypeError, IndexError):
         mul=False
     if mul:
         r = np.zeros_like(tf)
