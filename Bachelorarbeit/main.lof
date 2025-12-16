@@ -8,14 +8,14 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Full electric field of a gaussian laser pulse at its focus, according to a Lasy simulation.\relax }}{12}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces The field that has been saved as an openPMD-compatible file after Lasy simulation, one Rayleigh length before the focus.\relax }}{12}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces The three different $\tau _D(r)$ for $v_f=1.02c$, according to Oubrerie \cite {Oubrerie:2022}, Ambat \cite {Ambat:2023} and Palastro \cite {Palastro:2020}\relax }}{13}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Gauss pulse at its focus point according to the PIConGPU simulation.\relax }}{15}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Gauss pulse at its focus point according to the PIConGPU simulation. The artifacts to the side of the pulse are orders of magnitude less intense than the main peak of the pulse (see figure \ref {p_g_zr1} for reference).\relax }}{15}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces A Gaussian pulse newly generated at the focus (left) and propagated $6z_R$ (right) in Lasy.\relax }}{17}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces The beam waist $w(z)$ (left) and the time difference $t-\frac {z}{c}$ (right) compared to their respective theoretical values of a gaussian pulse initialised in the focus and propagated in Lasy. For comparison: the pulse duration was in this case $\tau =10$fs.\relax }}{17}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces A Gaussian laser pulse in the near field of the parabolic mirror (left) and in the far field, one rayleigh length before the focus (right), simulated in Lasy.\relax }}{18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces A Gaussian laser pulse propagating into the PIConGPU simulation volume.\relax }}{20}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU.\relax }}{20}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces A Gaussian laser pulse propagating into the PIConGPU simulation volume. Left: On a symlog plot; right: on a linear plot. The artifacts behind the pulse are orders of magnitude less intense than the main peak of the pulse.\relax }}{20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU. The artifacts visible to the side of the pulse are still orders of magnitude less intense than the main peak of the pulse.\relax }}{20}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces The width of the gaussian pulse over time, according to the PIConGPU simulation.\relax }}{21}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces A Gaussian laser pulse in the near field of the radial group delay echelon (left) and propagated 93 cm (right), simulated in Lasy.\relax }}{23}

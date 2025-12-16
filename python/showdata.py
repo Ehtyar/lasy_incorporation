@@ -1164,7 +1164,7 @@ def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=Fals
                     print("Warning: Iteration", n_i, "does not exist.")
         else:
             # show just one iteration
-            assert iteration in series.iteration, "Specified iteration does not exist."
+            assert iteration in series.iterations, "Specified iteration does not exist."
             func(iteration, series, **kwargs)
             if show_time:
                 print("time:", time.time()-start, "s")

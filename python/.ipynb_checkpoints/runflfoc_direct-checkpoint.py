@@ -46,7 +46,7 @@ elif dim == "rt":
     picpoints_per_p = 2
     print("points in file:", int(1024/picpoints_per_p))
     spacing = 0.1772e-6 * p_per_r * 3 # PIConGPU Standardwert
-    npoints = (int(2*w/spacing), 5000)
+    npoints = (int(2*w/spacing), 10000)
     cut_frac = 0.3
     hi = (2*w, 9*tau)
     lo = (0., -15*tau)
@@ -127,8 +127,8 @@ ax = fig.add_subplot()
 ax.plot(zs*1e3, tes*1e15, label="theoretical t-z/c")
 ax.plot(zs*1e3, ts*1e15, ".", label="measured t-z/c")
 ax.legend()
-ax.set_xlabel("$z-f_0$/mm")
-ax.set_ylabel("$t-z/c$/fs")
+ax.set_xlabel("$(z-f_0)$/mm")
+ax.set_ylabel("$(t-z/c)$/fs")
 
 plt.savefig("flfoc_out/lasy_"+name+"_dir_ts.png")
 
@@ -138,7 +138,7 @@ ax = fig.add_subplot()
 ax.plot(zs[1:]*1e3, wes[1:]*1e6, label="theoretical w")
 ax.plot(zs*1e3, ws*1e6, ".", label="measured w")
 ax.legend()
-ax.set_xlabel("$z-f_0$/mm")
+ax.set_xlabel("$(z-f_0)$/mm")
 ax.set_ylabel("$w/\\mu$m")
 
 plt.savefig("flfoc_out/lasy_"+name+"_dir_ws.png")

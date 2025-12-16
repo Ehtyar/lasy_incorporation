@@ -83,8 +83,8 @@ Eingereicht am 05. Januar 2026\vspace{1.5em}
 \chapter*{Summary}
 
 Abstract \\
-English: Laser wakefield acceleration is a novel, compact method to accelerate electrons. Because the laser is moving slower than $c$ in the medium but the accelerated electrons approach $c$, the method faces the problem of dephasing. One proposed solution is the so called flying focus laser. It is generated using an axiparabola and a radial group delay echelon.\\
-A flying focus laser has a complicated shape and phase structure and is, therefore, currently not available in PIConGPU. However, the Lasy library can simulate a laser pulse interacting with optical elements and can, therefore, generate a flying focus pulse. This work combines the two and makes laser pulses generated in Lasy available in PIConGPU. It also shows, that this technique works with Gaussian laser pulses. The properties of the flying focus laser, namely the option to arbitrarily set its speed, could unfortunately not be recreated.\\
+English: Laser wakefield acceleration is a novel, compact method to accelerate electrons. These accelerators face a problem called "dephasing", where due to the reduced velocity of the laser in the plasma medium the electrons can only be accelerated for short distances. One proposed solution to this problem is the so called flying focus laser. Experimentally, it is generated using an axiparabola and a radial group delay echelon.\\
+To study the laser plasma interaction with flying focus lasers Particle-in-Cell simulations, such as PIConGPU, are used. A flying focus laser has a complicated shape and phase structure and, therefore, was not available in PIConGPU. However, the Lasy library can simulate a laser pulse interacting with optical elements and can, therefore, model a flying focus pulse. This work combines these two and makes flying focus pulses generated in Lasy available in PIConGPU. Furthermore, this technique also enables modeling other laser pulses in PIConGPU and the technique has been validated with both Gaussian and flying focus lasers. For the latter, inconsitencies between predicted and measured laser velocities and beam waists were discovered and are extensively discussed in this work.\\
 
 \vspace{\fill}
 Abstract \\ 
@@ -145,7 +145,7 @@ Ambat et al \cite{Ambat:2023} also proposed a closed formula:
 \label{axiparabola_sr}
 s_f(r)=\frac{R^2}{4\delta}\ln\left(1+\frac{\delta}{f_0}\left(\frac{r}{R}\right)^2\right)
 \end{equation}
-According to Ambat et al \cite{Ambat:2023} the beam waist, the radius at which field values fall to $1/e$ of their maximum, between $f_0<z<f_0+\delta$ should follow roughly the relation
+According to Ambat et al \cite{Ambat:2023} the beam waist, the transversal radius at which field values fall to $1/e$ of their maximum, between $f_0<z<f_0+\delta$ should follow roughly the relation
 \begin{equation}
 	\label{axiparabola_wz}
 	w(z)\approx\frac{\lambda_0f_0}{\pi R}\sqrt{\frac{\delta}{z-f_0}}.
@@ -258,7 +258,7 @@ The axiparabola that Lasy provides follows equation (\ref{sag_smartsev}) and wit
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/pic_parabol_focus.png}
-\caption{Gauss pulse at its focus point according to the PIConGPU simulation.}
+\caption{Gauss pulse at its focus point according to the PIConGPU simulation. The artifacts to the side of the pulse are orders of magnitude less intense than the main peak of the pulse (see figure \ref{p_g_zr1} for reference).}
 \label{p_g_focus}
 \end{figure}
 The module \pyth{showdata} contains functions do display metadata and data from openPMD-compatible files and calculate pulse parameters from this data. The main function of the module is
@@ -356,14 +356,15 @@ If the deviation between the used and the ideal time step is less than 5\% the P
 \section{Comparitative test with the Gauss laser}
 \begin{figure}[t!]
 \centering
-\includegraphics[width=0.7\textwidth]{Images/pic_parabol_zr1.png}
-\caption{A Gaussian laser pulse propagating into the PIConGPU simulation volume.}
+\includegraphics[width=0.48\textwidth]{Images/pic_parabol_zr1.png}
+\includegraphics[width=0.48\textwidth]{Images/pic_parabol_zr1_lin.png}
+\caption{A Gaussian laser pulse propagating into the PIConGPU simulation volume. Left: On a symlog plot; right: on a linear plot. The artifacts behind the pulse are orders of magnitude less intense than the main peak of the pulse.}
 \label{p_g_zr1}
 \end{figure}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/pic_parabol_zr2.png}
-\caption{A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU.}
+\caption{A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU. The artifacts visible to the side of the pulse are still orders of magnitude less intense than the main peak of the pulse.}
 \label{p_g_zr2}
 \end{figure}
 \begin{figure}[t!]
