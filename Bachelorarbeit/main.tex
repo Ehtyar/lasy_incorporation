@@ -5,16 +5,12 @@
 \setlength{\textwidth}{450pt}
 \setlength{\textheight}{700pt}
 
-
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{mathtools} % Mathe
 \usepackage{float}
 \usepackage{amsmath, amsthm, amssymb} % Mathe
 \usepackage{tikz} % Bilder
-\usepackage{blindtext}
-\usepackage{chemfig} % Chemie
-\usepackage[version=4]{mhchem} % Chemische Formeln
 \usepackage[english]{babel}
 \usepackage{babelbib}
 \usepackage{url}
@@ -36,12 +32,7 @@
 \usepackage{listings}
 %\usepackage{hyperref}
 
-
-
 \begin{document}
-
-
-
 % Titelpageseite
 \begin{titlepage}
  \begin{tabularx}{\linewidth}{X}
@@ -77,7 +68,6 @@
  \end{tabularx}
 \end{titlepage}
 
-
 % Gutachterseite
 \thispagestyle{empty}\vspace*{\fill}
 
@@ -86,7 +76,6 @@ Eingereicht am 05. Januar 2026\vspace{1.5em}
  1. Gutachter: & Prof.~Dr.~Ulrich Schramm \\
  2. Gutachter: & Prof.~Dr.~Thomas Cowan \\
 \end{tabular}}
-
 
 % Abstractseite
 \chapter*{Summary}
@@ -97,8 +86,7 @@ English: \\
 \vspace{\fill}
 Abstract \\ 
 Deutsch: \\
- 
- 
+
 % Inhaltsverzeichnis
 \cleardoublepage
 \setcounter{tocdepth}{1}
@@ -183,10 +171,9 @@ openPMD\cite{openPMDstandard}\cite{openPMDdoc} stands for open (source) particle
 
 \section{PIConGPU}
 PIConGPU\cite{PIConGPU2013}\cite{PICdoc} is a Particle-In-Cell simulation software that is being developed mainly at the HZDR. Being a PIC simulation it divides the simulation space into cells, which each contain a field value and some number of particles. For every time step it propagates the fields according to the Maxwell equations and pushes the particles along following their momentum and with a correction from interactions from the fields. Many interactions between particles as well as between particles and fields are modeled.
-%\blindtext
-
 
 \section{Additional modules}
+\label{modules}
 The following additional python modules were developed for this work. For a full documentation, see \cite{github}.
 
 \subsection{Module \pyth{full_field}}
@@ -294,8 +281,7 @@ and
 \begin{python}
 showdata.show_lpeak()
 \end{python}
-These calculate the pulse waist and the longitudinal point of the peak, respectively.
-
+These calculate the pulse waist and the longitudinal point of the peak, respectively. They each offer multiple methods to do this. One is calculating statistically, one is fitting a gaussian and, for \pyth{show_lpeak} specifically, one is finding the maximum. The statistical method is the standard.
 
 \chapter{Gaussian pulses in Lasy}
 \label{lasyprop}
@@ -458,7 +444,7 @@ laser.apply_optics(axiparabola)
 Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applied as well as after being propagated to the beginning of the focus. The full electric field at the focus is shown in figure \ref{l_a_focus}. Because the original pulse in this case was not a Gaussian pulse but a super-Gaussian pulse of order 6 transversally, the shape at the focus is not a gaussian pulse either. It is instead close to a sinc function, as one would expect.\\
 Figure \ref{l_a_wsts} shows the results of a simulation where the laser propagated past the focus point through the focal region. They are compared to theoretical calculations according to equations (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). The module \pyth{axiparabola_theory} (see section \ref{axiparabola_theory}) was used to calulate the values to compare to. As figure \ref{ambat_axisim} shows, Ambat et al were able to see the behavior described by the equations (\ref{axiparabola_wz}) (see image (c)) and (\ref{axiparabola_tz}) (see image (d)). This is clearly not what can be seen in the results here in figure \ref{l_a_wsts}.\\
 The naive way of doing such a simulation in lasy is to just propagate the laser to a point, measure $w$ and $\Delta t$ and then propagate it further from there. The results of that are shown on the left of figure \ref{l_a_wsts}. Because measurement and theory clearly do not align here, I tried to propagate the laser pulse to each point seperately from the axiparabola to avoid compounding errors. The results of that test are shown on the right of the figure and are clearly in line with the plots on the left. These possible compounding errors of the propagation can therefore be excluded as the main source of the difference between measurement and theory.\\
-In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU simply integrates the Maxwell equations. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
+In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU simply integrates the Maxwell equations. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
 Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
 The remaining options for causing the differences between theory and measurement are the axiparabola itself or the theory being incorrect.
 For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. 
@@ -503,7 +489,6 @@ The field is now shaped quite different to what it was before, as can be seen in
 It is no longer symmetrical in the propagation direction. However, the two plots look like mirror images of each other. This makes sense, as the peak of the pulse is supposed to be moving in opposite directions relative to the speed of light. Because the axiparabola cuts the pulse off at a specific radius $R$ and the RGD introduces sudden jumps as well, the defraction artefacts are more pronounced than before but they should be mostly physical.\\
 The figures \ref{l_f98_wsts} and \ref{l_f102_wsts} show the results of lasy simulations with the flying focus assembly. Like in figure \ref{l_a_wsts} a consecutive and a pointwise separate simulation are shown. Of course theoretical formula for the beam waist, equation (\ref{axiparabola_wz}), does not neccessarily apply for this setup. First of all, the beam waist is appearently larger in this case, according to the simulation. The curve is shown only for the lack of a better formula. However, the other diagram is of major importance here. The flying focus assembly is meant to make the focus point move at vacuum speed of light in the plasma of an LWFA chamber. For that the focus time must move like the theoretical lines in the bottom plots of the two figures. This is clearly not the case. The RGD did not manage to fix the problem with the axiparabola in the flying focus case.
 
-
 \chapter{Summary and Outlook}
 
 \section{Summary}
@@ -519,19 +504,16 @@ It would also be interesting to further analyse the the artefacts visible in fig
 \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
 
 \section{Code availability}
-All the code used in this work that I have written and mentioned here can be found on github at \cite{github}.
+All the code used in this work that I have written and mentioned here can be found on github at \cite{github}. Most images were created in the jupyter notebooks in that repository, using the modules mentioned in section \ref{modules}.
 
 \clearpage
 \addcontentsline{toc}{chapter}{Bibliography}
-
 \bibliographystyle{plain}
 \bibliography{refs}
 
 \clearpage
 \addcontentsline{toc}{chapter}{List of Figures}
-
 \listoffigures
-
 
 % Erklärung
 \cleardoublepage
@@ -544,6 +526,5 @@ Hiermit erkläre ich, dass ich diese Arbeit im Rahmen der Betreuung am Institut 
 
 Edgar Marquardt \par
 Dresden, \today
-
 
 \end{document}
