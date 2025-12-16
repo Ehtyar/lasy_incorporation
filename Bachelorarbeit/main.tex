@@ -42,7 +42,7 @@
 
   \begin{singlespace}\begin{center}\bfseries\Huge
   
-  Title of Bachelor thesis
+  Generating and testing flying focus laser pulses with Lasy for PIConGPU simulations
   
   \end{center}\end{singlespace}
 
@@ -60,10 +60,12 @@
   \end{center}\medskip
 
   \begin{singlespace}\begin{center}\large
-   Institut für Kern- und Teilchenphysik \\
+   Institut für Kern- und Teilchenphysik\\
    Fakultät Physik \\
    Bereich Mathematik und Naturwissenschaften \\
-   Technische Universität Dresden \\ 2025
+   Technische Universität Dresden\\
+   und\\Institut für Strahlenphysik\\
+   Helmholtz Zentrum Dresden Rossendorf \\ 2025
   \end{center}\end{singlespace}
  \end{tabularx}
 \end{titlepage}
@@ -81,7 +83,8 @@ Eingereicht am 05. Januar 2026\vspace{1.5em}
 \chapter*{Summary}
 
 Abstract \\
-English: \\
+English: Laser wakefield acceleration is a novel, compact method to accelerate electrons. Because the laser is moving slower than $c$ in the medium but the accelerated electrons approach $c$, the method faces the problem of dephasing. One proposed solution is the so called flying focus laser. It is generated using an axiparabola and a radial group delay echelon.\\
+A flying focus laser has a complicated shape and phase structure and is, therefore, currently not available in PIConGPU. However, the Lasy library can simulate a laser pulse interacting with optical elements and can, therefore, generate a flying focus pulse. This work combines the two and makes laser pulses generated in Lasy available in PIConGPU. It also shows, that this technique works with Gaussian laser pulses. The properties of the flying focus laser, namely the option to arbitrarily set its speed, could unfortunately not be recreated.\\
 
 \vspace{\fill}
 Abstract \\ 
@@ -291,7 +294,7 @@ The Lasy library offers functionality to generate, modify and propagate a laser 
 \centering
 \includegraphics[width=0.48\textwidth]{Images/lasy_gauss_1.png}
 \includegraphics[width=0.48\textwidth]{Images/lasy_gauss_2.png}
-\caption{Gaussian pulse newly generated at the focus (left) and propagated $6z_R$ (right) in Lasy.}
+\caption{A Gaussian pulse newly generated at the focus (left) and propagated $6z_R$ (right) in Lasy.}
 \label{gauss_test}
 \end{figure}
 \begin{figure}[t!]
@@ -323,7 +326,7 @@ The time of arrival obviously follows the relation $t(z)=\frac{z}{c}$. In figure
 \centering
 \includegraphics[width=0.48\textwidth]{Images/lasy_parabol_parabola.png}
 \includegraphics[width=0.48\textwidth]{Images/lasy_parabol_example.png}
-\caption{The laser pulse in the near field of the parabolic mirror (left) and in the far field, one rayleigh length before the focus (right), simulated in Lasy.}
+\caption{A Gaussian laser pulse in the near field of the parabolic mirror (left) and in the far field, one rayleigh length before the focus (right), simulated in Lasy.}
 \label{l_g_parabola}
 \end{figure}
 To generate a pulse for PIConGPU simulations, a Gaussian laser pulse with an initial beam waist of $w$ was reflected by a parabolic mirror of focus length $f$. The pulse can be seen in figure \ref{l_g_parabola} on the left side.
@@ -354,13 +357,13 @@ If the deviation between the used and the ideal time step is less than 5\% the P
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/pic_parabol_zr1.png}
-\caption{The laser pulse propagating into the PIConGPU simulation volume.}
+\caption{A Gaussian laser pulse propagating into the PIConGPU simulation volume.}
 \label{p_g_zr1}
 \end{figure}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/pic_parabol_zr2.png}
-\caption{The laser propagated one Rayleigh length after the parabola focus in PIConGPU.}
+\caption{A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU.}
 \label{p_g_zr2}
 \end{figure}
 \begin{figure}[t!]
@@ -375,19 +378,19 @@ After a propagation of one Rayleigh length past the focus, the pulse looks like 
 One can also see the shape of the wave fronts, always curved towards the focus point. At the focus point (figure \ref{p_g_focus}) they are flat.
 
 \chapter{The flying focus laser}
-The previous sections have proven that the methods work. Now they can be applied to the ultrafast flying focus laser. 
+The previous chapters on tests with Gaussian laser pulses suggest, that the methods for propagating the laser pulses and for translating them from Lasy to PIConGPU work. Now they can be applied to the ultrafast flying focus laser. 
 \section{Testing the radial group delay}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.48\textwidth]{Images/lasy_rgd0.png}
 \includegraphics[width=0.48\textwidth]{Images/lasy_rgd4.png}
-\caption{The laser pulse in the near field of the radial group delay echelon (left) and propagated 93 cm (right), simulated in Lasy.}
+\caption{A Gaussian laser pulse in the near field of the radial group delay echelon (left) and propagated 93 cm (right), simulated in Lasy.}
 \label{l_rgd}
 \end{figure}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/lasy_rgd_ts.png}
-\caption{The shape of the pulse after the RGD, compared to the function $\tau_D(r)$, simulated in Lasy.}
+\caption{The shape of a Gaussian laser pulse after the RGD, compared to the function $\tau_D(r)$, simulated in Lasy.}
 \label{l_rgd_ts}
 \end{figure}
 To test the functionality of the radial group delay echelon (RGD) implemetation described in section \ref{radialGroupDelay}, a laser pulse was reflected by the RGD and then propagated to different distances. Figure \ref{l_rgd} shows, that the shape of the pulse barely changes after the echelon, which is what should happen. There are some artifacts from the simulation but they appear to be minor. Figure \ref{l_rgd_ts} shows the shape of the pulse after the RGD after propagation for different distances. It is clearly visible, that for the most part the shape does not change after the RGD. Only at $r=0$ and at the edge there are some differences. The center is an effect of the artifact in the center visible in figure \ref{l_rgd} on the right. Because the simulation ran on a radial grid, it always generates artifacts at $r=0$. At the edge the intensity has dropped so much, that noise from the simulation begins to take effect. In conclusion, the RGD works as intended.
@@ -447,7 +450,7 @@ The naive way of doing such a simulation in lasy is to just propagate the laser 
 In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU simply integrates the Maxwell equations. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
 Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
 The remaining options for causing the differences between theory and measurement are the axiparabola itself or the theory being incorrect.
-For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. 
+For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar.  [try differential equation]
 
 \section{The complete assembly}
 \begin{figure}[t!]
@@ -497,7 +500,7 @@ However, it was not possible to replicate the findings in other papers (Ambat et
 
 \section{Outlook}
 In the future people will be able to use this new framework to use more complicated laser setups for their PIConGPU simulations. It will be possible to simulate the laser pulse move through an optical setup first and then simulate it interacting with a plasma in PIConGPU.\\
-Some work remains to find the reason(s) for the differences between the simulations shown in this work and the findings of other groups. It could, for example, be useful to test different propagation methods in the Lasy simulations. Lasy offers a variety of options, that are currently in developement. In chapter \ref{lasyprop} is shown, that the standard propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that it is a lot more memeory intesive, meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work. This is why such tests are not included in this work.\\
+Some work remains to find the reason(s) for the differences between the simulations shown in this work and the findings of other groups. It could, for example, be useful to test different propagation methods in the Lasy simulations. Lasy offers a variety of options, that are currently in developement. In chapter \ref{lasyprop} is shown, that the standard propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that it is a lot more memeory intesive, meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work. This is why such tests are not included in this work. It might also be worthwhile to further investigate the axiparabola theory (see section \ref{Theo_axiparabola}). Mistakes here could also explain the problem.\\
 It would also be interesting to further analyse the the artefacts visible in figures \ref{p_g_focus}, \ref{p_g_zr1} and \ref{p_g_zr2}. For example: how much energy do they contain? How can they move faster than the speed of light?\\
 
 \definecolor{ow}{RGB}{250, 180, 0}
@@ -520,7 +523,7 @@ All the code used in this work that I have written and mentioned here can be fou
 \thispagestyle{empty}
 \section*{Erklärung}
 
-Hiermit erkläre ich, dass ich diese Arbeit im Rahmen der Betreuung am Institut für Kern- und Teilchenphysik ohne unzulässige Hilfe Dritter verfasst und alle Quellen als solche gekennzeichnet habe.
+Hiermit erkläre ich, dass ich diese Arbeit im Rahmen der Betreuung am Institut für Kern- und Teilchenphysik und am Institut für Strahlenphysik ohne unzulässige Hilfe Dritter verfasst und alle Quellen als solche gekennzeichnet habe.
 
 \vspace*{\fill}
 
