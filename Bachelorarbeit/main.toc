@@ -27,7 +27,6 @@
 \contentsline {chapter}{\numberline {6}Summary and Outlook}{30}
 \contentsline {section}{\numberline {6.1}Summary}{30}
 \contentsline {section}{\numberline {6.2}Outlook}{30}
-\contentsline {subsection}{\numberline {6.2.1}Testing different propagators}{30}
 \contentsline {section}{\numberline {6.3}Code availability}{31}
 \contentsline {chapter}{Bibliography}{32}
 \contentsline {chapter}{List of Figures}{34}

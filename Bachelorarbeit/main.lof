@@ -1,7 +1,7 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, colored according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue.\relax }}{7}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, coloured according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue.\relax }}{7}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Schematic of how an axiparabola focuses light into the focal region. Rays close to the optical axis are focused to a focus length of $f_0$ and rays far from the axis are focused closer to $f_0+\delta $. (a) On-axis case, (b) off-axis case. Image taken from Smartsev et al\cite {Smartsev:2019}.\relax }}{8}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Schematic of the flying focus setup. A flat laser pulse (a) is first reflected by the radial group delay echelon (b). It imparts a time delay onto the pulse without aberrations. The pulse (c) is then reflected by the axiparabola, which focuses the pulse (d) into the focal region $\delta $ (e), where it can theoretically drive a laser wakefield accelerator without dephasing. Image taken from Palastro et al \cite {Palastro:2020}.\relax }}{8}
 \addvspace {10\p@ }
