@@ -441,6 +441,13 @@ To test the functionality of the radial group delay echelon (RGD) implemetation 
 \caption{The shape of the axiparabola. Left: Smartsev \cite{Smartsev:2019} and Ambat \cite{Ambat:2023} compared with the Lasy implementation \cite{lasydoc} and a regular parabolic mirror. Right: A relative comparison of the same sag functions $s_f(r)$ for the axiparabola.}
 \label{axiparabola_shape}
 \end{figure}
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.48\textwidth]{Images/axiparabola_de.png}
+\includegraphics[width=0.48\textwidth]{Images/axiparabola_dde.png}
+\caption{A numerical comparison of the left and right sides of equation (\ref{difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite{Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.}
+\label{axiparabola_de}
+\end{figure}
 Lasy offers an axiparabola object natively. One can just apply one to a laser pulse like this:
 \begin{python}
 axiparabola = lasy.optical_elements.Axiparabola(f0, delta, R)
@@ -452,7 +459,12 @@ The naive way of doing such a simulation in lasy is to just propagate the laser 
 In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU simply integrates the Maxwell equations. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
 Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
 The remaining options for causing the differences between theory and measurement are the axiparabola itself or the theory being incorrect.
-For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar.  [try differential equation]
+For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. This makes it unlikely, that the shape of the axiparabola is the problem. Nonetheless, it is interesting to see, whether this shape fulfills the differential equation, that Smartsev et al \cite{Smartsev:2019} and Oubrerie et al \cite{Oubrerie:2022} used to derive the shape:
+\begin{equation}
+\label{difeq}
+s_f(r) - f(r) + \sqrt{\left(f(r)-s_f(r)\right)^2+r^2} = r\cdot \frac{\mathrm{d}s_f(r)}{\mathrm{d}r}
+\end{equation}
+As can be seen in figure \ref{axiparabola_de}, the two sides are almost identical. Therefore, the shape is likely to be correct.
 
 \section{The complete assembly}
 \begin{figure}[t!]

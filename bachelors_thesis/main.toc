@@ -23,10 +23,10 @@
 \contentsline {chapter}{\numberline {5}The flying focus laser}{22}
 \contentsline {section}{\numberline {5.1}Testing the radial group delay}{22}
 \contentsline {section}{\numberline {5.2}Testing the axiparabola}{23}
-\contentsline {section}{\numberline {5.3}The complete assembly}{26}
-\contentsline {chapter}{\numberline {6}Summary and Outlook}{30}
-\contentsline {section}{\numberline {6.1}Summary}{30}
-\contentsline {section}{\numberline {6.2}Outlook}{30}
-\contentsline {section}{\numberline {6.3}Code availability}{31}
-\contentsline {chapter}{Bibliography}{32}
-\contentsline {chapter}{List of Figures}{34}
+\contentsline {section}{\numberline {5.3}The complete assembly}{27}
+\contentsline {chapter}{\numberline {6}Summary and Outlook}{31}
+\contentsline {section}{\numberline {6.1}Summary}{31}
+\contentsline {section}{\numberline {6.2}Outlook}{31}
+\contentsline {section}{\numberline {6.3}Code availability}{32}
+\contentsline {chapter}{Bibliography}{33}
+\contentsline {chapter}{List of Figures}{35}
