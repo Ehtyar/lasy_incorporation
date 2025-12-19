@@ -130,6 +130,22 @@
 \newlabel{tauD_comp}{{5.3}{23}}
 \citation{Ambat:2023}
 \citation{Ambat:2023}
+\citation{Ambat:2023}
+\citation{Oubrerie:2022}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testing the axiparabola}{24}}
+\newlabel{test_axiparabola}{{5.2}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Setup}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Results}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces The laser pulse in the near field of the axiparabola (left) and in the far field at the focus(right), simulated in Lasy.\relax }}{25}}
+\newlabel{l_axiparabola}{{5.4}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces The full electric field of the pulse at the focus of the axiparabola according to a Lasy simulation.\relax }}{25}}
+\newlabel{l_a_focus}{{5.5}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Graphic taken from Ambat et al \cite  {Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta $. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref  {axiparabola_wz}). (d) A plot showing, that the arrival time of the pulse follows equation (\ref  {axiparabola_tz}).\relax }}{25}}
+\newlabel{ambat_axisim}{{5.6}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the axiparabola according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{26}}
+\newlabel{l_a_wsts}{{5.7}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.\relax }}{26}}
+\newlabel{p_a_wsts}{{5.8}{26}}
 \citation{Smartsev:2019}
 \citation{Ambat:2023}
 \citation{lasydoc}
@@ -140,29 +156,14 @@
 \citation{Ambat:2023}
 \citation{Smartsev:2019}
 \citation{Oubrerie:2022}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testing the axiparabola}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Setup}{24}}
-\newlabel{test_axiparabola}{{5.2.1}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Results}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Discussion}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces The laser pulse in the near field of the axiparabola (left) and in the far field at the focus(right), simulated in Lasy.\relax }}{25}}
-\newlabel{l_axiparabola}{{5.4}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces The full electric field of the pulse at the focus of the axiparabola according to a Lasy simulation.\relax }}{25}}
-\newlabel{l_a_focus}{{5.5}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Graphic taken from Ambat et al \cite  {Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta $. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref  {axiparabola_wz}). (d) A plot showing , that the arrival time of the pulse follows equation (\ref  {axiparabola_tz}).\relax }}{25}}
-\newlabel{ambat_axisim}{{5.6}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the axiparabola according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{26}}
-\newlabel{l_a_wsts}{{5.7}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.\relax }}{26}}
-\newlabel{p_a_wsts}{{5.8}{26}}
-\newlabel{difeq}{{5.1}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces The shape of the axiparabola. Left: Smartsev \cite  {Smartsev:2019} and Ambat \cite  {Ambat:2023} compared with the Lasy implementation \cite  {lasydoc} and a regular parabolic mirror. Right: A relative comparison of the same sag functions $s_f(r)$ for the axiparabola.\relax }}{27}}
-\newlabel{axiparabola_shape}{{5.9}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces A numerical comparison of the left and right sides of equation (\ref  {difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite  {Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.\relax }}{27}}
-\newlabel{axiparabola_de}{{5.10}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Nexts steps}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Discussion}{27}}
+\newlabel{difeq}{{5.1}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces The shape of the axiparabola. Left: Smartsev \cite  {Smartsev:2019} and Ambat \cite  {Ambat:2023} compared with the Lasy implementation \cite  {lasydoc} and a regular parabolic mirror. Right: A relative comparison of the same sag functions $s_f(r)$ for the axiparabola.\relax }}{28}}
+\newlabel{axiparabola_shape}{{5.9}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces A numerical comparison of the left and right sides of equation (\ref  {difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite  {Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.\relax }}{28}}
+\newlabel{axiparabola_de}{{5.10}{28}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}The complete assembly}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces The laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.\relax }}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces The (transversally) super-Gaussian laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.\relax }}{29}}
 \newlabel{l_f_axiparabola}{{5.11}{29}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces The electric field at the focus of the echelon axiparabola assembly, designed for $v_f=1.02c$ (left) and for $v_f=0.98c$ (right), simulated in Lasy.\relax }}{29}}
 \newlabel{l_f_focus}{{5.12}{29}}

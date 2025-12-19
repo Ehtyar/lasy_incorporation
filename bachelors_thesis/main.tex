@@ -73,7 +73,7 @@
 % Gutachterseite
 \thispagestyle{empty}\vspace*{\fill}
 
-Eingereicht am 05. Januar 2026\vspace{1.5em}
+Eingereicht am 19. Dezember 2025\vspace{1.5em}
 \par{\large\begin{tabular}{ll}
  1. Gutachter: & Prof.~Dr.~Ulrich Schramm \\
  2. Gutachter: & Prof.~Dr.~Thomas Cowan \\
@@ -401,8 +401,8 @@ The previous chapters on tests with Gaussian laser pulses suggest, that the meth
 To test the functionality of the radial group delay echelon (RGD) implemetation described in section \ref{radialGroupDelay}, a laser pulse was reflected by the RGD and then propagated to different distances. Figure \ref{l_rgd} shows, that the shape of the pulse barely changes after the echelon, which is what should happen. There are some artifacts from the simulation but they appear to be minor. Figure \ref{l_rgd_ts} shows the shape of the pulse after the RGD after propagation for different distances. It is clearly visible, that for the most part the shape does not change after the RGD. Only at $r=0$ and at the edge there are some differences. The center is an effect of the artifact in the center visible in figure \ref{l_rgd} on the right. Because the simulation ran on a radial grid, it always generates artifacts at $r=0$. At the edge the intensity has dropped so much, that noise from the simulation begins to take effect. In conclusion, the RGD works as intended. To determine what the function $\tau_D(r)$ should be, the papers \cite{Ambat:2023}, \cite{Palastro:2020} and \cite{Oubrerie:2022} offer three different differential equations but only one of them, Oubrerie et al \cite{Oubrerie:2022}, offers a solution to the equation (see section \ref{radialGroupDelay}). All these functions were described in the papers as making the focus point of the axiparabola laser travel at some fixed speed that can be set arbitrarily, as long as it is close to the speed of light ($v=v_0+c$ with $|v_0|<<c$). To ensure these equations all described the same function $\tau_D(r)$, figure \ref{tauD_comp} shows them in comparison. They are very similar.
 
 \section{Testing the axiparabola}
-\subsection{Setup}
 \label{test_axiparabola}
+\subsection{Setup}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.48\textwidth]{Images/lasy_axiparabola.png}
@@ -419,7 +419,7 @@ To test the functionality of the radial group delay echelon (RGD) implemetation 
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.98\textwidth]{Images/ambat_axisim.png}
-\caption{Graphic taken from Ambat et al \cite{Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta$. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref{axiparabola_wz}). (d) A plot showing , that the arrival time of the pulse follows equation (\ref{axiparabola_tz}).}
+\caption{Graphic taken from Ambat et al \cite{Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta$. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref{axiparabola_wz}). (d) A plot showing, that the arrival time of the pulse follows equation (\ref{axiparabola_tz}).}
 \label{ambat_axisim}
 \end{figure}
 Lasy offers an axiparabola object natively. One can just apply one to a laser pulse like this:
@@ -427,9 +427,8 @@ Lasy offers an axiparabola object natively. One can just apply one to a laser pu
 axiparabola = lasy.optical_elements.Axiparabola(f0, delta, R)
 laser.apply_optics(axiparabola)
 \end{python}
-Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applied as well as after being propagated to the beginning of the focus. The full electric field at the focus is shown in figure \ref{l_a_focus}. Because the original pulse in this case was not a Gaussian pulse but a super-Gaussian pulse of order 6 transversally, the shape at the focus is not a gaussian pulse either. It is instead close to a sinc function, as one would expect.\\ 
-
-[more?]
+The laser used in this test follows a Gaussian function longitudinally and a super-Gaussian function of order 6 transversally. In that way it both resembles the lasers used in previous papers such as Ambat et al \cite{Ambat:2023} or Oubrerie et al \cite{Oubrerie:2022} as well as a realistic shape for laser pulses used for LWFA.\\
+Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applied as well as after being propagated to the beginning of the focus. The full electric field at the focus is shown in figure \ref{l_a_focus}. Because the original pulse in this case was not a Gaussian pulse but a super-Gaussian pulse transversally, the shape at the focus is not a gaussian pulse either. It is instead close to a sinc function, as one would expect.
 
 \subsection{Results}
 \begin{figure}[t!]
@@ -448,10 +447,13 @@ Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applie
 \caption{The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.}
 \label{p_a_wsts}
 \end{figure}
-Figure \ref{l_a_wsts} shows the results of a simulation where the laser propagated past the focus point through the focal region. They are compared to theoretical calculations according to equations (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). The module \pyth{axiparabola_theory} (see section \ref{axiparabola_theory}) was used to calulate the values to compare to. As figure \ref{ambat_axisim} shows, Ambat et al were able to see the behavior described by the equations (\ref{axiparabola_wz}) (see image (c)) and (\ref{axiparabola_tz}) (see image (d)). This is clearly not what can be seen in the results here in figure \ref{l_a_wsts}.\\
+Figure \ref{l_a_wsts} shows the results of a simulation where the laser propagated past the focus point through the focal region. Measured were the beam waist $w$, using the Lasy function \pyth{lasy.utils.laser_utils.get_w0}, and the arrival time of the pulse $t-\frac{z}{c}$, using the function \pyth{full_field.get_tpeak}. The former is calculated from the statistical standard deviation of the transversal intensity distribution, the latter is the statistical mean of the on-axis intensity distribution. Other methods were tried and give similar results. The two measured values are compared to theoretical calculations according to equations (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). The module \pyth{axiparabola_theory} (see section \ref{axiparabola_theory}) was used to calulate the values to compare to.\\
+The measured values do not follow the theoretical calculations at all: While the beam waist $w$ is supposed to decrease over the focal region according to equation (\ref{axiparabola_wz}), it slowly increases instead. And wihile the arrival time of the pulse does decrease in relation to the speed of light as it should, it does this more slowly than described in equation (\ref{axiparabola_tz}).\\
+As figure \ref{ambat_axisim} shows, Ambat et al were able to see the behavior described by the equations (\ref{axiparabola_wz}) (see image (c)) and (\ref{axiparabola_tz}) (see image (d)). This is clearly not what can be seen in the results here in figure \ref{l_a_wsts}.\\
 The naive way of doing such a simulation in lasy is to just propagate the laser to a point, measure $w$ and $\Delta t$ and then propagate it further from there. The results of that are shown on the left of figure \ref{l_a_wsts}. Because measurement and theory clearly do not align here, I tried to propagate the laser pulse to each point seperately from the axiparabola to avoid compounding errors. The results of that test are shown on the right of the figure and are clearly in line with the plots on the left. These possible compounding errors of the propagation can therefore be excluded as the main source of the difference between measurement and theory.\\
-In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU numerically integrates the Maxwell equations on a grid using finite differences. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
+In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure, similar to the values for figure \ref{l_a_wsts}, but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU numerically integrates the Maxwell equations on a grid using finite differences. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
 
+\clearpage
 \subsection{Discussion}
 \begin{figure}[t!]
 \centering
@@ -467,17 +469,16 @@ In order to exclude another possible problem, the same propagation simulation wa
 \caption{A numerical comparison of the left and right sides of equation (\ref{difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite{Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.}
 \label{axiparabola_de}
 \end{figure}
-Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
+Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the Lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
 The remaining options for causing the differences between theory and measurement are the axiparabola itself or the theory being incorrect.
 For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. This makes it unlikely, that the shape of the axiparabola is the problem. Nonetheless, it is interesting to see, whether this shape fulfills the differential equation, that Smartsev et al \cite{Smartsev:2019} and Oubrerie et al \cite{Oubrerie:2022} used to derive the shape of the axiparabola:
 \begin{equation}
 \label{difeq}
 s_f(r) - f(r) + \sqrt{\left(f(r)-s_f(r)\right)^2+r^2} = r\cdot \frac{\mathrm{d}s_f(r)}{\mathrm{d}r}
 \end{equation}
-As can be seen in figure \ref{axiparabola_de}, the two sides are almost identical. Therefore, the shape is likely to be correct.
-
-\subsection{Nexts steps}
-[?]
+Here $s_f(r)$ is the sag function describing the shape of the axiparabola and $f(r)$ is the function describing the dependence of the focus length on the radius $r$, the defining feature of the axiparabola.
+As can be seen in figure \ref{axiparabola_de}, the two sides are almost identical. Therefore, the shape is likely to be correct.\\
+In conclusion, the axiparabola does not work as intended or as described in previous papers. The reason(s) for this are still unknown, though multiple possibilities can be excluded.
 
 \section{The complete assembly}
 \begin{figure}[t!]
@@ -486,7 +487,7 @@ As can be seen in figure \ref{axiparabola_de}, the two sides are almost identica
 \includegraphics[width=0.48\textwidth]{Images/lasy_flfoc_102_focus2.png}
 \includegraphics[width=0.48\textwidth]{Images/lasy_flfoc_98_axiparabola.png}
 \includegraphics[width=0.48\textwidth]{Images/lasy_flfoc_98_focus2.png}
-\caption{The laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.}
+\caption{The (transversally) super-Gaussian laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.}
 \label{l_f_axiparabola}
 \end{figure}
 \begin{figure}[t!]
@@ -514,10 +515,10 @@ As can be seen in figure \ref{axiparabola_de}, the two sides are almost identica
 \caption{The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac{z}{c}$ (bottom) over the focal region $\delta$ of the flying focus assembly for $v_f=1.02c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.}
 \label{l_f102_wsts}
 \end{figure}
-Combining the two elements and applying them to the laser, one should obtain a flying focus laser. Figure \ref{l_f_axiparabola} shows, what this will look like for a desired focal velocity $v_f=0.98c$ or $v_f=1.02c$.
-The field is now shaped quite different to what it was before, as can be seen in figure \ref{l_f_focus}.
+Combining the two elements, the radial group delay echelon and the axiparabola, and applying them to a laser pulse, one should obtain a flying focus laser. For this test the same initial laser with the super-Gaussian transversal shape as in section \ref{test_axiparabola} was used for the same reasons. Figure \ref{l_f_axiparabola} shows a visualisation of the laser pulse for desired focal velocities of $v_f=0.98c$ and $v_f=1.02c$ respectively.
+The field shape is different to what it was before, as can be seen in figure \ref{l_f_focus}.
 It is no longer symmetrical in the propagation direction. However, the two plots look like mirror images of each other. This is reasonable, as the peak of the pulse is supposed to be moving in opposite directions relative to the speed of light. Because the axiparabola cuts the pulse off at a specific radius $R$ and the RGD introduces sudden jumps as well, the diffraction artifacts are more pronounced than before but they should be mostly physical.\\
-The figures \ref{l_f98_wsts} and \ref{l_f102_wsts} show the results of lasy simulations with the flying focus assembly. Like in figure \ref{l_a_wsts} a consecutive and a pointwise separate simulation are shown. Of course theoretical formula for the beam waist, equation (\ref{axiparabola_wz}), does not neccessarily apply for this setup. First of all, the beam waist is appearently larger in this case, according to the simulation. The curve is shown only for the lack of a better formula. However, the other diagram is of major importance here. The flying focus assembly is meant to make the focus point move at vacuum speed of light in the plasma of an LWFA chamber. For that the focus time must move like the theoretical lines in the bottom plots of the two figures. This is clearly not the case. The RGD did not manage to fix the problem with the axiparabola in the flying focus case.
+The figures \ref{l_f98_wsts} and \ref{l_f102_wsts} show the results of Lasy simulations with the flying focus assembly. As for the axiparabola, the beam waist $w$ and the arrival time $t-\frac{z}{c}$ are measured. Like in figure \ref{l_a_wsts} a consecutive and a pointwise separate simulation are shown. Of course the theoretical formula for the beam waist, equation (\ref{axiparabola_wz}), does not neccessarily apply for this setup. First of all, the beam waist is appearently larger in this case, according to the simulation. The curve is shown only for the lack of a better formula. However, the other diagram is of major importance here. The flying focus assembly is meant to make the focus point move at vacuum speed of light in the plasma of an LWFA chamber. For that, the focus time must move like the theoretical lines in the bottom plots of the two figures. This is clearly not the case. Still in this case the axiparabola did not work as intended. The RGD did not manage to fix the problem with it in the flying focus case.
 
 \chapter{Summary and Outlook}
 
