@@ -1,35 +1,35 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Introduction}{6}
-\contentsline {section}{\numberline {1.1}Motivation: Laser wakefield acceleration (LWFA)}{6}
-\contentsline {section}{\numberline {1.2}The problem of Dephasing}{7}
-\contentsline {section}{\numberline {1.3}The Axiparabola}{7}
-\contentsline {section}{\numberline {1.4}Spatio-temporal control}{9}
-\contentsline {chapter}{\numberline {2}Simulation tools}{10}
-\contentsline {section}{\numberline {2.1}Lasy}{10}
-\contentsline {section}{\numberline {2.2}openPMD}{10}
-\contentsline {section}{\numberline {2.3}PIConGPU}{10}
-\contentsline {section}{\numberline {2.4}Additional modules}{11}
-\contentsline {subsection}{\numberline {2.4.1}Module \lstinline [style=mypythoninline]{full_field}}{11}
-\contentsline {subsection}{\numberline {2.4.2}Module \lstinline [style=mypythoninline]{radialGroupDelay}}{13}
-\contentsline {subsection}{\numberline {2.4.3}Module \lstinline [style=mypythoninline]{axiparabola_theory}}{13}
-\contentsline {subsection}{\numberline {2.4.4}Module \lstinline [style=mypythoninline]{showdata}}{13}
-\contentsline {chapter}{\numberline {3}Gaussian pulses in Lasy}{15}
-\contentsline {section}{\numberline {3.1}Testing Gaussian pulses}{15}
-\contentsline {section}{\numberline {3.2}Gaussian pulse and parabolic mirror}{16}
-\contentsline {chapter}{\numberline {4}Lasy pulses in PIConGPU}{18}
-\contentsline {section}{\numberline {4.1}Courant-Friedrich-Levy (CFL) condition}{18}
-\contentsline {section}{\numberline {4.2}Comparitative test with the Gauss laser}{19}
-\contentsline {chapter}{\numberline {5}The flying focus laser}{21}
-\contentsline {section}{\numberline {5.1}Testing the radial group delay}{21}
-\contentsline {section}{\numberline {5.2}Testing the axiparabola}{24}
-\contentsline {subsection}{\numberline {5.2.1}Setup}{24}
-\contentsline {subsection}{\numberline {5.2.2}Results}{24}
-\contentsline {subsection}{\numberline {5.2.3}Discussion}{27}
-\contentsline {section}{\numberline {5.3}The complete assembly}{28}
-\contentsline {chapter}{\numberline {6}Summary and Outlook}{32}
-\contentsline {section}{\numberline {6.1}Summary}{32}
-\contentsline {section}{\numberline {6.2}Outlook}{32}
-\contentsline {section}{\numberline {6.3}Code availability}{33}
-\contentsline {chapter}{Bibliography}{34}
-\contentsline {chapter}{List of Figures}{36}
+\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation: Laser wakefield acceleration (LWFA)}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}The problem of Dephasing}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}The Axiparabola}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}Spatio-temporal control}{9}{section.1.4}
+\contentsline {chapter}{\numberline {2}Simulation tools}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Lasy}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}openPMD}{10}{section.2.2}
+\contentsline {section}{\numberline {2.3}PIConGPU}{10}{section.2.3}
+\contentsline {section}{\numberline {2.4}Additional modules}{11}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Module \lstinline [style=mypythoninline]{full_field}}{11}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Module \lstinline [style=mypythoninline]{radialGroupDelay}}{13}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Module \lstinline [style=mypythoninline]{axiparabola_theory}}{13}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Module \lstinline [style=mypythoninline]{showdata}}{13}{subsection.2.4.4}
+\contentsline {chapter}{\numberline {3}Gaussian pulses in Lasy}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Testing Gaussian pulses}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Gaussian pulse and parabolic mirror}{16}{section.3.2}
+\contentsline {chapter}{\numberline {4}Lasy pulses in PIConGPU}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Courant-Friedrich-Levy (CFL) condition}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Comparitative test with the Gauss laser}{19}{section.4.2}
+\contentsline {chapter}{\numberline {5}The flying focus laser}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testing the radial group delay}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Testing the axiparabola}{24}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Setup}{24}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Results}{24}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Discussion}{27}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}The complete assembly}{28}{section.5.3}
+\contentsline {chapter}{\numberline {6}Summary and Outlook}{32}{chapter.6}
+\contentsline {section}{\numberline {6.1}Summary}{32}{section.6.1}
+\contentsline {section}{\numberline {6.2}Outlook}{32}{section.6.2}
+\contentsline {section}{\numberline {6.3}Code availability}{33}{section.6.3}
+\contentsline {chapter}{Bibliography}{34}{section.6.3}
+\contentsline {chapter}{List of Figures}{36}{chapter*.33}
