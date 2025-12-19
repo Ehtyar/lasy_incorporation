@@ -6,45 +6,45 @@ Database file #1: refs.bib
 Warning--to sort, need author or key in lasydoc
 Warning--to sort, need author or key in openPMDdoc
 Warning--to sort, need author or key in PICdoc
-You've used 18 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            610 strings with 8043 characters,
-and the built_in function-call counts, 7076 in all, are:
-= -- 610
-> -- 625
+            615 strings with 8209 characters,
+and the built_in function-call counts, 7356 in all, are:
+= -- 636
+> -- 643
 < -- 1
-+ -- 250
-- -- 232
-* -- 575
-:= -- 1282
-add.period$ -- 57
-call.type$ -- 18
-change.case$ -- 170
++ -- 257
+- -- 238
+* -- 589
+:= -- 1330
+add.period$ -- 61
+call.type$ -- 19
+change.case$ -- 176
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 173
-empty$ -- 362
-format.name$ -- 232
-if$ -- 1362
+cite$ -- 22
+duplicate$ -- 180
+empty$ -- 384
+format.name$ -- 238
+if$ -- 1421
 int.to.chr$ -- 0
-int.to.str$ -- 18
+int.to.str$ -- 19
 missing$ -- 11
-newline$ -- 95
-num.names$ -- 30
-pop$ -- 186
+newline$ -- 101
+num.names$ -- 32
+pop$ -- 198
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 157
 quote$ -- 0
-skip$ -- 137
+skip$ -- 142
 stack$ -- 0
-substring$ -- 125
-swap$ -- 26
+substring$ -- 130
+swap$ -- 27
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 76
 warning$ -- 3
-while$ -- 33
-width$ -- 20
-write$ -- 196
+while$ -- 35
+width$ -- 21
+write$ -- 207
 (There were 3 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  17 DEC 2025 10:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  19 DEC 2025 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1032,13 +1032,8 @@ File: Images/palastro_flfoc.png Graphic file (type png)
 <use Images/palastro_flfoc.png>
 Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 125.
 (pdftex.def)             Requested size: 404.99725pt x 125.92183pt.
-
-Underfull \vbox (badness 1681) has occurred while \output is active []
-
- [7 <./Images/LWFA.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./Images/axiparabola.png> <./Images/palastro_flfoc.png>] [9]
+ [7 <./Images/LWFA.png>] [8 <./Images/axiparabola.png> <./Images/palastro_flfoc
+.png>] [9]
 Chapter 2.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -1066,295 +1061,315 @@ Package pdftex.def Info: Images/lasy_parabol_saved.png  used on input line 193.
 
 (pdftex.def)             Requested size: 314.99863pt x 250.2089pt.
  [11]
-<Images/tau_Ds.png, id=82, 428.5611pt x 312.9291pt>
-File: Images/tau_Ds.png Graphic file (type png)
-<use Images/tau_Ds.png>
-Package pdftex.def Info: Images/tau_Ds.png  used on input line 222.
-(pdftex.def)             Requested size: 314.99863pt x 230.02159pt.
- [12 <./Images/lasy_parabol_focus.png> <./Images/lasy_parabol_saved.png>] [13 <
-./Images/tau_Ds.png>]
-<Images/pic_parabol_focus.png, id=93, 933.0057pt x 727.7589pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./Images/lasy_parabol_focus.png> <./Images/lasy_parabol_saved.png>]
+<Images/pic_parabol_focus.png, id=87, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_focus.png Graphic file (type png)
 <use Images/pic_parabol_focus.png>
-Package pdftex.def Info: Images/pic_parabol_focus.png  used on input line 261.
+Package pdftex.def Info: Images/pic_parabol_focus.png  used on input line 254.
 (pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
- [14] [15 <./Images/pic_parabol_focus.png>]
+ [13] [14 <./Images/pic_parabol_focus.png>]
 Chapter 3.
-<Images/lasy_gauss_1.png, id=101, 450.2421pt x 326.6604pt>
+<Images/lasy_gauss_1.png, id=96, 450.2421pt x 326.6604pt>
 File: Images/lasy_gauss_1.png Graphic file (type png)
 <use Images/lasy_gauss_1.png>
-Package pdftex.def Info: Images/lasy_gauss_1.png  used on input line 296.
+Package pdftex.def Info: Images/lasy_gauss_1.png  used on input line 289.
 (pdftex.def)             Requested size: 215.99808pt x 156.71046pt.
-<Images/lasy_gauss_2.png, id=102, 459.6372pt x 326.6604pt>
+<Images/lasy_gauss_2.png, id=97, 459.6372pt x 326.6604pt>
 File: Images/lasy_gauss_2.png Graphic file (type png)
 <use Images/lasy_gauss_2.png>
-Package pdftex.def Info: Images/lasy_gauss_2.png  used on input line 297.
+Package pdftex.def Info: Images/lasy_gauss_2.png  used on input line 290.
 (pdftex.def)             Requested size: 215.99808pt x 153.51047pt.
-<Images/lasy_gauss_ws.png, id=103, 408.3255pt x 312.9291pt>
+<Images/lasy_gauss_ws.png, id=98, 408.3255pt x 312.9291pt>
 File: Images/lasy_gauss_ws.png Graphic file (type png)
 <use Images/lasy_gauss_ws.png>
-Package pdftex.def Info: Images/lasy_gauss_ws.png  used on input line 303.
+Package pdftex.def Info: Images/lasy_gauss_ws.png  used on input line 296.
 (pdftex.def)             Requested size: 215.99808pt x 165.53647pt.
-<Images/lasy_gauss_ts.png, id=104, 417.7206pt x 312.9291pt>
+<Images/lasy_gauss_ts.png, id=99, 417.7206pt x 312.9291pt>
 File: Images/lasy_gauss_ts.png Graphic file (type png)
 <use Images/lasy_gauss_ts.png>
-Package pdftex.def Info: Images/lasy_gauss_ts.png  used on input line 304.
+Package pdftex.def Info: Images/lasy_gauss_ts.png  used on input line 297.
 (pdftex.def)             Requested size: 215.99808pt x 161.80727pt.
-[16
+[15
 
 ]
-<Images/lasy_parabol_parabola.png, id=109, 450.2421pt x 325.215pt>
+<Images/lasy_parabol_parabola.png, id=104, 450.2421pt x 325.215pt>
 File: Images/lasy_parabol_parabola.png Graphic file (type png)
 <use Images/lasy_parabol_parabola.png>
 Package pdftex.def Info: Images/lasy_parabol_parabola.png  used on input line 3
-28.
+21.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_parabol_example.png, id=110, 450.2421pt x 325.215pt>
+<Images/lasy_parabol_example.png, id=105, 450.2421pt x 325.215pt>
 File: Images/lasy_parabol_example.png Graphic file (type png)
 <use Images/lasy_parabol_example.png>
 Package pdftex.def Info: Images/lasy_parabol_example.png  used on input line 32
-9.
+2.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
- [17 <./Images/lasy_gauss_1.png> <./Images/lasy_gauss_2.png> <./Images/lasy_gau
-ss_ws.png> <./Images/lasy_gauss_ts.png>] [18 <./Images/lasy_parabol_parabola.pn
+ [16 <./Images/lasy_gauss_1.png> <./Images/lasy_gauss_2.png> <./Images/lasy_gau
+ss_ws.png> <./Images/lasy_gauss_ts.png>] [17 <./Images/lasy_parabol_parabola.pn
 g> <./Images/lasy_parabol_example.png>]
 Chapter 4.
-<Images/pic_parabol_zr1.png, id=124, 933.0057pt x 727.7589pt>
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 336.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+<Images/pic_parabol_zr1.png, id=119, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_zr1.png Graphic file (type png)
 <use Images/pic_parabol_zr1.png>
-Package pdftex.def Info: Images/pic_parabol_zr1.png  used on input line 360.
+Package pdftex.def Info: Images/pic_parabol_zr1.png  used on input line 357.
 (pdftex.def)             Requested size: 215.99808pt x 168.4804pt.
-<Images/pic_parabol_zr1_lin.png, id=125, 985.0401pt x 727.7589pt>
+<Images/pic_parabol_zr1_lin.png, id=120, 985.0401pt x 727.7589pt>
 File: Images/pic_parabol_zr1_lin.png Graphic file (type png)
 <use Images/pic_parabol_zr1_lin.png>
-Package pdftex.def Info: Images/pic_parabol_zr1_lin.png  used on input line 361
+Package pdftex.def Info: Images/pic_parabol_zr1_lin.png  used on input line 358
 .
 (pdftex.def)             Requested size: 215.99808pt x 159.57442pt.
-<Images/pic_parabol_zr2.png, id=126, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_zr2.png, id=121, 933.0057pt x 727.7589pt>
 File: Images/pic_parabol_zr2.png Graphic file (type png)
 <use Images/pic_parabol_zr2.png>
-Package pdftex.def Info: Images/pic_parabol_zr2.png  used on input line 367.
+Package pdftex.def Info: Images/pic_parabol_zr2.png  used on input line 364.
 (pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
-<Images/pic_parabol_ws.png, id=127, 411.2163pt x 312.9291pt>
+<Images/pic_parabol_ws.png, id=122, 411.2163pt x 312.9291pt>
 File: Images/pic_parabol_ws.png Graphic file (type png)
 <use Images/pic_parabol_ws.png>
-Package pdftex.def Info: Images/pic_parabol_ws.png  used on input line 373.
+Package pdftex.def Info: Images/pic_parabol_ws.png  used on input line 370.
 (pdftex.def)             Requested size: 314.99863pt x 239.72421pt.
 
 Underfull \vbox (badness 7595) has occurred while \output is active []
 
- [19
+ [18
 
 ]
 Underfull \vbox (badness 1067) has occurred while \output is active []
 
- [20 <./Images/pic_parabol_zr1.png> <./Images/pic_parabol_zr1_lin.png> <./Image
-s/pic_parabol_zr2.png>] [21 <./Images/pic_parabol_ws.png>]
+ [19 <./Images/pic_parabol_zr1.png> <./Images/pic_parabol_zr1_lin.png> <./Image
+s/pic_parabol_zr2.png>] [20 <./Images/pic_parabol_ws.png>]
 Chapter 5.
-<Images/lasy_rgd0.png, id=142, 456.7464pt x 325.215pt>
+<Images/lasy_rgd0.png, id=138, 456.7464pt x 325.215pt>
 File: Images/lasy_rgd0.png Graphic file (type png)
 <use Images/lasy_rgd0.png>
-Package pdftex.def Info: Images/lasy_rgd0.png  used on input line 387.
+Package pdftex.def Info: Images/lasy_rgd0.png  used on input line 384.
 (pdftex.def)             Requested size: 215.99808pt x 153.79887pt.
-<Images/lasy_rgd4.png, id=143, 456.7464pt x 325.215pt>
+<Images/lasy_rgd4.png, id=139, 456.7464pt x 325.215pt>
 File: Images/lasy_rgd4.png Graphic file (type png)
 <use Images/lasy_rgd4.png>
-Package pdftex.def Info: Images/lasy_rgd4.png  used on input line 388.
+Package pdftex.def Info: Images/lasy_rgd4.png  used on input line 385.
 (pdftex.def)             Requested size: 215.99808pt x 153.79887pt.
-<Images/lasy_rgd_ts.png, id=144, 424.9476pt x 313.6518pt>
+<Images/lasy_rgd_ts.png, id=140, 424.9476pt x 313.6518pt>
 File: Images/lasy_rgd_ts.png Graphic file (type png)
 <use Images/lasy_rgd_ts.png>
-Package pdftex.def Info: Images/lasy_rgd_ts.png  used on input line 394.
+Package pdftex.def Info: Images/lasy_rgd_ts.png  used on input line 391.
 (pdftex.def)             Requested size: 314.99863pt x 232.5007pt.
-[22
+<Images/tau_Ds.png, id=141, 428.5611pt x 312.9291pt>
+File: Images/tau_Ds.png Graphic file (type png)
+<use Images/tau_Ds.png>
+Package pdftex.def Info: Images/tau_Ds.png  used on input line 397.
+(pdftex.def)             Requested size: 314.99863pt x 230.02159pt.
+[21
 
-]
-<Images/lasy_axiparabola.png, id=148, 459.6372pt x 325.215pt>
+] [22 <./Images/lasy_rgd0.png> <./Images/lasy_rgd4.png> <./Images/lasy_rgd_ts.p
+ng>] [23 <./Images/tau_Ds.png>]
+<Images/lasy_axiparabola.png, id=155, 459.6372pt x 325.215pt>
 File: Images/lasy_axiparabola.png Graphic file (type png)
 <use Images/lasy_axiparabola.png>
-Package pdftex.def Info: Images/lasy_axiparabola.png  used on input line 404.
+Package pdftex.def Info: Images/lasy_axiparabola.png  used on input line 408.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_axiparabola_focus2.png, id=149, 459.6372pt x 325.215pt>
+<Images/lasy_axiparabola_focus2.png, id=156, 459.6372pt x 325.215pt>
 File: Images/lasy_axiparabola_focus2.png Graphic file (type png)
 <use Images/lasy_axiparabola_focus2.png>
 Package pdftex.def Info: Images/lasy_axiparabola_focus2.png  used on input line
- 405.
+ 409.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_axiparabola_focus.png, id=150, 629.4717pt x 505.1673pt>
+<Images/lasy_axiparabola_focus.png, id=157, 629.4717pt x 505.1673pt>
 File: Images/lasy_axiparabola_focus.png Graphic file (type png)
 <use Images/lasy_axiparabola_focus.png>
 Package pdftex.def Info: Images/lasy_axiparabola_focus.png  used on input line 
-411.
+415.
 (pdftex.def)             Requested size: 314.99863pt x 252.79114pt.
-<Images/ambat_axisim.png, id=151, 1597.97pt x 403.5075pt>
+<Images/ambat_axisim.png, id=158, 1597.97pt x 403.5075pt>
 File: Images/ambat_axisim.png Graphic file (type png)
 <use Images/ambat_axisim.png>
-Package pdftex.def Info: Images/ambat_axisim.png  used on input line 417.
+Package pdftex.def Info: Images/ambat_axisim.png  used on input line 421.
 (pdftex.def)             Requested size: 440.99808pt x 111.35587pt.
-<Images/lasy_axiparabola_ws.png, id=152, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
+
+ []
+
+<Images/lasy_axiparabola_ws.png, id=159, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_ws.png>
-Package pdftex.def Info: Images/lasy_axiparabola_ws.png  used on input line 423
+Package pdftex.def Info: Images/lasy_axiparabola_ws.png  used on input line 437
 .
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_dir_ws.png, id=153, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_dir_ws.png, id=160, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ws.png>
 Package pdftex.def Info: Images/lasy_axiparabola_dir_ws.png  used on input line
- 424.
+ 438.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_ts.png, id=154, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_ts.png, id=161, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_ts.png>
-Package pdftex.def Info: Images/lasy_axiparabola_ts.png  used on input line 425
+Package pdftex.def Info: Images/lasy_axiparabola_ts.png  used on input line 439
 .
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_dir_ts.png, id=155, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_dir_ts.png, id=162, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ts.png>
 Package pdftex.def Info: Images/lasy_axiparabola_dir_ts.png  used on input line
- 426.
+ 440.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/pic_axiparabola_ws.png, id=156, 401.0985pt x 324.4923pt>
+<Images/pic_axiparabola_ws.png, id=163, 401.0985pt x 324.4923pt>
 File: Images/pic_axiparabola_ws.png Graphic file (type png)
 <use Images/pic_axiparabola_ws.png>
-Package pdftex.def Info: Images/pic_axiparabola_ws.png  used on input line 432.
+Package pdftex.def Info: Images/pic_axiparabola_ws.png  used on input line 446.
 
 (pdftex.def)             Requested size: 215.99808pt x 174.74295pt.
-<Images/pic_axiparabola_lps.png, id=157, 428.5611pt x 324.4923pt>
+<Images/pic_axiparabola_lps.png, id=164, 428.5611pt x 324.4923pt>
 File: Images/pic_axiparabola_lps.png Graphic file (type png)
 <use Images/pic_axiparabola_lps.png>
-Package pdftex.def Info: Images/pic_axiparabola_lps.png  used on input line 433
+Package pdftex.def Info: Images/pic_axiparabola_lps.png  used on input line 447
 .
 (pdftex.def)             Requested size: 215.99808pt x 163.54794pt.
-<Images/axiparabola_abs.png, id=158, 409.7709pt x 312.9291pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--454
+
+ []
+
+<Images/axiparabola_abs.png, id=165, 409.7709pt x 312.9291pt>
 File: Images/axiparabola_abs.png Graphic file (type png)
 <use Images/axiparabola_abs.png>
-Package pdftex.def Info: Images/axiparabola_abs.png  used on input line 439.
+Package pdftex.def Info: Images/axiparabola_abs.png  used on input line 458.
 (pdftex.def)             Requested size: 215.99808pt x 164.94916pt.
-<Images/axiparabola_rel.png, id=159, 403.2666pt x 324.4923pt>
+<Images/axiparabola_rel.png, id=166, 403.2666pt x 324.4923pt>
 File: Images/axiparabola_rel.png Graphic file (type png)
 <use Images/axiparabola_rel.png>
-Package pdftex.def Info: Images/axiparabola_rel.png  used on input line 440.
+Package pdftex.def Info: Images/axiparabola_rel.png  used on input line 459.
 (pdftex.def)             Requested size: 215.99808pt x 173.80714pt.
-<Images/axiparabola_de.png, id=160, 430.7292pt x 324.4923pt>
+<Images/axiparabola_de.png, id=167, 430.7292pt x 324.4923pt>
 File: Images/axiparabola_de.png Graphic file (type png)
 <use Images/axiparabola_de.png>
-Package pdftex.def Info: Images/axiparabola_de.png  used on input line 446.
+Package pdftex.def Info: Images/axiparabola_de.png  used on input line 465.
 (pdftex.def)             Requested size: 215.99808pt x 162.72603pt.
-<Images/axiparabola_dde.png, id=161, 424.2249pt x 324.4923pt>
+<Images/axiparabola_dde.png, id=168, 424.2249pt x 324.4923pt>
 File: Images/axiparabola_dde.png Graphic file (type png)
 <use Images/axiparabola_dde.png>
-Package pdftex.def Info: Images/axiparabola_dde.png  used on input line 447.
+Package pdftex.def Info: Images/axiparabola_dde.png  used on input line 466.
 (pdftex.def)             Requested size: 215.99808pt x 165.21655pt.
- [23 <./Images/lasy_rgd0.png> <./Images/lasy_rgd4.png> <./Images/lasy_rgd_ts.pn
-g>]
+[24
 
-LaTeX Warning: Text page 24 contains only floats.
+]
 
-[24 <./Images/lasy_axiparabola.png> <./Images/lasy_axiparabola_focus2.png> <./I
-mages/lasy_axiparabola_focus.png> <./Images/ambat_axisim.png>] [25 <./Images/la
-sy_axiparabola_ws.png> <./Images/lasy_axiparabola_dir_ws.png> <./Images/lasy_ax
-iparabola_ts.png> <./Images/lasy_axiparabola_dir_ts.png> <./Images/pic_axiparab
-ola_ws.png> <./Images/pic_axiparabola_lps.png>] [26 <./Images/axiparabola_abs.p
-ng> <./Images/axiparabola_rel.png> <./Images/axiparabola_de.png> <./Images/axip
-arabola_dde.png>]
-<Images/lasy_flfoc_102_axiparabola.png, id=192, 459.6372pt x 325.215pt>
+LaTeX Warning: Text page 25 contains only floats.
+
+[25 <./Images/lasy_axiparabola.png> <./Images/lasy_axiparabola_focus2.png> <./I
+mages/lasy_axiparabola_focus.png> <./Images/ambat_axisim.png>]
+Underfull \vbox (badness 1803) has occurred while \output is active []
+
+ [26 <./Images/lasy_axiparabola_ws.png> <./Images/lasy_axiparabola_dir_ws.png> 
+<./Images/lasy_axiparabola_ts.png> <./Images/lasy_axiparabola_dir_ts.png> <./Im
+ages/pic_axiparabola_ws.png> <./Images/pic_axiparabola_lps.png>] [27 <./Images/
+axiparabola_abs.png> <./Images/axiparabola_rel.png> <./Images/axiparabola_de.pn
+g> <./Images/axiparabola_dde.png>]
+<Images/lasy_flfoc_102_axiparabola.png, id=196, 459.6372pt x 325.215pt>
 File: Images/lasy_flfoc_102_axiparabola.png Graphic file (type png)
 <use Images/lasy_flfoc_102_axiparabola.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_axiparabola.png  used on input l
-ine 472.
+ine 485.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_flfoc_102_focus2.png, id=193, 450.2421pt x 325.215pt>
+<Images/lasy_flfoc_102_focus2.png, id=197, 450.2421pt x 325.215pt>
 File: Images/lasy_flfoc_102_focus2.png Graphic file (type png)
 <use Images/lasy_flfoc_102_focus2.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_focus2.png  used on input line 4
-73.
+86.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_flfoc_98_axiparabola.png, id=194, 459.6372pt x 325.215pt>
+<Images/lasy_flfoc_98_axiparabola.png, id=198, 459.6372pt x 325.215pt>
 File: Images/lasy_flfoc_98_axiparabola.png Graphic file (type png)
 <use Images/lasy_flfoc_98_axiparabola.png>
 Package pdftex.def Info: Images/lasy_flfoc_98_axiparabola.png  used on input li
-ne 474.
+ne 487.
 (pdftex.def)             Requested size: 215.99808pt x 152.83122pt.
-<Images/lasy_flfoc_98_focus2.png, id=195, 450.2421pt x 325.215pt>
+<Images/lasy_flfoc_98_focus2.png, id=199, 450.2421pt x 325.215pt>
 File: Images/lasy_flfoc_98_focus2.png Graphic file (type png)
 <use Images/lasy_flfoc_98_focus2.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_focus2.png  used on input line 47
-5.
+Package pdftex.def Info: Images/lasy_flfoc_98_focus2.png  used on input line 48
+8.
 (pdftex.def)             Requested size: 215.99808pt x 156.01706pt.
-<Images/lasy_flfoc_102_focus.png, id=196, 629.4717pt x 505.1673pt>
+<Images/lasy_flfoc_102_focus.png, id=200, 629.4717pt x 505.1673pt>
 File: Images/lasy_flfoc_102_focus.png Graphic file (type png)
 <use Images/lasy_flfoc_102_focus.png>
-Package pdftex.def Info: Images/lasy_flfoc_102_focus.png  used on input line 48
-1.
+Package pdftex.def Info: Images/lasy_flfoc_102_focus.png  used on input line 49
+4.
 (pdftex.def)             Requested size: 215.99808pt x 173.3425pt.
-<Images/lasy_flfoc_98_focus.png, id=197, 629.4717pt x 505.1673pt>
+<Images/lasy_flfoc_98_focus.png, id=201, 629.4717pt x 505.1673pt>
 File: Images/lasy_flfoc_98_focus.png Graphic file (type png)
 <use Images/lasy_flfoc_98_focus.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_focus.png  used on input line 482
+Package pdftex.def Info: Images/lasy_flfoc_98_focus.png  used on input line 495
 .
 (pdftex.def)             Requested size: 215.99808pt x 173.3425pt.
-<Images/lasy_flfoc_98_ws.png, id=198, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_ws.png, id=202, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_98_ws.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_ws.png  used on input line 488.
+Package pdftex.def Info: Images/lasy_flfoc_98_ws.png  used on input line 501.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_dir_ws.png, id=199, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_dir_ws.png, id=203, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_dir_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_98_dir_ws.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_dir_ws.png  used on input line 48
-9.
+Package pdftex.def Info: Images/lasy_flfoc_98_dir_ws.png  used on input line 50
+2.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_ts.png, id=200, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_ts.png, id=204, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_98_ts.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_ts.png  used on input line 490.
+Package pdftex.def Info: Images/lasy_flfoc_98_ts.png  used on input line 503.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_98_dir_ts.png, id=201, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_98_dir_ts.png, id=205, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_98_dir_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_98_dir_ts.png>
-Package pdftex.def Info: Images/lasy_flfoc_98_dir_ts.png  used on input line 49
-1.
+Package pdftex.def Info: Images/lasy_flfoc_98_dir_ts.png  used on input line 50
+4.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_ws.png, id=202, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_ws.png, id=206, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_102_ws.png>
-Package pdftex.def Info: Images/lasy_flfoc_102_ws.png  used on input line 497.
+Package pdftex.def Info: Images/lasy_flfoc_102_ws.png  used on input line 510.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_dir_ws.png, id=203, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_dir_ws.png, id=207, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_dir_ws.png Graphic file (type png)
 <use Images/lasy_flfoc_102_dir_ws.png>
-Package pdftex.def Info: Images/lasy_flfoc_102_dir_ws.png  used on input line 4
-98.
+Package pdftex.def Info: Images/lasy_flfoc_102_dir_ws.png  used on input line 5
+11.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_ts.png, id=204, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_ts.png, id=208, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_ts.png>
-Package pdftex.def Info: Images/lasy_flfoc_102_ts.png  used on input line 499.
+Package pdftex.def Info: Images/lasy_flfoc_102_ts.png  used on input line 512.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_dir_ts.png, id=205, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_dir_ts.png, id=209, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_dir_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_dir_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_dir_ts.png  used on input line 5
-00.
+13.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
- [27] [28 <./Images/lasy_flfoc_102_axiparabola.png> <./Images/lasy_flfoc_102_fo
+ [28] [29 <./Images/lasy_flfoc_102_axiparabola.png> <./Images/lasy_flfoc_102_fo
 cus2.png> <./Images/lasy_flfoc_98_axiparabola.png> <./Images/lasy_flfoc_98_focu
 s2.png> <./Images/lasy_flfoc_102_focus.png> <./Images/lasy_flfoc_98_focus.png>]
- [29 <./Images/lasy_flfoc_98_ws.png> <./Images/lasy_flfoc_98_dir_ws.png> <./Ima
-ges/lasy_flfoc_98_ts.png> <./Images/lasy_flfoc_98_dir_ts.png>] [30 <./Images/la
+ [30 <./Images/lasy_flfoc_98_ws.png> <./Images/lasy_flfoc_98_dir_ws.png> <./Ima
+ges/lasy_flfoc_98_ts.png> <./Images/lasy_flfoc_98_dir_ts.png>] [31 <./Images/la
 sy_flfoc_102_ws.png> <./Images/lasy_flfoc_102_dir_ws.png> <./Images/lasy_flfoc_
 102_ts.png> <./Images/lasy_flfoc_102_dir_ts.png>]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--519
+Underfull \hbox (badness 10000) in paragraph at lines 529--532
 
  []
 
-[31
+[32
 
-] [32] (./main.bbl [33
+] [33] (./main.bbl [34
 
 
 ]
@@ -1363,59 +1378,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--115
 T1/cmtt/m/n/10 https : / / github . com /
  []
 
-) [34] (./main.lof
+) [35] (./main.lof
 Overfull \hbox (3.254pt too wide) in paragraph at lines 4--4
  [][] []\T1/cmr/m/n/10 PIConGPU sim-u-la-tion of laser wake-field ac-cel-er-a-t
 ion. Dis-played are the elec-trons, coloured 
  []
 
-[35
+[36
 
 
 ])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [36] [37
+ [37] [38
 
-] (./main.aux) ) 
+] [39] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 18261 strings out of 492982
- 330740 string characters out of 6134896
- 504384 words of memory out of 5000000
- 21329 multiletter control sequences out of 15000+600000
- 25530 words of font info for 66 fonts, out of 8000000 for 9000
+ 18282 strings out of 492982
+ 331388 string characters out of 6134896
+ 515403 words of memory out of 5000000
+ 21347 multiletter control sequences out of 15000+600000
+ 25527 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,58p,1073b,1551s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-ftt1200.pfb>
-Output written on main.pdf (37 pages, 6004264 bytes).
+ 55i,12n,58p,1686b,1551s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (39 pages, 6021822 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
+ 357 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  278 words of extra memory for PDF output out of 10000 (max. 10000000)
 

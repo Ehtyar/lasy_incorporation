@@ -83,13 +83,13 @@ Eingereicht am 05. Januar 2026\vspace{1.5em}
 \chapter*{Summary}
 
 \section*{Abstract}
-\paragraph*{English:} Laser wakefield acceleration is a novel, compact method to accelerate electrons. These accelerators face a problem called "dephasing", where due to the reduced velocity of the laser in the plasma medium the electrons can only be accelerated for short distances. One proposed solution to this problem is the so called flying focus laser. Experimentally, it is generated using an axiparabola and a radial group delay echelon.\\
-To study the laser plasma interaction with flying focus lasers, Particle-in-Cell simulations, such as PIConGPU, are used. A flying focus laser has a complicated shape and phase structure and, therefore, was not available in PIConGPU. However, the Lasy library can simulate a laser pulse interacting with optical elements and can, therefore, model a flying focus pulse. This work combines these two and makes flying focus pulses generated in Lasy available in PIConGPU. Furthermore, this technique also enables modeling other laser pulses in PIConGPU and the technique has been validated with both Gaussian and flying focus lasers. For the latter, inconsitencies between predicted and measured laser velocities and beam waists were discovered and are extensively discussed in this work.
+\paragraph*{English:} Laser wakefield acceleration is a compact method to accelerate electron bunches to relativistic energies. These accelerators face a problem called "dephasing", where due to the reduced velocity of the laser in the plasma medium the electrons can only be accelerated over limited distances. One proposed solution to this problem is the so called flying focus laser. Experimentally, it is generated using an axiparabola and a radial group delay echelon.\\
+To study the laser plasma interaction with flying focus lasers, Particle-in-Cell simulation codes, such as PIConGPU, are used. A flying focus laser has a complicated shape and phase structure and, therefore, was not available in PIConGPU. However, the Lasy library can simulate a laser pulse interacting with optical elements and can, therefore, model a flying focus pulse. This work combines these two and makes flying focus pulses generated in Lasy available in PIConGPU. Furthermore, this technique also enables modeling other laser pulses in PIConGPU via Lasy and the technique has been validated with both Gaussian and flying focus lasers. For the latter, inconsistencies between predicted and measured laser velocities and beam waists were discovered and are extensively discussed in this work.
 
 \vspace{\fill}
 \section*{Abstract}
-\paragraph*{Deutsch:} "Laser-Wakefield-Acceleration" ist eine neue, kompakte Methode um Elektronen zu beschleunigen. Solche Beschleuniger haben ein Problem, das "Dephasing" genannt wird, weil die Elektronen wegen der reduzierten Geschwindigkeit des Lasers in Plasma nur über kurze Strecken beschleunigt werden können. Eine mögliche Lösung für dieses Problem ist der so genannte "Flying-Focus-Laser". Dieser kann im Experiment mithilfe einer Axiparabel und eines radialen Verzögerungs-echelons erzeugt werden.\\
-Um die Interaktionen zwischen Laser und Plasma mit dem Flying-Focus-Laser genauer zu untersuchen nutzt man "Particle-in-Cell" Simulationen wie PIConGPU. Ein Flying-Focus-Laser hat eine komplizierte Form und Phasenstruktur und war deshalb in PIConGPU bisher nicht verfügbar. Mit der Python-Bibliothek Lasy kann man allerdings einen Laserpuls simulieren, der mit optischen Elementen interagiert, und dadurch einen Flying-Focus-Laser modellieren. Diese Arbeit kombiniert die beiden Methoden und macht den in Lasy erzeugten Flying-Focus-Laser in PIConGPU verfügbar. Außerdem ermöglicht die beschriebene Technik auch andere Laserpulse in PIConGPU zu modellieren und wurde sowohl mit Gaußpulsen als auch mit dem Flying-Focus-Laser validiert. Für letzteren tauchten Inkonsistenzen zwischen vorhergesagten und beobachteten Lasergeschwindigkeiten und Strahlbreiten auf, die in dieser Arbeit ausführlich diskutiert werden.
+\paragraph*{Deutsch:} "Laser-Wakefield-Acceleration" ist eine kompakte Methode um Elektronen zu relativistischen Energien zu beschleunigen. Solche Beschleuniger haben ein Problem, das "Dephasing" genannt wird, weil die Elektronen wegen der reduzierten Geschwindigkeit des Lasers im Plasma nur über begrenzte Strecken beschleunigt werden können. Eine mögliche Lösung für dieses Problem ist der so genannte "Flying-Focus-Laser". Dieser kann im Experiment mithilfe einer Axiparabel und eines radialen Verzögerungs-Echelons erzeugt werden.\\
+Um die Interaktionen zwischen Laser und Plasma mit dem Flying-Focus-Laser genauer zu untersuchen nutzt man "Particle-in-Cell" Simulationen wie PIConGPU. Ein Flying-Focus-Laser hat eine komplizierte Form und Phasenstruktur und war deshalb in PIConGPU bisher nicht verfügbar. Mit der Python-Bibliothek Lasy kann man allerdings einen Laserpuls simulieren, der mit optischen Elementen interagiert, und dadurch einen Flying-Focus-Laser modellieren. Diese Arbeit kombiniert die beiden Methoden und macht den in Lasy erzeugten Flying-Focus-Laser in PIConGPU verfügbar. Außerdem ermöglicht die beschriebene Technik auch andere Laserpulse in PIConGPU via Lasy zu modellieren und wurde sowohl mit Gaußpulsen als auch mit dem Flying-Focus-Laser validiert. Für letzteren tauchten Inkonsistenzen zwischen vorhergesagten und beobachteten Lasergeschwindigkeiten und Strahlbreiten auf, die in dieser Arbeit ausführlich diskutiert werden.
 
 % Inhaltsverzeichnis
 \cleardoublepage
@@ -101,16 +101,16 @@ Um die Interaktionen zwischen Laser und Plasma mit dem Flying-Focus-Laser genaue
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{Images/LWFA.png}
-\caption{PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, coloured according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue.}
+\caption{PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, coloured according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue. The laser pulse travels from left to right.}
 \label{LWFA}
 \end{figure}
-Since the invention of LWFA by Tajima and Dawson \cite{LWFA}, compact accelerators are a useful tool in radiation physics. It enables more labs to work with high energy electrons for their research. This in turn enables technologies using these electrons, for example free electron lasers which can generate laser pulses in otherwise unreachable frequency ranges. Our Group has used and researched them for a while now and is working on the cutting edge of this technology, see for example \cite{LWFA3}, \cite{LWFA2} and \cite{LWFA1}.\\
-LWFA works as follows: A laser is focused into a gas, usually hydrogen, where it needs to be intense enough to ionize the gas and push the electrons out of the way. In figure \ref{LWFA} this happens on the right of the laser pulse. Behind the laser they come back together which produces extreme electric fields on the order of several 100GV/m (see \cite{LWFAd}) in the propagation direction of the laser. This accelerating field can be seen in figure \ref{LWFA} in blue. Because these fields can become up to 3 orders of magnitude stronger than a traditional radio-frequency accelerator cavity, they can accelerate electrons to multiple GeV over a distance of just centimetres \cite{LWFAd}. Figure \ref{LWFA} shows the electrons with a colour gradient to show their energy. The yellow region is where the electron bunch is currently being accelerated by riding on the laser wakefield.
+Since the invention of LWFA by Tajima and Dawson \cite{LWFA}, compact accelerators have become a useful tool in radiation physics. They enable more labs to work with high energy electrons for their research. This in turn enables technologies using these electrons, for example free electron lasers which can generate laser pulses in otherwise unreachable frequency ranges. Our Group has used and researched them for a while now and is working on the cutting edge of this technology, see for example \cite{LWFA3}, \cite{LWFA2} and \cite{LWFA1}.\\
+LWFA works as follows: A laser is focused into a gas such as hydrogen or helium, where it needs to be intense enough to ionize the gas and push the electrons out of the way. In figure \ref{LWFA} this happens on the right of the laser pulse, which travels here from left to right. Behind the laser they come back together which produces extreme electric fields on the order of several 100GV/m (see \cite{LWFAd}) in the propagation direction of the laser. This accelerating field can be seen in figure \ref{LWFA} in blue. Because these fields can become up to 3 orders of magnitude stronger than a traditional radio-frequency accelerator cavity, they can accelerate electrons to multiple GeV over a distance of just centimetres \cite{LWFAd}. Figure \ref{LWFA} shows the electrons with a colour gradient to show their energy. The yellow region is where the electron bunch is currently being accelerated by riding on the laser wakefield.
 
 \section{The problem of Dephasing}
-LWFA is known to be facing three major problems: Depletion, Diffraction and Dephasing. Depletion happens, when the laser pulse driving the wake has given so much of its energy to the electrons that it can no longer drive the wake. Diffraction is the laser pulse getting out of focus and therefore losing the wake. Dephasing describes the process by which electrons are accelerated to velocities over the speed of light in the plasma. Because of the high fields in the wake of the laser pulse this happens after a few centimetres of acceleration. The electrons can now slowly approach the laser pulse until the field in the propagation direction reverses and no longer accelerates the electrons and instead decelerates them. In figure \ref{LWFA} this reversal can be seen to the left of the laser pulse. This effect puts an upper limit to the energy an electron can leave the acceleration region with. A common solution is to accelerate the electrons in multiple stages to increase the energy but this is complicated and inconvenient.\\
-Debus et al \cite{LWFAd} have shown, that it is possible to solve Dephasing (and also Depletion) by using two separate laser pulses with tilted wave fronts.
-However, this is complicated to achieve. According to Palastro et al \cite{Palastro:2020} as well as Miller et al \cite{Miller:2023}, Dephasing could also be solved using a so called flying focus setup. It is made out of a radial group delay echelon and an axiparabola.
+LWFA is known to be facing three major problems: Depletion, Diffraction and Dephasing. Depletion happens, when the laser pulse driving the wake has given so much of its energy to the electrons that it can no longer drive the wake. Diffraction is the laser pulse getting out of focus and therefore losing the intensity to drive the wake. Dephasing describes the process by which electrons are accelerated to velocities over the speed of light in the plasma. Because of the high fields in the wake of the laser pulse this happens after a few centimetres of acceleration. Then the electrons slowly approach the laser pulse until the accelerating field in the propagation direction reverses and no longer accelerates the electrons and instead decelerates them. In figure \ref{LWFA} this reversal can be seen to the left of the laser pulse. This effect puts an upper limit to the energy an electron can leave the acceleration region with. A common solution is to accelerate the electrons in multiple stages to increase the energy but this is complicated and inconvenient.\\
+Debus et al \cite{LWFAd} have shown, that it is possible to solve Dephasing (and also Depletion) by using two separate laser pulses with tilted pulse fronts.
+However, this is a complex setup. According to Palastro et al \cite{Palastro:2020} as well as Miller et al \cite{Miller:2023}, Dephasing could also be mitigated using a so called flying focus setup. It is made out of a radial group delay echelon and an axiparabola.
 
 \section{The Axiparabola}
 \label{Theo_axiparabola}
@@ -151,7 +151,7 @@ According to Ambat et al \cite{Ambat:2023} the beam waist, the transversal radiu
 	\label{axiparabola_wz}
 	w(z)\approx\frac{\lambda_0f_0}{\pi R}\sqrt{\frac{\delta}{z-f_0}}.
 \end{equation}
-This can of course only apply at sufficient distance from $f_0$, because otherwise $\lim_{z\rightarrow f_0}w(z) = \infty$. The time when the focus reaches a distance $z$ from the axiparabola is roughly:
+$z$ is here the distance from the axiparabola. This can of course only apply at sufficient distance from $f_0$, because otherwise $\lim_{z\rightarrow f_0}w(z) = \infty$. This is, of course, a problem for this formula but Ambat et al provide no further explanation. The time when the focus reaches a distance $z$ from the axiparabola is roughly:
 \begin{align}
 	\label{axiparabola_tz}
 	t_f(z)\approx&\frac{1}{c}\left(z+\frac{(z-f_0)R^2}{\delta\cdot2z}-2s_f\left(\sqrt{\frac{(z-f_0)R^2}{\delta}}\right)\right)\\=&\frac{1}{c}\left(z+\frac{(z-f_0)R^2}{\delta\cdot2z}-\frac{R^2}{2\delta}\ln\left(1+\frac{z-f_0}{f_0}\right)\right)
@@ -159,7 +159,7 @@ This can of course only apply at sufficient distance from $f_0$, because otherwi
 In figure \ref{flfoc} the axiparabola can be seen on the left.
 
 \section{Spatio-temporal control}
-While the axiparabola allows for spatial control overthe focal region, one can not steer when it arrives at the place. The time just follows equation \ref{axiparabola_tz} and does not have more parameters. However, because the focus legth depends on $r$ and, therefore, the light forming the focus at each $z$ coordinate comes from a different radius $r$ this behavior can be modified using a stepped mirror made up of flat, concentric rings of mirror surface that are at different depths half a wavelegth apart, a so called radial group delay (RGD) echelon. By delaying the laser pulse in dependence of $r$ by $\Delta t = \tau_D(r)$, it is possible to adjust $z=z(r(t))=z(t)$ as needed by setting the function $\tau_D(r)$ accordingly. This concept was proposed by Palastro et al \cite{Palastro:2020} to solve the dephasing problem. Figure \ref{flfoc} shows this setup with the echelon on the right.\\
+While the axiparabola allows for spatial control over the focal region, one can not steer when it arrives at the place. The time just follows equation \ref{axiparabola_tz} and does not have more parameters. However, because the focus length depends on $r$ and, therefore, the light forming the focus at each $z$ coordinate comes from a different radius $r$, this behavior can be modified using a stepped mirror made up of flat, concentric rings of mirror surface that are at different depths half a wavelegth apart, a so called radial group delay (RGD) echelon. By delaying the laser pulse in dependence of $r$ by $\Delta t = \tau_D(r)$, it is possible to adjust $z=z(r(t))=z(t)$ as needed by setting the function $\tau_D(r)$ accordingly. This concept was proposed by Palastro et al \cite{Palastro:2020} to solve the dephasing problem. Figure \ref{flfoc} shows this setup with the echelon on the right.\\
 A pulse that has gone through both the RGD echelon and then the axiparabola is called a (ultrafast) flying focus pulse. Ambat et al \cite{Ambat:2023} managed to achieve foci moving almost arbitrarily fast along the focal line with this technique.\\
 Our goal for this work was to replicate this and make the flying focus laser pulse available in the PIConGPU simulation software, to make LWFA simulations with it possible.
 
@@ -174,7 +174,7 @@ Lasy assumes, that the laser pulse will move at the speed of light $c$ and moves
 openPMD\cite{openPMDstandard}\cite{openPMDdoc} stands for open (source) particle mesh data standard. It is a meta-data standard for mesh data like fields and particle data. The corresponding I/O library openPMD-api is used by a number of simulation software as well as by some measurement software. PIConGPU supports this format both through the openPMD plugin for output, in its checkpoints and as a laser source. Lasy also offers functions to import and export laser data in this file format. The two interpret the format differently, however, so they can not easily communicate in this way. Part of this work was to bridge that gap.
 
 \section{PIConGPU}
-PIConGPU\cite{PIConGPU2013}\cite{PICdoc} is a Particle-In-Cell simulation software that is being developed mainly at the HZDR. Being a PIC simulation it divides the simulation space into cells, which each contain a field value and some number of particles. For every time step it propagates the fields according to the Maxwell equations and pushes the particles along following their momentum and with a correction from interactions from the fields. Many interactions between particles as well as between particles and fields are modeled.
+PIConGPU\cite{PIConGPU2013}\cite{PICdoc} is a Particle-In-Cell simulation software that is being developed mainly at the HZDR. Being a PIC simulation it divides the simulation space into cells, which each contain $E$ and $B$ field values and some number of particles. For every time step it propagates the fields according to the Maxwell equations and pushes the particles along following their momentum and with a correction from interactions from the fields. Many interactions between particles as well as between particles and fields are modeled.
 
 \section{Additional modules}
 \label{modules}
@@ -185,13 +185,13 @@ The following additional python modules were developed for this work. For a full
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/lasy_parabol_focus.png}
-\caption{Full electric field of a gaussian laser pulse at its focus, according to a Lasy simulation.}
+\caption{Full electric field of a Gaussian laser pulse at its focus, according to a Lasy simulation.Because of the time axis at the bottom, this pulse travels from right to left.}
 \label{l_g_focus}
 \end{figure}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\textwidth]{Images/lasy_parabol_saved.png}
-\caption{The field that has been saved as an openPMD-compatible file after Lasy simulation, one Rayleigh length before the focus.}
+\caption{The field that has been saved as an openPMD-compatible file after Lasy simulation of a Gaussian laser pulse, one Rayleigh length before the focus.}
 \label{l_g_saved}
 \end{figure}
 The module \pyth{full_field} acts as an add-on to Lasy for this work. Among other things it bridges the gap between Lasy and PIConGPU by providing the function
@@ -202,12 +202,12 @@ It saves the full electric field of the laser pulse into an openPMD-compatible f
 \begin{python}
 full_field.get_full_field(laser)
 \end{python}
-Parts of this function were taken from the Lasy implementation: If neccessary the field envelope is interpolated to allow for more points in the propagation direction to more properly resolve the wavelength of the laser. Then it applies a phase of $\phi=\exp(i\omega_0 t)$ and takes the real part to obtain the full electric field. The new function, however, calculates the 3D field if the laser is already 3D. It also offers some other options, see in the documentation. It is, for example, possible to calculate the field for only the central region of the laser pulse. This is useful because after focusing the laser pulse the Lasy laser object still has the field far out of the actual focused pulse.\\
+Parts of this function were taken from the Lasy implementation: If neccessary the field envelope is interpolated to allow for more points in the propagation direction to more properly resolve the wavelength of the laser. Then it applies a phase of $\phi=\exp(i\omega_0 t)$ and takes the real part to obtain the full electric field. The new function, however, calculates the 3D field if the laser is already 3D. It also offers some other options, see in the documentation. It is, for example, possible to calculate the field for only the central region of the laser pulse. This is useful, because after focusing the laser pulse, the Lasy laser object still has the field far out of the actual focused pulse.\\
 After calculating the electric field the \pyth{laser_to_openPMD} function calls the function
 \begin{python}
 full_field.write_to_openpmd_file(directory, filename, array, extent)
 \end{python}
-It writes an openPMD-compatible file to the specified location containing the array data, in this case the full electric field. Parts of its implemetation are taken from the Lasy function \pyth{lasy.utils.openpmd_helper.write_to_openpmd_file} and other parts from the PIConGPU friendly implementation of \pyth{PrepRoutines.save_to_openPMD} from PIConGPU's INSIGHT data incorporation by Dietrich \cite{fabia}. It was neccessary to implement a new function for this because Lasy can only save an openPMD-compatible file containing the complex laser envelope with which PIConGPU can not work. To save on memory space, especially when loading the file into a GPU for a PIConGPU simulation, the data is store in single precision float. It is also possible to only store every $n$th data point transversally to save more memory space.\\
+It writes an openPMD-compatible file to the specified location containing the array data, in this case the full electric field. Parts of its implemetation are taken from the Lasy function \pyth{lasy.utils.openpmd_helper.write_to_openpmd_file} and other parts from the PIConGPU friendly implementation of \pyth{PrepRoutines.save_to_openPMD} from PIConGPU's INSIGHT data incorporation by Dietrich \cite{fabia}. It was neccessary to implement a new function for this because Lasy can only save an openPMD-compatible file containing the complex laser envelope with which PIConGPU can not work. To save on memory space, especially when loading the file into a GPU for a PIConGPU simulation, the data is stored in single precision float. It is also possible to only store every $n$th data point transversally to save more memory space.\\
 Importantly, the function \pyth{laser_to_openPMD} is also able to generate and then save the field of a laser that has been simulated in cylindrcal coordinates in Lasy. It does offer some more options as well, among them the option to display the field that has been saved to the file on a symlog plot. This can be seen in figure \ref{l_g_saved}. To just calculate and display the electric field of the laser pulse there also is the function
 \begin{python}
 full_field.show_field(laser)
@@ -217,12 +217,6 @@ The module contains a few more functions that were useful when handling the Lasy
 
 \subsection{Module \pyth{radialGroupDelay}}
 \label{radialGroupDelay}
-\begin{figure}[t!]
-\centering
-\includegraphics[width=0.7\textwidth]{Images/tau_Ds.png}
-\caption{The three different $\tau_D(r)$ for $v_f=1.02c$, according to Oubrerie \cite{Oubrerie:2022}, Ambat \cite{Ambat:2023} and Palastro \cite{Palastro:2020}}
-\label{tauD_comp}
-\end{figure}
 The module \pyth{radialGroupDelay} mainly offers an implementation of the radial group delay echelon as a Lasy optical element. It can be applied to a laser as follows:
 \begin{python}
 radialDelay = radialGroupDelay.RadialGroupDelay(tau_D, lambda0)
@@ -242,17 +236,16 @@ radialGroupDelay.tau_D_integrated_palastro(r, v, axiparabola)
 \end{python}
 In two cases the differential equations are numerically integrated, the third is implemented as is.
 To use these one can, for example, use \pyth{functools.partial} to define the desired focus velocity \pyth{v} and the used \pyth{axiparabola} before setting up the \pyth{RadialGroupDelay}.\\
-All these functions were described in the papers as making the focus point of the axiparabola laser travel at some fixed speed that can be set arbitrarily, as long as it is close to the speed of light ($v=v_0+c$ with $|v_0|<<c$). To ensure these equations all described the same function $\tau_D(r)$ figure \ref{tauD_comp} shows them in comparison. They are very similar.\\
 Because an important usecase of this setup is LWFA, the module also provides a function that will return a velocity of the focus that should result in a propagation with vacuum light speed in a plasma:
 \begin{python}
 radialGroupDelay.v_plasma(lambda0, n_e)
 \end{python}
-It depends, like the optical index of plasma, only on the laser wavelength $\lambda0$ and the electron density $n_e$.
+It depends, like the optical index of plasma, only on the laser wavelength $\lambda_0$ and the electron density $n_e$.
 
 \subsection{Module \pyth{axiparabola_theory}}
 \label{axiparabola_theory}
 The module \pyth{axiparabola_theory} is a collection of functions for theoretical calculations about the axiparabola and a laser pulse in its focal region. This theory is taken from Ambat et al \cite{Ambat:2023}. Among the functions this module offers are implementations of equations (\ref{axiparabola_sr}), (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). Because it is important when dealing with PIConGPU simulations the parameters can not only be calculated in dependence of the radius $r$ or the distance along the optical axis $z$ but also in dependence of the arrival time of the focus point $t_f$. To do this it is neccessary to invert equation (\ref{axiparabola_tz}) numerically.\\
-The axiparabola that Lasy provides follows equation (\ref{sag_smartsev}) and with the Smartsev et al \cite{Smartsev:2019}. Because they are slightly different (see section \ref{test_axiparabola})the module also offers an alternative axiparabola implementation following Ambat et al \cite{Ambat:2023}.
+The axiparabola that Lasy provides follows equation (\ref{sag_smartsev}) and, with that, Smartsev et al \cite{Smartsev:2019}. Because they are slightly different (see section \ref{test_axiparabola})the module also offers an alternative axiparabola implementation following Ambat et al \cite{Ambat:2023}.
 
 \subsection{Module \pyth{showdata}}
 \label{showdata}
@@ -262,7 +255,7 @@ The axiparabola that Lasy provides follows equation (\ref{sag_smartsev}) and wit
 \caption{Gauss pulse at its focus point according to the PIConGPU simulation. The artifacts to the side of the pulse are orders of magnitude less intense than the main peak of the pulse (see figure \ref{p_g_zr1} for reference).}
 \label{p_g_focus}
 \end{figure}
-The module \pyth{showdata} contains functions do display metadata and data from openPMD-compatible files and calculate pulse parameters from this data. The main function of the module is
+The module \pyth{showdata} contains functions to display metadata and data from openPMD-compatible files and calculate pulse parameters from this data. The main function of the module is
 \begin{python}
 showdata.show_file(filename)
 \end{python}
@@ -307,7 +300,7 @@ The Lasy library offers functionality to generate, modify and propagate a laser 
 \end{figure}
 A Gaussian laser pulse is one of the simplest and well known pulse shapes. It is, therefore, an important test case. The Gaussian pulse is defined by the main wavelength $\lambda_0$, the beam waist at the focus $w_0$ and the pulse duration $\tau$ as well as the maximum amplitude $A$ and the polarisation direction $\hat{e}_{pol}$. At the focus the electric field looks like
 \begin{equation}
-\vec{E}(r, t) = A\hat{e}_{pol}\cdot e^{i\omega_0t}\cdot e^{-\frac{r^2}{w_0^2}}\cdot e^{-\frac{t^2}{\tau_{}^2}}\text{ with }\omega_0 = \frac{c}{2\pi\lambda_0}.
+\vec{E}(r, t) = A\hat{e}_{pol}\cdot e^{i\Omega_0t}\cdot e^{-\frac{r^2}{w_0^2}}\cdot e^{-\frac{t^2}{\tau_{}^2}}\text{ with }\omega_0 = \frac{c}{2\pi\lambda_0}.
 \end{equation} 
 Because Lasy only uses the complex envelope of the laser field, a Gaussian laser initialised in it has a field following
 \begin{equation}
@@ -332,14 +325,18 @@ The time of arrival obviously follows the relation $t(z)=\frac{z}{c}$. In figure
 \end{figure}
 To generate a pulse for PIConGPU simulations, a Gaussian laser pulse with an initial beam waist of $w$ was reflected by a parabolic mirror of focus length $f$. The pulse can be seen in figure \ref{l_g_parabola} on the left side.
 To save on space in the RAM and on compute time while gaining precision, the laser was simulated in cylindrical coordinates using the \pyth{dim = "rt"} option for Lasy lasers. This assumes, that the laser is radially symmetric (which should be the case here, because both the laser and the mirror have this symmetry), but the computer can handle a simulation with more than 10'000 points transversally.\\
-From the parabolic mirror the laser propagated to one Rayleigh length $z_R$ before the focus by a distance of $l=f-z_R=f-\frac{\pi w_0^2}{\lambda_0}$ with $w_0=\frac{f\lambda_0}{w\pi}$. Using the module \pyth{full_field}, the electric field of the laser was saved to an openPMD-compatible file. The goal was to feed it into PIConGPU one Rayleigh-length from the focus and then simulate it propagating through the focus point to one Rayleigh-length beyond it. In figure \ref{l_g_parabola} the pulse now is shown on the right. The saved field can be seen in figure \ref{l_g_saved}. To verify the Lasy propagation, the laser propagated into the focus and out of it again by a rayleigh length in Lasy. The beam waist at the focus was consistent with the theoretical value of $w_0$. The field at the focus is also shown in figure \ref{l_g_focus}.
+From the parabolic mirror the laser propagated to one Rayleigh length $z_R$ before the focus by a distance of
+\begin{equation}
+\label{gausslength}
+l=f-z_R=f-\frac{\pi w_0^2}{\lambda_0}\text{ with }w_0=\frac{f\lambda_0}{w\pi}.
+\end{equation} Using the module \pyth{full_field}, the electric field of the laser was saved to an openPMD-compatible file. The goal was to feed it into PIConGPU one Rayleigh-length from the focus and then simulate it propagating through the focus point to one Rayleigh-length beyond it. In figure \ref{l_g_parabola} the pulse one Rayleigh-length before the focus is shown on the right. The saved field can be seen in figure \ref{l_g_saved}. To verify the Lasy propagation, the laser was also propagated with Lasy into the focus and out of it again by a Rayleigh-length. The beam waist at the focus, $w=23,51\mu$m, was consistent with the theoretical value of $w_0=23.48\mu$m in equation (\ref{gausslength}). The field at the focus is also shown in figure \ref{l_g_focus}.
 
 \chapter{Lasy pulses in PIConGPU}
 \label{picprop}
-To use the saved laser pulse from the Lasy propagation in a PIConGPU simulation, PIConGPU's incidentField.param file needs to be ajusted to use profiles::FromOpenPMDPulse. The propagation direction in the file must be set to "z" and the mesh name to "E". In order for the file to fit on the GPUs, it is important to change the parameter reservedGpuMemorySize in the file memory.param to accomodate the file's size in addition to what is already required here.
+To use the saved laser pulse from the Lasy propagation in a PIConGPU simulation, PIConGPU's \textsf{incidentField.param} file needs to be ajusted to use \textsf{profiles::FromOpenPMDPulse}. The propagation direction in the file must be set to "z" and the mesh name to "E". In order for the file to fit on the GPUs, it is important to change the parameter \textsf{reservedGpuMemorySize} in the file \textsf{memory.param} to accomodate the file's size in addition to what is already required here.
 
 \section{Courant-Friedrich-Levy (CFL) condition}
-Dietrich \cite{fabia}, who implemented the profiles::FromOpenPMDPulse, showed that it is important, that in the file simulation.param the time step is the same (or very close to the same) as the time step in the saved laser pulse. (This can easily be achieved by setting the \pyth{forced_dt} option to that same time step when calling the function \pyth{full_field.laser_to_openPMD} to generate the laser file in Lasy.) However, because it may be neccessary to change the other parameters in the simulation.param file to be able to fit the laser pulse into a reasonable amount of cells, it is important to remember to check the CFL-condition. The size of the simulation cells ($\Delta x$, $\Delta y$, $\Delta z$) needs to be in the following relation with the time step $\Delta t$ (see \cite{PICdoc}):
+Dietrich \cite{fabia}, who implemented the \textsf{profiles::FromOpenPMDPulse}, showed that it is important, that in the file \textsf{simulation.param} the time step is the same (or very close to the same) as the time step in the saved laser pulse. (This can easily be achieved by setting the \pyth{forced_dt} option to that same time step when calling the function \pyth{full_field.laser_to_openPMD} to generate the laser file in Lasy.) However, because it may be neccessary to change the other parameters in the \textsf{simulation.param} file to be able to fit the laser pulse into a reasonable amount of cells, it is important to remember to check the CFL-condition. The size of the simulation cells ($\Delta x$, $\Delta y$, $\Delta z$) needs to be in the following relation with the time step $\Delta t$ (see \cite{PICdoc}):
 \begin{equation}
 c\Delta t < \frac{1}{\sqrt{\frac{1}{\Delta x}+\frac{1}{\Delta y}+\frac{1}{\Delta z}}}
 \end{equation}
@@ -351,8 +348,8 @@ For this purpose the module \pyth{full_field} contains the following function:
 \begin{python}
 full_field.cfl_condition()
 \end{python}
-It returns returns the ideal time step for the specified cell size. If a time step is specified it will print how far off it is.\\
-If the deviation between the used and the ideal time step is less than 5\% the PIConGPU simulation will work without major problems \cite{PICdoc}.
+It returns the ideal time step for the specified cell size. If a time step is specified it will print how far off it is.\\
+If the deviation between the used and the ideal time step is less than 0.5\% the PIConGPU simulation will work without major problems \cite{CFLdoc}.
 
 \section{Comparitative test with the Gauss laser}
 \begin{figure}[t!]
@@ -375,7 +372,7 @@ If the deviation between the used and the ideal time step is less than 5\% the P
 \label{p_g_ws}
 \end{figure}
 The laser pulse in the file (see figure \ref{l_g_saved}) can be fed into PIConGPU and simulated.
-Figure \ref{p_g_zr1} shows the pulse as it enters the simulation volume. Of note: because PIConGPU  uses the y-axis as propagation direction, all figures from its simulations are labeled accordingly. It is still almost a Rayleigh length away from the focus point. Behind the pulse there are some artifacts from the field initialisation method. These are a known issue of the simulation, see \cite{PICartefact}. They can even move faster than light speed, as can be seen in figure \ref{p_g_focus} at the focus, where they have moved along significantly. Ignoring those for the moment, however, the waist of the pulse can be measured using \pyth{showdata.show_w()} and at the focus the value is very similar to the calculated $w_0$ from section \ref{gauss_gen}.
+Figure \ref{p_g_zr1} shows the pulse as it enters the simulation volume. Of note: because PIConGPU  uses the y-axis as propagation direction, all figures from its simulations are labeled accordingly. It is still almost a Rayleigh length away from the focus point. Behind the pulse there are some artifacts from the field initialisation method. These are a known issue of the simulation, see \cite{PICartefact}. They can even move faster than light speed, as can be seen in figure \ref{p_g_focus} at the focus, where they have moved along significantly. Ignoring those for the moment, however, the waist of the pulse can be measured using \pyth{showdata.show_w()} and at the focus the value of $w=23.53\mu$m from the fitting of a Gaussian function and $w=23.64\mu$m calculated statistically (including the atrifacts visible in figure \ref{p_g_focus}) is similar to the calculated $w_0=23.48\mu$m from section \ref{gauss_gen}.
 After a propagation of one Rayleigh length past the focus, the pulse looks like in figure \ref{p_g_zr2}. Here the waist is a lot larger again. It develops over time, as can be seen in figure \ref{p_g_ws}. Here the focus is in the middle and the plot shows the propagation by one Rayleigh length in each direction. It also shows the expected values from equation \ref{gauss_w} for comparison. They follow a very similar development, though towards the end the simulation artifacts skew the values to be larger. They can achieve this because the values of $w$ are calculated statistically here.\\
 One can also see the shape of the wave fronts, always curved towards the focus point. At the focus point (figure \ref{p_g_focus}) they are flat.
 
@@ -395,9 +392,16 @@ The previous chapters on tests with Gaussian laser pulses suggest, that the meth
 \caption{The shape of a Gaussian laser pulse after the RGD, compared to the function $\tau_D(r)$, simulated in Lasy.}
 \label{l_rgd_ts}
 \end{figure}
-To test the functionality of the radial group delay echelon (RGD) implemetation described in section \ref{radialGroupDelay}, a laser pulse was reflected by the RGD and then propagated to different distances. Figure \ref{l_rgd} shows, that the shape of the pulse barely changes after the echelon, which is what should happen. There are some artifacts from the simulation but they appear to be minor. Figure \ref{l_rgd_ts} shows the shape of the pulse after the RGD after propagation for different distances. It is clearly visible, that for the most part the shape does not change after the RGD. Only at $r=0$ and at the edge there are some differences. The center is an effect of the artifact in the center visible in figure \ref{l_rgd} on the right. Because the simulation ran on a radial grid, it always generates artifacts at $r=0$. At the edge the intensity has dropped so much, that noise from the simulation begins to take effect. In conclusion, the RGD works as intended.
+\begin{figure}[t!]
+\centering
+\includegraphics[width=0.7\textwidth]{Images/tau_Ds.png}
+\caption{The three different $\tau_D(r)$ for $v_f=1.02c$, according to Oubrerie \cite{Oubrerie:2022}, Ambat \cite{Ambat:2023} and Palastro \cite{Palastro:2020}}
+\label{tauD_comp}
+\end{figure}
+To test the functionality of the radial group delay echelon (RGD) implemetation described in section \ref{radialGroupDelay}, a laser pulse was reflected by the RGD and then propagated to different distances. Figure \ref{l_rgd} shows, that the shape of the pulse barely changes after the echelon, which is what should happen. There are some artifacts from the simulation but they appear to be minor. Figure \ref{l_rgd_ts} shows the shape of the pulse after the RGD after propagation for different distances. It is clearly visible, that for the most part the shape does not change after the RGD. Only at $r=0$ and at the edge there are some differences. The center is an effect of the artifact in the center visible in figure \ref{l_rgd} on the right. Because the simulation ran on a radial grid, it always generates artifacts at $r=0$. At the edge the intensity has dropped so much, that noise from the simulation begins to take effect. In conclusion, the RGD works as intended. To determine what the function $\tau_D(r)$ should be, the papers \cite{Ambat:2023}, \cite{Palastro:2020} and \cite{Oubrerie:2022} offer three different differential equations but only one of them, Oubrerie et al \cite{Oubrerie:2022}, offers a solution to the equation (see section \ref{radialGroupDelay}). All these functions were described in the papers as making the focus point of the axiparabola laser travel at some fixed speed that can be set arbitrarily, as long as it is close to the speed of light ($v=v_0+c$ with $|v_0|<<c$). To ensure these equations all described the same function $\tau_D(r)$, figure \ref{tauD_comp} shows them in comparison. They are very similar.
 
 \section{Testing the axiparabola}
+\subsection{Setup}
 \label{test_axiparabola}
 \begin{figure}[t!]
 \centering
@@ -418,6 +422,16 @@ To test the functionality of the radial group delay echelon (RGD) implemetation 
 \caption{Graphic taken from Ambat et al \cite{Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta$. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref{axiparabola_wz}). (d) A plot showing , that the arrival time of the pulse follows equation (\ref{axiparabola_tz}).}
 \label{ambat_axisim}
 \end{figure}
+Lasy offers an axiparabola object natively. One can just apply one to a laser pulse like this:
+\begin{python}
+axiparabola = lasy.optical_elements.Axiparabola(f0, delta, R)
+laser.apply_optics(axiparabola)
+\end{python}
+Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applied as well as after being propagated to the beginning of the focus. The full electric field at the focus is shown in figure \ref{l_a_focus}. Because the original pulse in this case was not a Gaussian pulse but a super-Gaussian pulse of order 6 transversally, the shape at the focus is not a gaussian pulse either. It is instead close to a sinc function, as one would expect.\\ 
+
+[more?]
+
+\subsection{Results}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.48\textwidth]{Images/lasy_axiparabola_ws.png}
@@ -434,6 +448,11 @@ To test the functionality of the radial group delay echelon (RGD) implemetation 
 \caption{The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.}
 \label{p_a_wsts}
 \end{figure}
+Figure \ref{l_a_wsts} shows the results of a simulation where the laser propagated past the focus point through the focal region. They are compared to theoretical calculations according to equations (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). The module \pyth{axiparabola_theory} (see section \ref{axiparabola_theory}) was used to calulate the values to compare to. As figure \ref{ambat_axisim} shows, Ambat et al were able to see the behavior described by the equations (\ref{axiparabola_wz}) (see image (c)) and (\ref{axiparabola_tz}) (see image (d)). This is clearly not what can be seen in the results here in figure \ref{l_a_wsts}.\\
+The naive way of doing such a simulation in lasy is to just propagate the laser to a point, measure $w$ and $\Delta t$ and then propagate it further from there. The results of that are shown on the left of figure \ref{l_a_wsts}. Because measurement and theory clearly do not align here, I tried to propagate the laser pulse to each point seperately from the axiparabola to avoid compounding errors. The results of that test are shown on the right of the figure and are clearly in line with the plots on the left. These possible compounding errors of the propagation can therefore be excluded as the main source of the difference between measurement and theory.\\
+In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU numerically integrates the Maxwell equations on a grid using finite differences. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
+
+\subsection{Discussion}
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.48\textwidth]{Images/axiparabola_abs.png}
@@ -448,23 +467,17 @@ To test the functionality of the radial group delay echelon (RGD) implemetation 
 \caption{A numerical comparison of the left and right sides of equation (\ref{difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite{Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.}
 \label{axiparabola_de}
 \end{figure}
-Lasy offers an axiparabola object natively. One can just apply one to a laser pulse like this:
-\begin{python}
-axiparabola = lasy.optical_elements.Axiparabola(f0, delta, R)
-laser.apply_optics(axiparabola)
-\end{python}
-Figure \ref{l_axiparabola} shows the laser pulse after the axiparabola is applied as well as after being propagated to the beginning of the focus. The full electric field at the focus is shown in figure \ref{l_a_focus}. Because the original pulse in this case was not a Gaussian pulse but a super-Gaussian pulse of order 6 transversally, the shape at the focus is not a gaussian pulse either. It is instead close to a sinc function, as one would expect.\\
-Figure \ref{l_a_wsts} shows the results of a simulation where the laser propagated past the focus point through the focal region. They are compared to theoretical calculations according to equations (\ref{axiparabola_wz}) and (\ref{axiparabola_tz}). The module \pyth{axiparabola_theory} (see section \ref{axiparabola_theory}) was used to calulate the values to compare to. As figure \ref{ambat_axisim} shows, Ambat et al were able to see the behavior described by the equations (\ref{axiparabola_wz}) (see image (c)) and (\ref{axiparabola_tz}) (see image (d)). This is clearly not what can be seen in the results here in figure \ref{l_a_wsts}.\\
-The naive way of doing such a simulation in lasy is to just propagate the laser to a point, measure $w$ and $\Delta t$ and then propagate it further from there. The results of that are shown on the left of figure \ref{l_a_wsts}. Because measurement and theory clearly do not align here, I tried to propagate the laser pulse to each point seperately from the axiparabola to avoid compounding errors. The results of that test are shown on the right of the figure and are clearly in line with the plots on the left. These possible compounding errors of the propagation can therefore be excluded as the main source of the difference between measurement and theory.\\
-In order to exclude another possible problem, the same propagation simulation was also run in PIConGPU. The results are shown in figure \ref{p_a_wsts}. The measured values are calculated from the field of the pulse statistically for this figure but other methods give similar results. The simulation methods are extremely different from one another: Lasy works in fourier space using angular spectrum propagation, PIConGPU simply integrates the Maxwell equations. Still, the results are of similar nature: The beam waist goes up instead of down and the focus does not move as expected either. The propagation method within the focal region is clearly not the problem here.\\
 Because both simulation methods have already been tested with the known Gauss-laser in sections \ref{lasyprop} for the lasy propagation and \ref{picprop} for the PIConGPU propagation, the methods to propagate to the focus and import the pulse to PIConGPU are unlikely to be the problem here.\\
 The remaining options for causing the differences between theory and measurement are the axiparabola itself or the theory being incorrect.
-For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. This makes it unlikely, that the shape of the axiparabola is the problem. Nonetheless, it is interesting to see, whether this shape fulfills the differential equation, that Smartsev et al \cite{Smartsev:2019} and Oubrerie et al \cite{Oubrerie:2022} used to derive the shape:
+For this reason figure \ref{axiparabola_shape} shows a comparison of the sag functions described in the different papers, the one used in Lasy and a normal parabolic mirror. They are all very similar. This makes it unlikely, that the shape of the axiparabola is the problem. Nonetheless, it is interesting to see, whether this shape fulfills the differential equation, that Smartsev et al \cite{Smartsev:2019} and Oubrerie et al \cite{Oubrerie:2022} used to derive the shape of the axiparabola:
 \begin{equation}
 \label{difeq}
 s_f(r) - f(r) + \sqrt{\left(f(r)-s_f(r)\right)^2+r^2} = r\cdot \frac{\mathrm{d}s_f(r)}{\mathrm{d}r}
 \end{equation}
 As can be seen in figure \ref{axiparabola_de}, the two sides are almost identical. Therefore, the shape is likely to be correct.
+
+\subsection{Nexts steps}
+[?]
 
 \section{The complete assembly}
 \begin{figure}[t!]
@@ -501,27 +514,27 @@ As can be seen in figure \ref{axiparabola_de}, the two sides are almost identica
 \caption{The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac{z}{c}$ (bottom) over the focal region $\delta$ of the flying focus assembly for $v_f=1.02c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.}
 \label{l_f102_wsts}
 \end{figure}
-Combining the two elements and applying them to the laser, one should get a flying focus laser. Figure \ref{l_f_axiparabola} shows, what this will look like for a desired focal velocity $v_f=0.98c$ or $v_f=1.02c$.
+Combining the two elements and applying them to the laser, one should obtain a flying focus laser. Figure \ref{l_f_axiparabola} shows, what this will look like for a desired focal velocity $v_f=0.98c$ or $v_f=1.02c$.
 The field is now shaped quite different to what it was before, as can be seen in figure \ref{l_f_focus}.
-It is no longer symmetrical in the propagation direction. However, the two plots look like mirror images of each other. This makes sense, as the peak of the pulse is supposed to be moving in opposite directions relative to the speed of light. Because the axiparabola cuts the pulse off at a specific radius $R$ and the RGD introduces sudden jumps as well, the defraction artefacts are more pronounced than before but they should be mostly physical.\\
+It is no longer symmetrical in the propagation direction. However, the two plots look like mirror images of each other. This is reasonable, as the peak of the pulse is supposed to be moving in opposite directions relative to the speed of light. Because the axiparabola cuts the pulse off at a specific radius $R$ and the RGD introduces sudden jumps as well, the diffraction artifacts are more pronounced than before but they should be mostly physical.\\
 The figures \ref{l_f98_wsts} and \ref{l_f102_wsts} show the results of lasy simulations with the flying focus assembly. Like in figure \ref{l_a_wsts} a consecutive and a pointwise separate simulation are shown. Of course theoretical formula for the beam waist, equation (\ref{axiparabola_wz}), does not neccessarily apply for this setup. First of all, the beam waist is appearently larger in this case, according to the simulation. The curve is shown only for the lack of a better formula. However, the other diagram is of major importance here. The flying focus assembly is meant to make the focus point move at vacuum speed of light in the plasma of an LWFA chamber. For that the focus time must move like the theoretical lines in the bottom plots of the two figures. This is clearly not the case. The RGD did not manage to fix the problem with the axiparabola in the flying focus case.
 
 \chapter{Summary and Outlook}
 
 \section{Summary}
-In conclusion, I was able to use Lasy and PIConGPU in conjunction to simulate laser pulses by first generating the pulse in Lasy, potentially sending it through optical elements and propagating it for some distances, save it to an openPMD compatible file that PIConGPU can read and finally simulate the laser from the file in PIConGPU. The previous chapters have shown, that this will correctly portray simple gauss pulses and that the translation from one simulation method to the other does not majorly change the outcome. I also managed to implement a working RGD echelon optical element that could be patched into the lasy library.\\
-However, it was not possible to replicate the findings in other papers (Ambat et al \cite{Ambat:2023} etc., see section \ref{Theo_axiparabola}) regarding the axiparabola and its far field. Therefore it was also not possible to generate a flying focus laser as it has been described.
+In conclusion, I was able to use Lasy and PIConGPU in conjunction in order to simulate laser pulses by first generating the pulse in Lasy, potentially sending it through optical elements and propagating it for some distances, save it to an openPMD compatible file that PIConGPU can read and finally simulate the laser from the file in PIConGPU. The previous chapters have shown, that this will correctly portray simple gauss pulses and that the translation from one simulation method to the other does not majorly change the outcome. I also managed to implement a working RGD echelon optical element that could be patched into the lasy library.\\
+However, it was not possible to replicate the findings of other papers (Ambat et al \cite{Ambat:2023} etc., see section \ref{Theo_axiparabola}) regarding the axiparabola and its far field. Therefore it was also not possible to generate a flying focus laser as it has been described.
 
 \section{Outlook}
-In the future people will be able to use this new framework to use more complicated laser setups for their PIConGPU simulations. It will be possible to simulate the laser pulse move through an optical setup first and then simulate it interacting with a plasma in PIConGPU.\\
-Some work remains to find the reason(s) for the differences between the simulations shown in this work and the findings of other groups. It could, for example, be useful to test different propagation methods in the Lasy simulations. Lasy offers a variety of options, that are currently in developement. In chapter \ref{lasyprop} is shown, that the standard propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that it is a lot more memeory intesive, meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work. This is why such tests are not included in this work. It might also be worthwhile to further investigate the axiparabola theory (see section \ref{Theo_axiparabola}). Mistakes here could also explain the problem.\\
-It would also be interesting to further analyse the the artefacts visible in figures \ref{p_g_focus}, \ref{p_g_zr1} and \ref{p_g_zr2}. For example: how much energy do they contain? How can they move faster than the speed of light?\\
+In the future people will be able to use this new framework to use more complicated laser setups for their PIConGPU simulations. It will be possible to perform laser-plasma simulations with laser pulses, which have been shaped by optical elemtents first.\\
+Some work remains to find the reason(s) for the differences between the simulations shown in this work and the findings of other groups. It could, for example, be useful to test different propagation methods in the Lasy simulations. Lasy offers a variety of options, that are currently in developement. In chapter \ref{lasyprop} is shown, that the standard propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that the propagation computation is a lot more memory intesive, meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work. This is why such tests are not included in this work. It might also be worthwhile to further investigate the axiparabola theory (see section \ref{Theo_axiparabola}). Mistakes here could also explain the problem.\\
+It would also be interesting to further analyse the artifacts visible in figures \ref{p_g_focus}, \ref{p_g_zr1} and \ref{p_g_zr2}. For example: how much energy do they contain? How can they move faster than the speed of light?\\
 
 \definecolor{ow}{RGB}{250, 180, 0}
 \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
 
 \section{Code availability}
-All the code used in this work that I have written and mentioned here can be found on github at \cite{github}. Most images were created in the jupyter notebooks in that repository, using the modules mentioned in section \ref{modules}.
+All the code used in this work that I have written and mentioned here can be found on github at \cite{github}. Most images were created with the jupyter notebooks in that repository, using the modules mentioned in section \ref{modules}.
 
 \clearpage
 \addcontentsline{toc}{chapter}{Bibliography}

@@ -19,7 +19,7 @@
 \citation{Palastro:2020}
 \citation{Palastro:2020}
 \citation{Smartsev:2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, coloured according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue.\relax }}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces PIConGPU simulation of laser wakefield acceleration. Displayed are the electrons, coloured according to their energy $E$, the electric field of the laser pulse $E_x$ and the on-axis accelerating field $E_y$ in blue. The laser pulse travels from left to right.\relax }}{7}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{LWFA}{{1.1}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}The problem of Dephasing}{7}}
@@ -56,69 +56,78 @@
 \newlabel{modules}{{2.4}{11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Module \lstinline [style=mypythoninline]{full_field}}{11}}
 \newlabel{full_field}{{2.4.1}{11}}
-\citation{Oubrerie:2022}
-\citation{Ambat:2023}
-\citation{Palastro:2020}
-\citation{Oubrerie:2022}
-\citation{Ambat:2023}
-\citation{Palastro:2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Full electric field of a gaussian laser pulse at its focus, according to a Lasy simulation.\relax }}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Full electric field of a Gaussian laser pulse at its focus, according to a Lasy simulation.Because of the time axis at the bottom, this pulse travels from right to left.\relax }}{12}}
 \newlabel{l_g_focus}{{2.1}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces The field that has been saved as an openPMD-compatible file after Lasy simulation, one Rayleigh length before the focus.\relax }}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces The field that has been saved as an openPMD-compatible file after Lasy simulation of a Gaussian laser pulse, one Rayleigh length before the focus.\relax }}{12}}
 \newlabel{l_g_saved}{{2.2}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Module \lstinline [style=mypythoninline]{radialGroupDelay}}{12}}
-\newlabel{radialGroupDelay}{{2.4.2}{12}}
 \citation{Ambat:2023}
 \citation{Ambat:2023}
 \citation{Palastro:2020}
 \citation{Oubrerie:2022}
 \citation{Oubrerie:2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces The three different $\tau _D(r)$ for $v_f=1.02c$, according to Oubrerie \cite  {Oubrerie:2022}, Ambat \cite  {Ambat:2023} and Palastro \cite  {Palastro:2020}\relax }}{13}}
-\newlabel{tauD_comp}{{2.3}{13}}
 \citation{Ambat:2023}
 \citation{Smartsev:2019}
 \citation{Ambat:2023}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Module \lstinline [style=mypythoninline]{axiparabola_theory}}{14}}
-\newlabel{axiparabola_theory}{{2.4.3}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Module \lstinline [style=mypythoninline]{showdata}}{14}}
-\newlabel{showdata}{{2.4.4}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Gauss pulse at its focus point according to the PIConGPU simulation. The artifacts to the side of the pulse are orders of magnitude less intense than the main peak of the pulse (see figure \ref  {p_g_zr1} for reference).\relax }}{15}}
-\newlabel{p_g_focus}{{2.4}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Module \lstinline [style=mypythoninline]{radialGroupDelay}}{13}}
+\newlabel{radialGroupDelay}{{2.4.2}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Module \lstinline [style=mypythoninline]{axiparabola_theory}}{13}}
+\newlabel{axiparabola_theory}{{2.4.3}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Module \lstinline [style=mypythoninline]{showdata}}{13}}
+\newlabel{showdata}{{2.4.4}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Gauss pulse at its focus point according to the PIConGPU simulation. The artifacts to the side of the pulse are orders of magnitude less intense than the main peak of the pulse (see figure \ref  {p_g_zr1} for reference).\relax }}{14}}
+\newlabel{p_g_focus}{{2.3}{14}}
 \citation{lasydoc}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Gaussian pulses in Lasy}{16}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Gaussian pulses in Lasy}{15}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{lasyprop}{{3}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Testing Gaussian pulses}{16}}
-\newlabel{gauss_w}{{3.3}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A Gaussian pulse newly generated at the focus (left) and propagated $6z_R$ (right) in Lasy.\relax }}{17}}
-\newlabel{gauss_test}{{3.1}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The beam waist $w(z)$ (left) and the time difference $t-\frac  {z}{c}$ (right) compared to their respective theoretical values of a gaussian pulse initialised in the focus and propagated in Lasy. For comparison: the pulse duration was in this case $\tau =10$fs.\relax }}{17}}
-\newlabel{gauss_diags}{{3.2}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Gaussian pulse and parabolic mirror}{17}}
-\newlabel{gauss_gen}{{3.2}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces A Gaussian laser pulse in the near field of the parabolic mirror (left) and in the far field, one rayleigh length before the focus (right), simulated in Lasy.\relax }}{18}}
-\newlabel{l_g_parabola}{{3.3}{18}}
+\newlabel{lasyprop}{{3}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Testing Gaussian pulses}{15}}
+\newlabel{gauss_w}{{3.3}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A Gaussian pulse newly generated at the focus (left) and propagated $6z_R$ (right) in Lasy.\relax }}{16}}
+\newlabel{gauss_test}{{3.1}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces The beam waist $w(z)$ (left) and the time difference $t-\frac  {z}{c}$ (right) compared to their respective theoretical values of a gaussian pulse initialised in the focus and propagated in Lasy. For comparison: the pulse duration was in this case $\tau =10$fs.\relax }}{16}}
+\newlabel{gauss_diags}{{3.2}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Gaussian pulse and parabolic mirror}{16}}
+\newlabel{gauss_gen}{{3.2}{16}}
+\newlabel{gausslength}{{3.4}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces A Gaussian laser pulse in the near field of the parabolic mirror (left) and in the far field, one rayleigh length before the focus (right), simulated in Lasy.\relax }}{17}}
+\newlabel{l_g_parabola}{{3.3}{17}}
 \citation{fabia}
 \citation{PICdoc}
-\citation{PICdoc}
+\citation{CFLdoc}
 \citation{PICartefact}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Lasy pulses in PIConGPU}{19}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Lasy pulses in PIConGPU}{18}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{picprop}{{4}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Courant-Friedrich-Levy (CFL) condition}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A Gaussian laser pulse propagating into the PIConGPU simulation volume. Left: On a symlog plot; right: on a linear plot. The artifacts behind the pulse are orders of magnitude less intense than the main peak of the pulse.\relax }}{20}}
-\newlabel{p_g_zr1}{{4.1}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU. The artifacts visible to the side of the pulse are still orders of magnitude less intense than the main peak of the pulse.\relax }}{20}}
-\newlabel{p_g_zr2}{{4.2}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Comparitative test with the Gauss laser}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The width of the gaussian pulse over time, according to the PIConGPU simulation.\relax }}{21}}
-\newlabel{p_g_ws}{{4.3}{21}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}The flying focus laser}{22}}
+\newlabel{picprop}{{4}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Courant-Friedrich-Levy (CFL) condition}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A Gaussian laser pulse propagating into the PIConGPU simulation volume. Left: On a symlog plot; right: on a linear plot. The artifacts behind the pulse are orders of magnitude less intense than the main peak of the pulse.\relax }}{19}}
+\newlabel{p_g_zr1}{{4.1}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A Gaussian laser pulse propagated one Rayleigh length after the parabola focus in PIConGPU. The artifacts visible to the side of the pulse are still orders of magnitude less intense than the main peak of the pulse.\relax }}{19}}
+\newlabel{p_g_zr2}{{4.2}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Comparitative test with the Gauss laser}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The width of the gaussian pulse over time, according to the PIConGPU simulation.\relax }}{20}}
+\newlabel{p_g_ws}{{4.3}{20}}
+\citation{Oubrerie:2022}
+\citation{Ambat:2023}
+\citation{Palastro:2020}
+\citation{Oubrerie:2022}
+\citation{Ambat:2023}
+\citation{Palastro:2020}
+\citation{Ambat:2023}
+\citation{Palastro:2020}
+\citation{Oubrerie:2022}
+\citation{Oubrerie:2022}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}The flying focus laser}{21}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Testing the radial group delay}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Testing the radial group delay}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A Gaussian laser pulse in the near field of the radial group delay echelon (left) and propagated 93 cm (right), simulated in Lasy.\relax }}{22}}
+\newlabel{l_rgd}{{5.1}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The shape of a Gaussian laser pulse after the RGD, compared to the function $\tau _D(r)$, simulated in Lasy.\relax }}{22}}
+\newlabel{l_rgd_ts}{{5.2}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The three different $\tau _D(r)$ for $v_f=1.02c$, according to Oubrerie \cite  {Oubrerie:2022}, Ambat \cite  {Ambat:2023} and Palastro \cite  {Palastro:2020}\relax }}{23}}
+\newlabel{tauD_comp}{{5.3}{23}}
 \citation{Ambat:2023}
 \citation{Ambat:2023}
 \citation{Smartsev:2019}
@@ -131,44 +140,44 @@
 \citation{Ambat:2023}
 \citation{Smartsev:2019}
 \citation{Oubrerie:2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces A Gaussian laser pulse in the near field of the radial group delay echelon (left) and propagated 93 cm (right), simulated in Lasy.\relax }}{23}}
-\newlabel{l_rgd}{{5.1}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The shape of a Gaussian laser pulse after the RGD, compared to the function $\tau _D(r)$, simulated in Lasy.\relax }}{23}}
-\newlabel{l_rgd_ts}{{5.2}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testing the axiparabola}{23}}
-\newlabel{test_axiparabola}{{5.2}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The laser pulse in the near field of the axiparabola (left) and in the far field at the focus(right), simulated in Lasy.\relax }}{24}}
-\newlabel{l_axiparabola}{{5.3}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces The full electric field of the pulse at the focus of the axiparabola according to a Lasy simulation.\relax }}{24}}
-\newlabel{l_a_focus}{{5.4}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Graphic taken from Ambat et al \cite  {Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta $. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref  {axiparabola_wz}). (d) A plot showing , that the arrival time of the pulse follows equation (\ref  {axiparabola_tz}).\relax }}{24}}
-\newlabel{ambat_axisim}{{5.5}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the axiparabola according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{25}}
-\newlabel{l_a_wsts}{{5.6}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.\relax }}{25}}
-\newlabel{p_a_wsts}{{5.7}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces The shape of the axiparabola. Left: Smartsev \cite  {Smartsev:2019} and Ambat \cite  {Ambat:2023} compared with the Lasy implementation \cite  {lasydoc} and a regular parabolic mirror. Right: A relative comparison of the same sag functions $s_f(r)$ for the axiparabola.\relax }}{26}}
-\newlabel{axiparabola_shape}{{5.8}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces A numerical comparison of the left and right sides of equation (\ref  {difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite  {Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.\relax }}{26}}
-\newlabel{axiparabola_de}{{5.9}{26}}
-\newlabel{difeq}{{5.1}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}The complete assembly}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces The laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.\relax }}{28}}
-\newlabel{l_f_axiparabola}{{5.10}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces The electric field at the focus of the echelon axiparabola assembly, designed for $v_f=1.02c$ (left) and for $v_f=0.98c$ (right), simulated in Lasy.\relax }}{28}}
-\newlabel{l_f_focus}{{5.11}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the flying focus assembly for $v_f=0.98c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{29}}
-\newlabel{l_f98_wsts}{{5.12}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the flying focus assembly for $v_f=1.02c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{30}}
-\newlabel{l_f102_wsts}{{5.13}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testing the axiparabola}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Setup}{24}}
+\newlabel{test_axiparabola}{{5.2.1}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Results}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Discussion}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces The laser pulse in the near field of the axiparabola (left) and in the far field at the focus(right), simulated in Lasy.\relax }}{25}}
+\newlabel{l_axiparabola}{{5.4}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces The full electric field of the pulse at the focus of the axiparabola according to a Lasy simulation.\relax }}{25}}
+\newlabel{l_a_focus}{{5.5}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Graphic taken from Ambat et al \cite  {Ambat:2023} showing their axiparabola simulation. (a) the shape of the axiparabola, the so called sag function. (b) The on-axis intensity of the laser pulse as the focus moves along $\delta $. (c) A plot showing the beam waist $w$ of the pulse as it travels the focal region. It roughly follows equation (\ref  {axiparabola_wz}). (d) A plot showing , that the arrival time of the pulse follows equation (\ref  {axiparabola_tz}).\relax }}{25}}
+\newlabel{ambat_axisim}{{5.6}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the axiparabola according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{26}}
+\newlabel{l_a_wsts}{{5.7}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces The beam waist $w$ (left) and peak position $z-ct$ (right) of the axiparabola laser according to the PIConGPU simulation.\relax }}{26}}
+\newlabel{p_a_wsts}{{5.8}{26}}
+\newlabel{difeq}{{5.1}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces The shape of the axiparabola. Left: Smartsev \cite  {Smartsev:2019} and Ambat \cite  {Ambat:2023} compared with the Lasy implementation \cite  {lasydoc} and a regular parabolic mirror. Right: A relative comparison of the same sag functions $s_f(r)$ for the axiparabola.\relax }}{27}}
+\newlabel{axiparabola_shape}{{5.9}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces A numerical comparison of the left and right sides of equation (\ref  {difeq}) for the shape of the axiparabola, using the sag function $s_f(r)$ from Ambat et al \cite  {Ambat:2023}. Left: Both sides as absolute values. Right: The difference between the two sides.\relax }}{27}}
+\newlabel{axiparabola_de}{{5.10}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Nexts steps}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}The complete assembly}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces The laser pulse in the near field of the combined elements (left) and in the far field at the focus (right); designed for $v_f=1.02c$ (top) and for $v_f=0.98c$ (bottom); simulated in Lasy.\relax }}{29}}
+\newlabel{l_f_axiparabola}{{5.11}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces The electric field at the focus of the echelon axiparabola assembly, designed for $v_f=1.02c$ (left) and for $v_f=0.98c$ (right), simulated in Lasy.\relax }}{29}}
+\newlabel{l_f_focus}{{5.12}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the flying focus assembly for $v_f=0.98c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{30}}
+\newlabel{l_f98_wsts}{{5.13}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces The beam waist $w$ (top) and the relative time shift $\Delta t=t-\frac  {z}{c}$ (bottom) over the focal region $\delta $ of the flying focus assembly for $v_f=1.02c$ according to a Lasy simulation. The left side shows a propagation from one point to another and the right shows a direct propagation from the axiparabola to each point.\relax }}{31}}
+\newlabel{l_f102_wsts}{{5.14}{31}}
 \citation{Ambat:2023}
 \citation{github}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and Outlook}{31}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and Outlook}{32}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Summary}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Outlook}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Code availability}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Summary}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Outlook}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Code availability}{33}}
 \bibstyle{plain}
 \bibdata{refs}
 \bibcite{lasydoc}{1}
@@ -184,18 +193,19 @@
 \bibcite{LWFA1}{11}
 \bibcite{github}{12}
 \bibcite{Miller:2023}{13}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{33}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{34}}
 \bibcite{Oubrerie:2022}{14}
 \bibcite{Palastro:2020}{15}
 \bibcite{Smartsev:2019}{16}
 \bibcite{PICartefact}{17}
-\bibcite{LWFA}{18}
+\bibcite{CFLdoc}{18}
+\bibcite{LWFA}{19}
 \citation{Smartsev:2019}
 \citation{Palastro:2020}
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{36}}
 \citation{Oubrerie:2022}
 \citation{Ambat:2023}
 \citation{Palastro:2020}
-\@writefile{toc}{\contentsline {chapter}{List of Figures}{35}}
 \citation{Ambat:2023}
 \citation{Smartsev:2019}
 \citation{Ambat:2023}

@@ -113,6 +113,12 @@ Klaus Steiniger.
   \url{https://github.com/ComputationalRadiationPhysics/picongpu/issues/5269}.
 \newblock Accessed october 2025.
 
+\bibitem{CFLdoc}
+Klaus Steiniger, Jakob Trojok, and Sergei Bastrakov.
+\newblock Finite-difference time-domain method.
+\newblock \url{https://picongpu.readthedocs.io/en/0.7.0/models/AOFDTD.html}.
+\newblock Accessed october 2025.
+
 \bibitem{LWFA}
 T~Tajima and JM~Dawson.
 \newblock Laser electron-accelerator.
