@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  19 DEC 2025 11:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  19 DEC 2025 11:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1362,13 +1362,12 @@ _flfoc_102_dir_ws.png> <./Images/lasy_flfoc_102_ts.png> <./Images/lasy_flfoc_10
 2_dir_ts.png>]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--533
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
+ [32
 
-[32
-
-] [33] (./main.bbl [34
+]
+[33] (./main.bbl [34
 
 
 ]
@@ -1394,10 +1393,10 @@ ion. Dis-played are the elec-trons, coloured
 
 ] [39] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 18282 strings out of 492982
- 331388 string characters out of 6134896
+ 18281 strings out of 492982
+ 331379 string characters out of 6134896
  515401 words of memory out of 5000000
- 21347 multiletter control sequences out of 15000+600000
+ 21346 multiletter control sequences out of 15000+600000
  25527 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,58p,1686b,1551s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1426,7 +1425,7 @@ uper/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (39 pages, 6023380 bytes).
+Output written on main.pdf (39 pages, 6022904 bytes).
 PDF statistics:
  357 PDF objects out of 1000 (max. 8388607)
  183 compressed objects within 2 object streams

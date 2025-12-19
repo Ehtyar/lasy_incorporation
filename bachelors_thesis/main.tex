@@ -529,10 +529,10 @@ However, it was not possible to replicate the findings of other papers (Ambat et
 \section{Outlook}
 In the future people will be able to use this new framework to use more complicated laser setups for their PIConGPU simulations. It will be possible to perform laser-plasma simulations with laser pulses, which have been shaped by optical elemtents first.\\
 Some work remains to find the reason(s) for the differences between the simulations shown in this work and the findings of other groups. It could, for example, be useful to test different propagation methods in the Lasy simulations. Lasy offers a variety of options, that are currently in developement. In chapter \ref{lasyprop} is shown, that the standard propagator works for simple Gaussian pulses but it could be that the pulse here is to complicated for it. However, at their current implementation at the time of writing these alternative propagators dont support lasers in cylindrical coordinates and only cartesian coordinates are usable. This has the disavantage that the propagation computation is a lot more memory intesive, meaning it allows for fewer points transversally and longitudinally than previous simulations described in this work. This is why such tests are not included in this work. It might also be worthwhile to further investigate the axiparabola theory (see section \ref{Theo_axiparabola}). Mistakes here could also explain the problem.\\
-It would also be interesting to further analyse the artifacts visible in figures \ref{p_g_focus}, \ref{p_g_zr1} and \ref{p_g_zr2}. For example: how much energy do they contain? How can they move faster than the speed of light?\\
+It would also be interesting to further analyse the artifacts visible in figures \ref{p_g_focus}, \ref{p_g_zr1} and \ref{p_g_zr2}. For example: how much energy do they contain? How can they move faster than the speed of light?%\\
 
-\definecolor{ow}{RGB}{250, 180, 0}
-\colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
+%\definecolor{ow}{RGB}{250, 180, 0}
+%\colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
 
 \section{Code availability}
 All the code used in this work that I have written and mentioned here can be found on github at \cite{github}. Most images were created with the jupyter notebooks in that repository, using the modules mentioned in section \ref{modules}.
