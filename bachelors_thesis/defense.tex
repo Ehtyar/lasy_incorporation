@@ -33,19 +33,6 @@
 \begin{frame}{Plan}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-        My idea
-        \begin{itemize}
-            \item Motivation LWFA
-            \item Flying focus as solution?
-            \item programs
-            \item Lasy lasers in PIConGPU
-            \item flying focus laser simulations
-            \item Summary
-            \item What now?
-        \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-        With Jessicas help
         \begin{itemize}
             \item Why? DLWFA
             \item Flying focus in PIConGPU
@@ -64,20 +51,23 @@
             \end{itemize}
         \end{itemize}
         \end{column}
+        \begin{column}{0.5\textwidth}
+        
+        \end{column}
     \end{columns}
 \end{frame}
 
 \section{DLWFA}
 \begin{frame}{LWFA \cite{LWFA}}
     \begin{columns}
-        \begin{column}{1.15\textwidth}
-        \includegraphics[width=1\columnwidth]{Images/LWFA.png}
+        \begin{column}{1.1\textwidth}
+        \includegraphics[width=\columnwidth]{Images/LWFA.png}
+        {\scriptsize Electric field and electrons in an LWFA simulation.}
         \end{column}
     \end{columns}
     
 \end{frame}
 
-\section{Flying focus lasers in PIConGPU}
 \begin{frame}{Flying focus lasers}
     \includegraphics[width=\textwidth]{Images/palastro_flfoc.png}
     {\scriptsize The flying focus setup. Image taken from Palastro et al \cite{Palastro:2020}.}
@@ -100,9 +90,22 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{More flying focus stuff?}
-
+\begin{frame}{Properties of flying focus lasers}
+	\begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+        \item 
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: }
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        
+        \end{column}
+    \end{columns}
 \end{frame}
+
+\section{Flying focus lasers in PIConGPU}
 \begin{frame}{Lasy \cite{lasydoc}}
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -176,8 +179,11 @@
         \begin{column}{0.5\textwidth}
         \begin{itemize}
         \item New module \pyth{full_field}
-        \item ...
+        \item Generates full electric field and saves it using \texttt{openPMD-api}
+        \item 
         \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: }
         \end{column}
         \begin{column}{0.5\textwidth}
         
@@ -186,17 +192,17 @@
 \end{frame}
 
 \section{Testing the flying focus laser}
-\begin{frame}{Test 1}
+\begin{frame}{Testing the flying focus laser: First results}
     \begin{columns}
         \begin{column}{0.5\textwidth}
         
         \end{column}
         \begin{column}{0.5\textwidth}
-        
+        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Test 2}
+\begin{frame}{Testing the flying focus laser: }
     \begin{columns}
         \begin{column}{0.5\textwidth}
         
@@ -215,12 +221,21 @@
     \item The Findings in the other papers
     \end{itemize}
 \end{frame}
-\begin{frame}{Now Lasy lasers available in PIConGPU}
-    
+\begin{frame}{Outlook}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+        \item Lasy lasers available in PIConGPU
+        \item[$\rightarrow$] ...
+        \item LWFA with new laser setups possible
+        \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        
+        \end{column}
+    \end{columns}
 \end{frame}
-\begin{frame}{Back to LWFA?}
-    
-\end{frame}
+
 
 \section{References}
 \begin{frame}[allowframebreaks]{References}
