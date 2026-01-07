@@ -3,44 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: defense.aux
 The style file: plain.bst
 Database file #1: refs.bib
-You've used 1 entry,
+Warning--to sort, need author or key in lasydoc
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            504 strings with 4176 characters,
-and the built_in function-call counts, 388 in all, are:
-= -- 32
-> -- 33
+            523 strings with 4787 characters,
+and the built_in function-call counts, 1421 in all, are:
+= -- 121
+> -- 120
 < -- 0
-+ -- 13
-- -- 12
-* -- 32
-:= -- 79
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 9
++ -- 48
+- -- 44
+* -- 116
+:= -- 262
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 10
-empty$ -- 18
-format.name$ -- 12
-if$ -- 70
+cite$ -- 5
+duplicate$ -- 37
+empty$ -- 76
+format.name$ -- 44
+if$ -- 271
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 7
+int.to.str$ -- 4
+missing$ -- 3
+newline$ -- 23
+num.names$ -- 6
+pop$ -- 35
 preamble$ -- 1
-purify$ -- 8
+purify$ -- 30
 quote$ -- 0
-skip$ -- 8
+skip$ -- 29
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 20
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 13
+type$ -- 16
+warning$ -- 1
+while$ -- 6
+width$ -- 5
+write$ -- 44
+(There was 1 warning)

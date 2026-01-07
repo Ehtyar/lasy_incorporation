@@ -65,33 +65,68 @@
 \section{Flying focus lasers in PIConGPU}
 \begin{frame}{Flying focus lasers}
     \includegraphics[width=\textwidth]{Images/palastro_flfoc.png}
-    Image taken from Palastro et al \cite{Palastro:2020}
+    {\scriptsize The flying focus setup. Image taken from Palastro et al \cite{Palastro:2020}.}
     \begin{columns}
         \begin{column}{0.5\textwidth}
         \begin{itemize}
-            \item h
-            \item g
-            \item ...
-            \item ..
-            \item .
+            \item Built from an axiparabola and a radial group delay echelon (RGD)
+            \item Axiparabola:\begin{itemize}
+            \item Focuses light onto a line
+            \item ?
+            \end{itemize}
+            \item RGD:\begin{itemize}
+            \item ?
+            \end{itemize}
         \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-        
+        \includegraphics[width=\columnwidth]{Images/axiparabola.png}
+        {\scriptsize Axiparabola functionality. Image taken from Smartsev et al \cite{Smartsev:2019}.}
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Lasy}
+\begin{frame}{More flying focus stuff?}
+
+\end{frame}
+\begin{frame}{Lasy \cite{lasydoc}}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-        
+        \begin{itemize}
+        \item A python library for simulating Laser pulses in a vacuum
+        \item Uses complex envelope of the laser field
+        \item angular spectrum propagation
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Example of a Gaussian pulse being propagated by Lasy. Top: generated at the focus, Bottom: 6 $z_R$ after the focus.}
         \end{column}
         \begin{column}{0.5\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_gauss_1.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_gauss_2.png}
         
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Implementing the flying focus}
+\begin{frame}{Implementing the flying focus: RGD}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+        \item Implemented from scratch as Lasy optical element
+        \item Following the description by Ambat et al \cite{Ambat:2023}
+        \item 
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images:A Gaussian pulse after interacting with the RGD. Top: field envelope, Bottom: Test results. even after long distances the shape still holds.}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_rgd0.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_rgd_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{more RGD?}
+	
+\end{frame}
+\begin{frame}{Implementing the flying focus: Axiparabola}
     \begin{columns}
         \begin{column}{0.5\textwidth}
         
@@ -134,7 +169,7 @@
     \end{columns}
 \end{frame}
 
-\section{Conclusion}
+\section{Conclusion and Outlook}
 \begin{frame}{Possible reasons for failure}
     
 \end{frame}
@@ -146,7 +181,7 @@
 \end{frame}
 
 \section{References}
-\begin{frame}{References}
+\begin{frame}[allowframebreaks]{References}
     \bibliographystyle{plain}
     \bibliography{refs}
 \end{frame}

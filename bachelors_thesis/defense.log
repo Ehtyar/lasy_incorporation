@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  7 JAN 2026 09:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  7 JAN 2026 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1191,7 +1191,7 @@ thkerncmss.
 [3
 
 ]
-<Images/LWFA.png, id=122, 1084.05pt x 726.3135pt>
+<Images/LWFA.png, id=123, 1084.05pt x 726.3135pt>
 File: Images/LWFA.png Graphic file (type png)
 <use Images/LWFA.png>
 Package pdftex.def Info: Images/LWFA.png  used on input line 63.
@@ -1199,21 +1199,48 @@ Package pdftex.def Info: Images/LWFA.png  used on input line 63.
  [4
 
  <./Images/LWFA.png>]
-<Images/palastro_flfoc.png, id=150, 1956.30875pt x 608.2725pt>
+<Images/palastro_flfoc.png, id=151, 1956.30875pt x 608.2725pt>
 File: Images/palastro_flfoc.png Graphic file (type png)
 <use Images/palastro_flfoc.png>
-Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 83.
+Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 87.
 (pdftex.def)             Requested size: 307.28987pt x 95.54353pt.
+<Images/axiparabola.png, id=153, 1467.4825pt x 596.2275pt>
+File: Images/axiparabola.png Graphic file (type png)
+<use Images/axiparabola.png>
+Package pdftex.def Info: Images/axiparabola.png  used on input line 87.
+(pdftex.def)             Requested size: 153.64493pt x 62.41922pt.
  [5
 
- <./Images/palastro_flfoc.png>] [6
-
-] [7
-
-] [8
+ <./Images/palastro_flfoc.png> <./Images/axiparabola.png>] [6
 
 ]
-[9
+<Images/lasy_gauss_1.png, id=211, 450.2421pt x 326.6604pt>
+File: Images/lasy_gauss_1.png Graphic file (type png)
+<use Images/lasy_gauss_1.png>
+Package pdftex.def Info: Images/lasy_gauss_1.png  used on input line 108.
+(pdftex.def)             Requested size: 153.64493pt x 111.47179pt.
+<Images/lasy_gauss_2.png, id=212, 459.6372pt x 326.6604pt>
+File: Images/lasy_gauss_2.png Graphic file (type png)
+<use Images/lasy_gauss_2.png>
+Package pdftex.def Info: Images/lasy_gauss_2.png  used on input line 108.
+(pdftex.def)             Requested size: 153.64493pt x 109.1939pt.
+ [7
+
+ <./Images/lasy_gauss_1.png> <./Images/lasy_gauss_2.png>]
+<Images/lasy_rgd0.png, id=245, 456.7464pt x 325.215pt>
+File: Images/lasy_rgd0.png Graphic file (type png)
+<use Images/lasy_rgd0.png>
+Package pdftex.def Info: Images/lasy_rgd0.png  used on input line 125.
+(pdftex.def)             Requested size: 153.64493pt x 109.40051pt.
+<Images/lasy_rgd_ts.png, id=246, 424.9476pt x 313.6518pt>
+File: Images/lasy_rgd_ts.png Graphic file (type png)
+<use Images/lasy_rgd_ts.png>
+Package pdftex.def Info: Images/lasy_rgd_ts.png  used on input line 125.
+(pdftex.def)             Requested size: 153.64493pt x 113.40271pt.
+
+[8
+
+ <./Images/lasy_rgd0.png> <./Images/lasy_rgd_ts.png>] [9
 
 ] [10
 
@@ -1221,11 +1248,21 @@ Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 83.
 
 ] [12
 
-] [13
+]
+[13
 
-] (./defense.bbl) [14
+] [14
 
- </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+] [15
+
+] [16
+
+] (./defense.bbl) [17
+
+ </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [18
+
+
+]
 \tf@nav=\write6
 \openout6 = `defense.nav'.
 
@@ -1235,30 +1272,33 @@ Package pdftex.def Info: Images/palastro_flfoc.png  used on input line 83.
 \tf@snm=\write8
 \openout8 = `defense.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./defense.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
 Package rerunfilecheck Info: File `defense.out' has not changed.
-(rerunfilecheck)             Checksum: BEB2F5CDC513F88BA8CE2B2982A825E8;261.
+(rerunfilecheck)             Checksum: EC23658ADB7C9E00EE3E34A8E87C721A;273.
  ) 
 Here is how much of TeX's memory you used:
- 17445 strings out of 492982
- 327433 string characters out of 6134896
- 401438 words of memory out of 5000000
- 20575 multiletter control sequences out of 15000+600000
- 14540 words of font info for 53 fonts, out of 8000000 for 9000
+ 17515 strings out of 492982
+ 329014 string characters out of 6134896
+ 401519 words of memory out of 5000000
+ 20628 multiletter control sequences out of 15000+600000
+ 14708 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,55p,801b,688s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on defense.pdf (14 pages, 2488698 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on defense.pdf (18 pages, 2878570 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 399 compressed objects within 4 object streams
- 35 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 515 compressed objects within 6 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
