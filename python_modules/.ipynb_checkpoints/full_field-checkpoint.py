@@ -758,6 +758,7 @@ def show_field(laser, Nt=None, Nx=None, Ny=None, Nr=None, forced_dt=None, offset
     if Ny is None:
         Ny = 2
     f, ext = get_full_field(laser, Nt=Nt, Nr=Nr, Nx=Nx, Ny=Ny, forced_dt=forced_dt, offset_frac=offset_frac)
+    print("Displaying")
     return _show(f, ext, show_SI, linthresh_frac, title, ret_ax)
     
     
