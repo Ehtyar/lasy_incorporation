@@ -3,6 +3,21 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{blindtext}
 
+\usepackage{mathtools} % Mathe
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb} % Mathe
+\usepackage{tikz} % Bilder
+\usepackage[english]{babel}
+\usepackage{babelbib}
+\usepackage{url}
+\usepackage{tabularx}
+
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{pythonhighlight}
+\usepackage{listings}
+%\usepackage[hidelinks]{hyperref}
+
 \title{Bachelors defense}
 \author{Edgar Marquardt}
 \date{\today}
@@ -53,7 +68,7 @@
 \end{frame}
 
 \section{DLWFA}
-\begin{frame}{LWFA}
+\begin{frame}{LWFA \cite{LWFA}}
     \begin{columns}
         \begin{column}{1.15\textwidth}
         \includegraphics[width=1\columnwidth]{Images/LWFA.png}
@@ -112,10 +127,10 @@
         \begin{itemize}
         \item Implemented from scratch as Lasy optical element
         \item Following the description by Ambat et al \cite{Ambat:2023}
-        \item 
+        \item Shapes the pulse temporally without focusing or defocussing
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images:A Gaussian pulse after interacting with the RGD. Top: field envelope, Bottom: Test results. even after long distances the shape still holds.}
+        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: field envelope, Bottom: Test results. even after long distances the shape still holds.}
         \end{column}
         \begin{column}{0.5\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_rgd0.png}
@@ -123,23 +138,46 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{more RGD?}
-	
+\begin{frame}{Implementing the flying focus: RGD}
+	\begin{columns}
+	\begin{column}{0.8\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_rgd_field.png}\\
+	{\scriptsize The electric field of the laser after interacting with the RGD.}
+	\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Implementing the flying focus: Axiparabola}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-        
+        \begin{itemize}
+        \item Included in Lasy
+        \item Following Smartsev et al \cite{Smartsev:2019}
+        \item ?
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: A super-Gaussian laser pulse after reflecting off the axiparabola. Top: in the near field, Bottom: in the far field at the beginning of the focus region.}
         \end{column}
         \begin{column}{0.5\textwidth}
-        
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus2.png}
         \end{column}
     \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus: Axiparabola}
+	\begin{columns}
+	\begin{column}{0.8\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus.png}\\
+	{\scriptsize The electric field of the laser at the beginning of the focus region of the axiparabola.}
+	\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Importing to PIConGPU}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-        
+        \begin{itemize}
+        \item New module \pyth{full_field}
+        \item ...
+        \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
         
@@ -170,8 +208,12 @@
 \end{frame}
 
 \section{Conclusion and Outlook}
-\begin{frame}{Possible reasons for failure}
-    
+\begin{frame}{Remaining Possible reasons for failure}
+    \begin{itemize}
+    \item The Axiparabola
+    \item The Propagation
+    \item The Findings in the other papers
+    \end{itemize}
 \end{frame}
 \begin{frame}{Now Lasy lasers available in PIConGPU}
     
