@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{lasydoc}
+Lasy 0.6.2 documentation.
+\newblock \url{https://lasydoc.readthedocs.io/en/latest}.
+\newblock Accessed october 2025.
+
+\bibitem{Ambat:2023}
+M.~V. Ambat, J.~L. Shaw, J.~J. Pigeon, K.~G. Miller, T.~T. Simpson, D.~H.
+  Froula, and J.~P. Palastro.
+\newblock Programmable-trajectory ultrafast flying focus pulses.
+\newblock {\em Optics Express}, 31(19), 2023.
+
+\bibitem{Palastro:2020}
+J.~P. Palastro, J.~L. Shaw, P.~Franke, D.~Ramsey, T.~T. Simpson, and D.~H.
+  Froula.
+\newblock Dephasingless laser wakefield acceleration.
+\newblock {\em Phys. Rew. Letters}, 124, 2020.
+
+\bibitem{Smartsev:2019}
+Slava Smartsev, Clement Caizergues, Kosta Oubrerie, Julien Gautier,
+  Jean-Philippe Goddet, Amar Tafzi, Kim~Ta Phuoc, Victor Malka, and Cedric
+  Thaury.
+\newblock Axiparabola: a long-focal-depth, high-resolution mirror for broadband
+  high-intensity lasers.
+\newblock {\em Optics Letters}, 44, 2019.
+
+\bibitem{LWFA}
+T~Tajima and JM~Dawson.
+\newblock Laser electron-accelerator.
+\newblock {\em Physical Review Letters}, 43(4), 1979.
+
+\end{thebibliography}
