@@ -1,3 +1,1 @@
-  File "/home/marqua27/jupyter_notebooks/runflfoc_angspec.py", line 135
-    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2 ret_ax=True)
-TabError: inconsistent use of tabs and spaces in indentation
+Unloading module git/2.37.1 

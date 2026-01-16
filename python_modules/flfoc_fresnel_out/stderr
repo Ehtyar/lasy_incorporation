@@ -1,3 +1,4 @@
   File "/home/marqua27/jupyter_notebooks/runflfoc_fresnel.py", line 131
     fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2 ret_ax=True)
-TabError: inconsistent use of tabs and spaces in indentation
+                                                                ^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

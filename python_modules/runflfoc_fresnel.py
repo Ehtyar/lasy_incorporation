@@ -128,7 +128,7 @@ else:
 
 for n in range(N):
     laser.propagate(delta/N)
-    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2 ret_ax=True)
+    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
     fig.savefig("flfoc_fresnel_out/lasy_"+name+"_step"+str(n)+".png")
     ts[n+1] = full_field.get_tpeak(laser) - tps
     printf(f"t: {ts[n+1]}")
