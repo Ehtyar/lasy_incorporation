@@ -7,6 +7,8 @@ from scipy.interpolate import interp1d
 from scipy.optimize import curve_fit
 
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.colors as clr
 import os
 import openpmd_api as io
 
@@ -21,8 +23,6 @@ try:
     bar_format='{l_bar}{bar}| {elapsed}<{remaining} [{rate_fmt}{postfix}]'
 except Exception:
     tqdm_available = False
-
-import showdata as sd
 
 
 def get_full_field(laser, theta=0, Nt=None, Nr=None, Nx=None, Ny=None, forced_dt=None, offset_frac=0):
@@ -581,6 +581,105 @@ def write_to_openpmd_file(write_dir, file_prefix, file_format,
     series.flush()
     series.close()
 
+def show(array, extent, cutfrac=0.5, cutdim=2, transpose=False, linthresh_frac=0.01, xlabel="", ylabel="", alabel="", title="",
+         flipx=False, figsize=(16,12), ret_ax=False):
+    """shows 2D or a slice through 3D data on a nice symlog plot.
+
+    Parameters:
+    array : numpy ndarray (2 or 3 dimensional)
+        The array containing the data.
+
+    extent : list of 2 or 3 lists of 2 float
+        low end then high end of each dimension.
+
+    cutdim : int {0,1,2} (optional)
+        Only relevant when using a 3D array.
+        defines the dimension of the array going out of the screen in the plot.
+        
+    cutfrac : float [0,1] (optional)
+        Only relevant when using a 3D array.
+        defines where along the cutdim the plot should be in terms of fraction along it.
+
+    transpose : bool (optional)
+        transpose the array before diplaying it.
+
+    linthresh_frac : float (optional)
+        fraction of the absolute maximum from where the normalistion should be linear. 
+
+    xlabel, ylabel : str (optional)
+        labels for the plot axes.
+
+    alabel : str (optional)
+        label for the colorbar describing the arraydata.
+
+    title : str (optional)
+        title for the plot.
+
+    flipx : bool (optional)
+        flips the x direction of the plot
+
+    figsize : tuple of float (optional)
+        Sets the size of the matplotlib figure.
+
+    ret_ax : bool (optional)
+        Whether to return the axes oject and the fig object instead of showing it.
+
+    Returns:
+    fig : pyplot figure object (optional)
+        only returned if ret_ax is True.
+
+    ax : pyplot axes object (optional)
+        only returned if ret_ax is True.
+    """
+    # 1. cut
+    if len(array.shape)>2:
+        assert len(array.shape) == 3
+        if cutdim == 0:
+            array = array[int(array.shape[0]*cutfrac),:,:]
+            extent = extent[1:]
+        elif cutdim == 1:
+            array = array[:,int(array.shape[1]*cutfrac),:]
+            extent = [extent[0],extent[2]]
+        elif cutdim == 2:
+            array = array[:,:,int(array.shape[2]*cutfrac)]
+            extent = extent[:2]
+        else:
+            raise ValueError("cutdim must be in {0,1,2}")
+    
+    # 2. find the limits and make the axes
+    m = np.max(np.abs(array))
+    if m <= 0:
+        print("nothing to see here")
+        return
+        
+    x = np.linspace(extent[0][0], extent[0][1], array.shape[0]+1, endpoint=True)
+    y = np.linspace(extent[1][0], extent[1][1], array.shape[1]+1, endpoint=True)
+
+    # 3. transpose
+    if transpose:
+        array = array.transpose()
+        x, y = y, x
+
+    if flipx:
+        array = np.flip(array, 1)
+
+    # 3. plot
+    fig = plt.figure(figsize=figsize)
+    ax = fig.add_subplot()
+
+    pcm = ax.pcolormesh(y, x, array, norm=clr.SymLogNorm(linthresh_frac*m, vmin=-m, vmax=m), cmap="seismic")
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+    cb = fig.colorbar(pcm, ax=ax, extend='both')
+    cb.set_label(alabel)
+
+    if ret_ax:
+        return fig, ax
+    
+    fig.show()
+    plt.show()
+
 def _show(f, ext, show_SI, linthresh_frac, title, ret_ax):
     """internal function to show the field"""
     if show_SI:
@@ -598,7 +697,7 @@ def _show(f, ext, show_SI, linthresh_frac, title, ret_ax):
         extent = [[0, sh] for sh in f.shape[::-1]]
     
 
-    return sd.show(f, extent, cutdim=1, linthresh_frac=linthresh_frac, xlabel=xlabel, ylabel=ylabel, alabel="E/(V/m)", figsize=(10,8), title=title, ret_ax=ret_ax)
+    return show(f, extent, cutdim=1, linthresh_frac=linthresh_frac, xlabel=xlabel, ylabel=ylabel, alabel="E/(V/m)", figsize=(10,8), title=title, ret_ax=ret_ax)
 
 def laser_to_openPMD(laser, file_prefix, Nt=None, Nx=None, Ny=None, write_dir="diags", 
                      file_format="bp", iteration=0, points_between_r=1, cut_first_frac=0,

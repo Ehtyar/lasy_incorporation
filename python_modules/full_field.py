@@ -7,6 +7,8 @@ from scipy.interpolate import interp1d
 from scipy.optimize import curve_fit
 
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.colors as clr
 import os
 import openpmd_api as io
 

@@ -1,131 +1,109 @@
+import time
+start = time.time()
+
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
 from lasy.profiles.longitudinal import GaussianLongitudinalProfile
 from lasy.profiles.transverse import SuperGaussianTransverseProfile
-from lasy.profiles.gaussian_profile import GaussianProfile
+from lasy.profiles import GaussianProfile
 from lasy.propagators import AngularSpectrumPropagator
 from lasy.optical_elements import Axiparabola
+from lasy.utils.laser_utils import get_w0
 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.constants import c
-import time
-
 import radialGroupDelay as RGD
 import full_field
-
-def flying_focus(w_l, w, tau, E, f0, delta, vf, hi, lo, npoints, dim="rt", save=True,
-                 show_after=False, show_after_steps=3, show_after_frac=1/3, npoints_file=(192,192,1024), 
-                 p_per_r=1, des_dt=1.39e-16, print_time=True, show_laser=True, filename="fl_foc", 
-                 offset_frac=0, save_wtest=False):
-    """does the flying focus calculation..."""
-    if print_time:
-        start = time.time()
-
-    # generate the laser
-    print("generate the laser")
-    profile = GaussianProfile(w_l, (1,0), E, w, tau, 0.0)
-    laser = Laser(dim, lo, hi, npoints, profile)
-    if print_time:
-        print("time:", (time.time()-start)/60, "min")
-
-    print("apply the RGD")
-    # generate the axiparabola
-    axiparabola = Axiparabola(f0, delta, w)
-    # generate and apply the RGD
-    def tau_D(r):
-        return RGD.tau_D_const_v(r, vf, axiparabola)
-    radial_delay = RGD.RadialGroupDelay(tau_D, l_w)
-    laser.apply_optics(radial_delay)
-    if show_laser:
-        laser.show()
-    if save_wtest:
-        laser.write_to_file(write_dir="wtest_out/w"+str(w).replace(".","_"), file_prefix="RGD")
-    if print_time:
-        print("time:", (time.time()-start)/60, "min")
-
-    print("apply the axiparabola")
-    # apply the axiparabola
-    laser.apply_optics(axiparabola)
-    if show_laser:
-        laser.show()
-    if save_wtest:
-        laser.write_to_file(write_dir="wtest_out/w"+str(w).replace(".","_"), file_prefix="Axiparabola")
-    if print_time:
-        print("time:", (time.time()-start)/60, "min")
-
-    print("prpoagate the laser")
-    # propagate the laser to the focus
-    laser.propagate(f0)
-    if show_laser:
-        laser.show()
-    if save_wtest:
-        laser.write_to_file(write_dir="wtest_out/w"+str(w).replace(".","_"), file_prefix="Propagate")
-    if print_time:
-        print("time:", (time.time()-start)/60, "min")
-
-    # save the laser field
-    if save:
-        full_field.laser_to_openPMD(laser, filename, Nt=npoints_file[-1], Nx=npoints_file[0], Ny=npoints_file[1],
-                                    points_between_r=p_per_r, forced_dt=des_dt, offset_frac=offset_frac)
-        if show_laser:
-            laser.show()
-        if save_wtest:
-            laser.write_to_file(write_dir="wtest_out/w"+str(w).replace(".","_"), file_prefix="saved")
-        if print_time:
-            print("time:", (time.time()-start)/60, "min")
-
-    # show what happens next
-    if show_after:
-        print("propagating further")
-        for n in range(show_after_steps):
-            laser.propagate(delta*show_after_frac)
-            if show_laser:
-                laser.show()
-            if save_wtest:
-                laser.write_to_file(write_dir="wtest_out/w"+str(w).replace(".","_"), file_prefix="after_step"+str(n))
-            print(f0+(n+1)*delta*show_after_frac)
-            if print_time:
-                print("time:", (time.time()-start)/60, "min")
-
-    return laser
+from rectProfile import RectProfile
+import axiparabola_theory as axi
 
 
-
-if __name__ == "__main__":
-    import sys
-    
-    
-    l_w = 10.54e-7
-    f0 = 70e-2
-    delta = 2e-2
-    w = 10e-3
-    tau = 1.5e-14
-    E = 6.2
-    des_dt = 1.39e-16 # PIConGPU Standardwert
-    w0 = f0 * l_w / w / np.pi
-    vf = 300000000
-    print("w0 =", w0)
-    print("w/w0 =",w/w0)
-
-    p_per_r = 2
+dim = "rt"
+do_rgd = True
+l_w = 10.54e-7
+f0 = 7e-2
+delta = 2e-3
+w = 1e-3
+tau = 1.5e-14
+E = 6.2
+des_dt = 1.39e-16 # PIConGPU Standardwert
+des_dt = 7.3443e-17 # spezieller Wert
+w0 = f0 * l_w / w / np.pi
+vf = 0.98 * c
+print("w0 =", w0)
+print("w/w0 =",w/w0)
+if dim == "xyt":
+    npoints = (int(2*w/w0), int(2*w/w0), 200)
+    npoints_prop = (int(10*w/w0), int(10*w/w0), 200)
+    hi = (1.1*w, 1.1*w, 4.5*tau)
+    lo = (-1.1*w, -1.1*w, -5.*tau)
+elif dim == "rt":
+    p_per_r = 1.0/3
     picpoints_per_p = 2
     print("points in file:", int(1024/picpoints_per_p))
-    print("approximate file size: "+str(4*int(1024/picpoints_per_p)**2/1024/1024+0.2)+" GB")
-    spacing = 0.1772e-6 * p_per_r * picpoints_per_p # PIConGPU Standardwert
+    spacing = 0.1772e-6 * p_per_r * 3 # PIConGPU Standardwert
+    npoints = (int(2*w/spacing), 7500)
+    cut_frac = 0.3
+    hi = (2*w, 21*tau)
+    lo = (0., -15*tau)
+    offset_frac = hi[1]/4 / (hi[1]-lo[1])
+    print(offset_frac)
+print(npoints)
 
-    for n in sys.argv[1]:
-        npoints = (int(1.1*w*(int(n)+1)/spacing), 1600)
-        cut_frac = 0.3
-        hi = (1.1*w*(int(n)+1), 9*tau)
-        lo = (0., -39*tau)
-        offset_frac = hi[1]/2 / (hi[1]-lo[1])
-        print(offset_frac)
-        print(npoints)
-        print("w =", w*(int(n)+1))
-        flying_focus(l_w, w*(int(n)+1), tau, E, f0, delta, vf, hi, lo, npoints, show_after=True, filename="wtest"+n,
-                                  npoints_file=(int(1024/picpoints_per_p),int(1024/picpoints_per_p),1024), p_per_r=p_per_r, offset_frac=offset_frac,
-                    save_wtest=True)
-        plt.show()
+print(np.pi*w0**2/l_w)
+print(100000*des_dt*c)
 
-        
+print("time:", (time.time()-start)/60, "min")
+profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
+    GaussianLongitudinalProfile(l_w, tau, 0),
+    #SuperGaussianTransverseProfile(w, n_order=6),
+    RectProfile(w),
+    laser_energy=E)
+#profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
+#propagator = AngularSpectrumPropagator(profile.omega0, "xyt")
+
+laser = Laser(dim, lo, hi, npoints, profile)
+#laser.add_propagator(propagator)
+#laser.show()
+print("time:", (time.time()-start)/60, "min")
+axiparabola = axi.Axiparabola_Ambat(f0, delta, w)
+def tau_D(r):
+    return RGD.tau_D_const_v(r, vf, axiparabola)
+
+if do_rgd:
+    radial_delay = RGD.RadialGroupDelay(tau_D, l_w)
+    laser.apply_optics(radial_delay)
+    #laser.show()
+    def ztime(z):
+        return (z-axiparabola.f0)/vf + axiparabola.f0/c
+else:
+    def ztime(z):
+        r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
+        return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
+print("time:", (time.time()-start)/60, "min")
+laser.apply_optics(axiparabola)
+#laser.show()
+print("time:", (time.time()-start)/60, "min")
+fig, ax = full_field.show_field(laser, Nt=None, Nr=npoints[0]//2, offset_frac=2*offset_frac, forced_dt=des_dt, linthresh_frac=0.000001, ret_ax=True)
+fig.savefig("flying_focus_img/axiparabola.png")
+laser.propagate(f0)
+#laser.show()
+print("time:", (time.time()-start)/60, "min")
+fig, ax = full_field.show_field(laser, Nt=3072, Nr=3000, offset_frac=1*offset_frac, forced_dt=des_dt, linthresh_frac=0.000001, title="At the focus of the axiparabola", ret_ax=True)
+fig.savefig("flying_focus_img/focus.png")
+print("w =", get_w0(laser.grid, laser.dim))
+tps = full_field.get_tpeak(laser)
+print(tps)
+N=5
+for n in range(N):
+    laser.propagate(delta/N)
+    fig, ax = full_field.show_field(laser, Nr=npoints[0]//2, ret_ax=True)
+    fig.savefig(f"flying_focus_img/focus_step{n+1}.png")
+    #laser.show()
+    print("t:",full_field.get_tpeak(laser)-tps)
+    print("t expect", ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c)
+    print("w:",get_w0(laser.grid, laser.dim))
+    print("w expect", l_w*axiparabola.f0/np.pi/axiparabola.R*np.sqrt(axiparabola.delta/((n+1)*delta/N)))
+    print(f0+(n+1)*delta/N)
+    print("time:", (time.time()-start)/60, "min")
