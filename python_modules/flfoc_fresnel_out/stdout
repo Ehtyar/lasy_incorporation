@@ -1,2 +1,20 @@
 Running program...
 starting...
+
+------------------------------
+- - - - - job epilog - - - - -
+------------------------------
+Job ID: 15537629
+was running on nodes: ga014
+by user: marqua27
+in partition: gpu_a100_+
+using account: low
+number of CPUs used: 16
+number of nodes requested: 1
+------------------------------
+walltime reqd: 1-00:00:00
+walltime used: 00:00:02
+------------------------------
+Fri Jan 16 09:27:59 CET 2026
+------------------------------
+
