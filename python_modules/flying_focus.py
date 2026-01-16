@@ -43,9 +43,9 @@ elif dim == "rt":
     picpoints_per_p = 2
     print("points in file:", int(1024/picpoints_per_p))
     spacing = 0.1772e-6 * p_per_r * 3 # PIConGPU Standardwert
-    npoints = (int(2*w/spacing), 7500)
+    npoints = (int(1.1*w/spacing), 7500)
     cut_frac = 0.3
-    hi = (2*w, 21*tau)
+    hi = (1.1*w, 21*tau)
     lo = (0., -15*tau)
     offset_frac = hi[1]/4 / (hi[1]-lo[1])
     print(offset_frac)
@@ -85,25 +85,59 @@ print("time:", (time.time()-start)/60, "min")
 laser.apply_optics(axiparabola)
 #laser.show()
 print("time:", (time.time()-start)/60, "min")
-fig, ax = full_field.show_field(laser, Nt=None, Nr=npoints[0]//2, offset_frac=2*offset_frac, forced_dt=des_dt, linthresh_frac=0.000001, ret_ax=True)
+fig, ax = full_field.show_field(laser, Nt=None, offset_frac=2*offset_frac, forced_dt=des_dt, linthresh_frac=0.01, ret_ax=True)
 fig.savefig("flying_focus_img/axiparabola.png")
 laser.propagate(f0)
 #laser.show()
 print("time:", (time.time()-start)/60, "min")
-fig, ax = full_field.show_field(laser, Nt=3072, Nr=3000, offset_frac=1*offset_frac, forced_dt=des_dt, linthresh_frac=0.000001, title="At the focus of the axiparabola", ret_ax=True)
+fig, ax = full_field.show_field(laser, Nr=npoints[0]//2, offset_frac=1*offset_frac, linthresh_frac=0.01, title="At the focus of the axiparabola", ret_ax=True)
 fig.savefig("flying_focus_img/focus.png")
 print("w =", get_w0(laser.grid, laser.dim))
 tps = full_field.get_tpeak(laser)
 print(tps)
 N=5
+zs = np.zeros(N+1)
+ts = np.zeros(N+1)
+tes = np.zeros(N+1)
+ws = np.zeros(N+1)
+wes = np.zeros(N+1)
+
+ws[0] = get_w0(laser.grid, laser.dim)
 for n in range(N):
     laser.propagate(delta/N)
     fig, ax = full_field.show_field(laser, Nr=npoints[0]//2, ret_ax=True)
     fig.savefig(f"flying_focus_img/focus_step{n+1}.png")
     #laser.show()
-    print("t:",full_field.get_tpeak(laser)-tps)
-    print("t expect", ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c)
-    print("w:",get_w0(laser.grid, laser.dim))
-    print("w expect", l_w*axiparabola.f0/np.pi/axiparabola.R*np.sqrt(axiparabola.delta/((n+1)*delta/N)))
-    print(f0+(n+1)*delta/N)
+    ts[n+1] = full_field.get_tpeak(laser) - tps
+    print("t:", ts[n+1])
+    tes[n+1] = ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c
+    print("t expect", tes[n+1])
+    ws[n+1] = get_w0(laser.grid, laser.dim)
+    print("w:", ws[n+1])
+    wes[n+1] = l_w*axiparabola.f0/np.pi/axiparabola.R*np.sqrt(axiparabola.delta/((n+1)*delta/N))
+    print("w expect", wes[n+1])
+    zs[n+1] = (n+1)*delta/N
+    print("z:", zs[n+1]+f0)
     print("time:", (time.time()-start)/60, "min")
+
+fig = plt.figure()
+ax = fig.add_subplot()
+
+ax.plot(zs*1e3, tes*1e15, label="theoretical t-z/c")
+ax.plot(zs*1e3, ts*1e15, ".", label="measured t-z/c")
+ax.legend()
+ax.set_xlabel("$(z-f_0)$/mm")
+ax.set_ylabel("$(t-z/c)$/fs")
+
+plt.savefig("flying_focus_img/ts.png")
+
+fig = plt.figure()
+ax = fig.add_subplot()
+
+ax.plot(zs[1:]*1e3, wes[1:]*1e6, label="theoretical w")
+ax.plot(zs*1e3, ws*1e6, ".", label="measured w")
+ax.legend()
+ax.set_xlabel("$(z-f_0)$/mm")
+ax.set_ylabel("$w/\\mu$m")
+
+plt.savefig("flying_focus_img/ws.png")
