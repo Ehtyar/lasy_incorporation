@@ -1,2 +1,27 @@
 Running program...
 starting...
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+done
+
+------------------------------
+- - - - - job epilog - - - - -
+------------------------------
+Job ID: 15537831
+was running on nodes: ga013
+by user: marqua27
+in partition: gpu_a100_+
+using account: low
+number of CPUs used: 16
+number of nodes requested: 1
+------------------------------
+walltime reqd: 1-00:00:00
+walltime used: 23:21:51
+------------------------------
+Sat Jan 17 15:23:16 CET 2026
+------------------------------
+

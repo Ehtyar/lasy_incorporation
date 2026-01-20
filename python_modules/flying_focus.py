@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from scipy.constants import c
 import radialGroupDelay as RGD
 import full_field
-from rectProfile import RectProfile
+from rectProfile import RectTransverseProfile
 import axiparabola_theory as axi
 
 
@@ -58,7 +58,7 @@ print("time:", (time.time()-start)/60, "min")
 profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
     GaussianLongitudinalProfile(l_w, tau, 0),
     #SuperGaussianTransverseProfile(w, n_order=6),
-    RectProfile(w),
+    RectTransverseProfile(w),
     laser_energy=E)
 #profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
 #propagator = AngularSpectrumPropagator(profile.omega0, "xyt")

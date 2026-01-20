@@ -124,7 +124,8 @@ if do_rgd:
     name="flfoc_"+sys.argv[1]
 else:
     name="axiparabola"
-
+fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+fig.savefig("flfoc_fresnel_out/lasy_"+name+"_focus.png")
 
 for n in range(N):
     laser.propagate(delta/N)

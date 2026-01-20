@@ -1,0 +1,81 @@
+Running program...
+starting...
+w0 = 2.3484903402640077e-05
+w/w0 = 42.580545589452335
+points in file: 512
+0.14583333333333334
+(6207, 7500)
+0.0016439432381848056
+0.0022017657492894005
+time: 0.9608376940091451 min
+time: 1.0573969761530557 min
+time: 1.1837890227635701 min
+time: 1.2862213253974915 min
+Extracting full field
+Nt = 7352
+Displaying
+Available backends are: NP
+NP is chosen
+time: 15.20386913617452 min
+Extracting full field
+Displaying
+w = 0.00013883629273778696
+6.769871516984355e-14
+Extracting full field
+Displaying
+t: -6.416307215295617e-15
+t expect 2.722972205698985e-14
+w: 0.00013943101540945906
+w expect 5.251384045331933e-05
+z: 0.0704
+time: 28.478273876508077 min
+Extracting full field
+Displaying
+t: -4.238105736154088e-15
+t expect 5.44594441139797e-14
+w: 0.00013998317321203802
+w expect 3.7132892690690536e-05
+z: 0.0708
+time: 41.21242376963298 min
+Extracting full field
+Displaying
+t: -3.856988686175066e-15
+t expect 8.168916617102125e-14
+w: 0.0001407093809880345
+w expect 3.0318879921904972e-05
+z: 0.07120000000000001
+time: 53.85805725653966 min
+Extracting full field
+Displaying
+t: -2.923251741461387e-15
+t expect 1.089188882280111e-13
+w: 0.00014140213887089018
+w expect 2.6256920226659665e-05
+z: 0.07160000000000001
+time: 66.60476108392079 min
+Extracting full field
+Displaying
+t: -4.2239221300495584e-15
+t expect 1.3614861028500095e-13
+w: 0.00014228122469343992
+w expect 2.3484903402640077e-05
+z: 0.07200000000000001
+time: 79.3451451420784 min
+
+------------------------------
+- - - - - job epilog - - - - -
+------------------------------
+Job ID: 15537892
+was running on nodes: gv002
+by user: marqua27
+in partition: fwkt_v100
+using account: fwkt_v100
+number of CPUs used: 16
+number of nodes requested: 1
+------------------------------
+walltime reqd: 1-00:00:00
+walltime used: 01:19:47
+------------------------------
+Sat Jan 17 00:02:18 CET 2026
+------------------------------
+
