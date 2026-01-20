@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
-#SBATCH --partition=gpu_a100_low
+#SBATCH --partition=cpu-genoa
 # necessary to set the account also to the queue name because otherwise access is not allowed at the moment
-#SBATCH --account=low
-#SBATCH --time=24:00:00
+#SBATCH --time=1-00:00:00
 # Sets batch job's name
-#SBATCH --job-name=angspec
+#SBATCH --job-name=fresnel
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --mincpus=4
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=4024000
-#SBATCH --chdir=/home/marqua27/jupyter_notebooks/flfoc_angspec_out
+#SBATCH --mem=1500000
+#SBATCH --chdir=/home/marqua27/jupyter_notebooks/rosi_flfoc_fresnel_out
 #SBATCH -o stdout
 #SBATCH -e stderr
 
@@ -22,6 +21,5 @@ source /home/marqua27/jupyter.profile
 cd /home/marqua27/jupyter_notebooks/
 
 echo 'starting...'
-python runflfoc_angspec.py $1 $2 hemera
-#python runflfoc.py 98 15
-#python runflfoc.py 102
+python runflfoc_fresnel.py $1 $2 "rosi" # percent c, num iterations
+

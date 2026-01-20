@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/data/home2/marqua27/jupyter_notebooks/runflfoc_fresnel.py", line 35, in <module>
+    printf("settings: v="+sy.argv[1]+"c; N="+sys.argv[2])
+NameError: name 'sy' is not defined. Did you mean: 'sys'?

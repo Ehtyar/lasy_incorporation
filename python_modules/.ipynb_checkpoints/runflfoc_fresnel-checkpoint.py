@@ -17,14 +17,22 @@ import radialGroupDelay as RGD
 import full_field
 import sys
 
-
+assert len(sys.argv) >= 4, "all arguments need to be set."
+cluster = sys.argv[3]
+if cluster == "rosi":
+    nameplus = "rosi_"
+else:
+    nameplus = ""
 
 lines = []
-def printf(string, filename="flfoc_fresnel_out/printout"):
+def printf(string, filename=nameplus+"flfoc_fresnel_out/printout"):
     lines.append(string+"\n")
     file = open(filename, "w")
     file.writelines(lines)
     file.close()
+
+printf("running on "+cluster)
+printf("settings: v="+sys.argv[1]+"% c; N="+sys.argv[2])
 
 dim = "xyt"
 if sys.argv[1] == "no":
@@ -45,7 +53,12 @@ w0 = f0 * l_w / w / np.pi
 printf(f"w0 = {w0}")
 printf(f"w/w0 ={w/w0}")
 if dim == "xyt":
-    npoints = (3000, 3000, 3000)
+    if cluster == "rosi":
+        npoints = (2100, 2100, 2100)
+    elif cluster == "hemera":
+        npoints = (3000, 3000, 3000)
+    else:
+        raise ValueError("cluster settings only defined for rosi and hemera")
     hi = (2*w, 2*w, 9*tau)
     lo = (-2*w, -2*w, -15*tau)
     offset_frac = hi[1]/4 / (hi[1]-lo[1])
@@ -86,7 +99,7 @@ if do_rgd:
         return RGD.tau_D_const_v(r, vf, axiparabola)
     radial_delay = RGD.RadialGroupDelay(tau_D, l_w)
     laser.apply_optics(radial_delay)
-    laser.show()
+    #laser.show()
     def ztime(z):
         return (z-axiparabola.f0)/vf + axiparabola.f0/c
 else:
@@ -96,11 +109,10 @@ else:
 printf(f"time: {(time.time()-start)/60} min")
 
 laser.apply_optics(axiparabola)
-laser.show()
 printf(f"time: {(time.time()-start)/60} min")
 
-laser.propagate(f0)
-laser.show()
+newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
+laser.propagate(f0, grid_out=newGrid)
 printf(f"time: {(time.time()-start)/60} min")
 
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
@@ -108,8 +120,8 @@ printf(f"w = {get_w0(laser.grid, laser.dim)}")
 #full_field.laser_to_openPMD(laser, "fl_foc_"+sys.argv[1], Nt=1536, Nx=int(1024/picpoints_per_p), Ny=int(1024/picpoints_per_p), conversion_safety=1.1,
 #                            points_between_r=p_per_r, forced_dt=des_dt, offset_frac=1*offset_frac, file_format="bp", data_step=picpoints_per_p)
 
-laser.show()
-printf(f"time: {(time.time()-start)/60} min")
+
+#printf(f"time: {(time.time()-start)/60} min")
 
 tps = full_field.get_tpeak(laser)
 printf(f"{tps}")
@@ -122,8 +134,17 @@ wes = np.zeros(N+1)
 
 ws[0] = get_w0(laser.grid, laser.dim)
 
+if do_rgd:
+    name="flfoc_"+sys.argv[1]
+else:
+    name="axiparabola"
+fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+fig.savefig("flfoc_fresnel_out/lasy_"+name+"_focus.png")
+
 for n in range(N):
     laser.propagate(delta/N)
+    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+    fig.savefig("flfoc_fresnel_out/lasy_"+name+"_step"+str(n)+".png")
     ts[n+1] = full_field.get_tpeak(laser) - tps
     printf(f"t: {ts[n+1]}")
     tes[n+1] = ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c
@@ -136,10 +157,6 @@ for n in range(N):
     printf(f"z: {zs[n+1]+f0}")
     printf(f"time: {(time.time()-start)/60} min")
 
-if do_rgd:
-    name="flfoc_"+sys.argv[1]
-else:
-    name="axiparabola"
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -150,7 +167,7 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$t-z/c$/fs")
 
-plt.savefig("flfoc_fresnel_out/lasy_"+name+"_ts.png")
+plt.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_ts.png")
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -161,6 +178,6 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$w/\\mu$m")
 
-plt.savefig("flfoc_fresnel_out/lasy_"+name+"_ws.png")
+plt.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_ws.png")
 printf("done")
 print("done")

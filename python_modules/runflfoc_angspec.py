@@ -17,14 +17,23 @@ import radialGroupDelay as RGD
 import full_field
 import sys
 
-
-
+assert len(sys.argv) >= 4, "all arguments need to be set."
+cluster = sys.argv[3]
+if cluster == "rosi":
+    nameplus = "rosi_"
+else:
+    nameplus = ""
+    
 lines = []
-def printf(string, filename="flfoc_angspec_out/printout"):
+def printf(string, filename=nameplus+"flfoc_angspec_out/printout"):
     lines.append(string+"\n")
     file = open(filename, "w")
     file.writelines(lines)
     file.close()
+
+
+printf("running on "+cluster)
+printf("settings: v="+sys.argv[1]+"% c; N="+sys.argv[2])
 
 dim = "xyt"
 if sys.argv[1] == "no":
@@ -45,7 +54,12 @@ w0 = f0 * l_w / w / np.pi
 printf(f"w0 = {w0}")
 printf(f"w/w0 ={w/w0}")
 if dim == "xyt":
-    npoints = (3000, 3000, 3000)
+    if cluster == "rosi":
+        npoints = (2500, 2500, 1000)
+    elif cluster == "hemera":
+        npoints = (3000, 3000, 2000)
+    else:
+        raise ValueError("cluster settings only defined for rosi and hemera")
     hi = (2*w, 2*w, 9*tau)
     lo = (-2*w, -2*w, -15*tau)
     offset_frac = hi[1]/4 / (hi[1]-lo[1])
@@ -157,7 +171,7 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$t-z/c$/fs")
 
-plt.savefig("flfoc_angspec_out/lasy_"+name+"_ts.png")
+plt.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_ts.png")
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -168,6 +182,6 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$w/\\mu$m")
 
-plt.savefig("flfoc_angspec_out/lasy_"+name+"_ws.png")
+plt.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_ws.png")
 printf("done")
 print("done")

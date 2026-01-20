@@ -1,0 +1,2 @@
+/data/home2/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
+  * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)

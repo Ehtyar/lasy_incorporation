@@ -1,1 +1,2 @@
 Unloading module git/2.37.1 
+slurmstepd: error: *** JOB 15541741 ON ga012 CANCELLED AT 2026-01-20T13:30:32 DUE TO PREEMPTION ***

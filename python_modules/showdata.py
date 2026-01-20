@@ -15,7 +15,7 @@ try:
 except Exception:
     tqdm_available = False
 
-from .full_field import show
+from full_field import show
 
 
 def _gauss(pos, mux, muy, w, A):
