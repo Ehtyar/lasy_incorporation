@@ -9,6 +9,7 @@ from lasy.profiles.gaussian_profile import GaussianProfile
 from lasy.propagators import AngularSpectrumPropagator
 from lasy.optical_elements import Axiparabola
 from lasy.utils.laser_utils import get_w0
+from lasy.utils.grid import Grid
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -55,7 +56,7 @@ printf(f"w0 = {w0}")
 printf(f"w/w0 ={w/w0}")
 if dim == "xyt":
     if cluster == "rosi":
-        npoints = (2500, 2500, 1000)
+        npoints = (330, 330, 300)
     elif cluster == "hemera":
         npoints = (3000, 3000, 2000)
     else:
@@ -116,7 +117,8 @@ laser.apply_optics(axiparabola)
 printf(f"time: {(time.time()-start)/60} min")
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
-laser.propagate(f0)
+newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
+laser.propagate(f0, grid_out=newGrid)
 #laser.show()
 printf(f"time: {(time.time()-start)/60} min")
 
@@ -144,10 +146,13 @@ if do_rgd:
 else:
     name="axiparabola"
 
+fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+fig.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_focus.png")
+
 for n in range(N):
     laser.propagate(delta/N)
     fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
-    fig.savefig("flfoc_angspec_out/lasy_"+name+"_step"+str(n)+".png")
+    fig.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_step"+str(n)+".png")
     ts[n+1] = full_field.get_tpeak(laser) - tps
     printf(f"t: {ts[n+1]}")
     tes[n+1] = ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c

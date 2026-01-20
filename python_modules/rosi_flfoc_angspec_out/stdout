@@ -1,2 +1,21 @@
 Running program...
 starting...
+Extracting full field
+Displaying
+=============================================
+Epilog started: Tue Jan 20 16:21:52 CET 2026
+User:           marqua27
+Job ID:         113452
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge013
+Job name:       angspec
+Nodelist:       cge013
+No. of tasks:   16
+T used:           00:00:10 
+T requested:    1-00:00:00 
+Exit code:      256
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_flfoc_angspec_out
+Energy (J):     54.66K
+Energy (kWh):   .015182
+---------------------------------------------

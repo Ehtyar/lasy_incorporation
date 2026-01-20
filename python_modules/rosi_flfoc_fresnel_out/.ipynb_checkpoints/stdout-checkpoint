@@ -1,0 +1,19 @@
+Running program...
+starting...
+=============================================
+Epilog started: Tue Jan 20 16:19:21 CET 2026
+User:           marqua27
+Job ID:         113416
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge002
+Job name:       fresnel
+Nodelist:       cge002
+No. of tasks:   16
+T used:           01:52:43 
+T requested:    1-00:00:00 
+Exit code:      256
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_flfoc_fresnel_out
+Energy (J):     1.63M
+Energy (kWh):   .453582
+---------------------------------------------
