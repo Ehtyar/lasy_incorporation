@@ -1,2 +1,5 @@
 Unloading module git/2.37.1 
-slurmstepd: error: *** JOB 15541741 ON ga012 CANCELLED AT 2026-01-20T13:30:32 DUE TO PREEMPTION ***
+Traceback (most recent call last):
+  File "/home/marqua27/jupyter_notebooks/runflfoc_fresnel.py", line 21, in <module>
+    assert len(sys.argv) >= 4, "all arguments need to be set."
+AssertionError: all arguments need to be set.

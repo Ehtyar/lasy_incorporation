@@ -5,7 +5,7 @@ starting...
 - - - - - job epilog - - - - -
 ------------------------------
 Job ID: 15541741
-was running on nodes: ga012
+was running on nodes: ga011
 by user: marqua27
 in partition: gpu_a100_+
 using account: low
@@ -13,8 +13,8 @@ number of CPUs used: 16
 number of nodes requested: 1
 ------------------------------
 walltime reqd: 1-00:00:00
-walltime used: 00:02:00
+walltime used: 00:00:14
 ------------------------------
-Tue Jan 20 13:30:32 CET 2026
+Tue Jan 20 20:51:10 CET 2026
 ------------------------------
 

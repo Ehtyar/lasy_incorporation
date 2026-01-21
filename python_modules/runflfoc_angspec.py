@@ -56,7 +56,7 @@ printf(f"w0 = {w0}")
 printf(f"w/w0 ={w/w0}")
 if dim == "xyt":
     if cluster == "rosi":
-        npoints = (330, 330, 300)
+        npoints = (100, 100, 300)
     elif cluster == "hemera":
         npoints = (3000, 3000, 2000)
     else:
@@ -117,8 +117,8 @@ laser.apply_optics(axiparabola)
 printf(f"time: {(time.time()-start)/60} min")
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
-newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
-laser.propagate(f0, grid_out=newGrid)
+#newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
+laser.propagate(f0)#, grid_out=newGrid)
 #laser.show()
 printf(f"time: {(time.time()-start)/60} min")
 
@@ -146,12 +146,12 @@ if do_rgd:
 else:
     name="axiparabola"
 
-fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+fig, ax = full_field.show_field(laser, linthresh_frac=1., Nt=5000, ret_ax=True)
 fig.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_focus.png")
 
 for n in range(N):
     laser.propagate(delta/N)
-    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nt=5000, ret_ax=True)
     fig.savefig(nameplus+"flfoc_angspec_out/lasy_"+name+"_step"+str(n)+".png")
     ts[n+1] = full_field.get_tpeak(laser) - tps
     printf(f"t: {ts[n+1]}")

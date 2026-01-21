@@ -1,8 +1,9 @@
 /data/home2/marqua27/miniforge3/envs/picongpu/lib/python3.10/site-packages/lasy/propagators/angular_spectrum_propagator.py:157: RuntimeWarning: invalid value encountered in sqrt
   * (kz[None, None, :] ** 2 - kx[:, None, None] ** 2 - ky[None, :, None] ** 2)
+  0%|          | 00:00<? [?it/s]100%|██████████| 00:00<00:00 [3433.25it/s]
 Traceback (most recent call last):
   File "/data/home2/marqua27/jupyter_notebooks/runflfoc_angspec.py", line 149, in <module>
-    fig, ax = full_field.show_field(laser, linthresh_frac=1.,Nr=npoints[0]//2, ret_ax=True)
+    fig, ax = full_field.show_field(laser, linthresh_frac=1., Nt=5000, ret_ax=True)
   File "/data/home2/marqua27/jupyter_notebooks/full_field.py", line 861, in show_field
     return _show(f, ext, show_SI, linthresh_frac, title, ret_ax)
   File "/data/home2/marqua27/jupyter_notebooks/full_field.py", line 700, in _show

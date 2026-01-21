@@ -1,21 +1,22 @@
 Running program...
 starting...
 Extracting full field
+dt = 7.201440288057611e-17
 Displaying
 =============================================
-Epilog started: Tue Jan 20 16:21:52 CET 2026
+Epilog started: Wed Jan 21 10:11:29 CET 2026
 User:           marqua27
-Job ID:         113452
+Job ID:         113700
 Partition:      cpu-genoa
 Account:        default
-Batchhost:      cge013
+Batchhost:      cge015
 Job name:       angspec
-Nodelist:       cge013
+Nodelist:       cge015
 No. of tasks:   16
-T used:           00:00:10 
+T used:           00:00:02 
 T requested:    1-00:00:00 
 Exit code:      256
 Working dir:    /home/marqua27/jupyter_notebooks/rosi_flfoc_angspec_out
-Energy (J):     54.66K
-Energy (kWh):   .015182
+Energy (J):     4.80K
+Energy (kWh):   .001333
 ---------------------------------------------

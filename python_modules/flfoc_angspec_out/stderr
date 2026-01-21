@@ -1,3 +1,5 @@
 Unloading module git/2.37.1 
-slurmstepd: error: *** JOB 15541776 ON ga012 CANCELLED AT 2026-01-20T13:51:37 DUE TO JOB REQUEUE ***
-slurmstepd: error: *** JOB 15541776 ON ga012 CANCELLED AT 2026-01-20T13:51:37 DUE TO PREEMPTION ***
+Traceback (most recent call last):
+  File "/home/marqua27/jupyter_notebooks/runflfoc_angspec.py", line 21, in <module>
+    assert len(sys.argv) >= 4, "all arguments need to be set."
+AssertionError: all arguments need to be set.
