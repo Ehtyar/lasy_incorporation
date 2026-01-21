@@ -9,6 +9,7 @@ from lasy.profiles import GaussianProfile
 from lasy.propagators import AngularSpectrumPropagator
 from lasy.optical_elements import Axiparabola
 from lasy.utils.laser_utils import get_w0
+from lasy.utils.grid import Grid
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,7 +31,7 @@ E = 6.2
 des_dt = 1.39e-16 # PIConGPU Standardwert
 des_dt = 7.3443e-17 # spezieller Wert
 w0 = f0 * l_w / w / np.pi
-vf = 0.98 * c
+vf = 1.02 * c
 print("w0 =", w0)
 print("w/w0 =",w/w0)
 if dim == "xyt":
@@ -85,12 +86,13 @@ print("time:", (time.time()-start)/60, "min")
 laser.apply_optics(axiparabola)
 #laser.show()
 print("time:", (time.time()-start)/60, "min")
-fig, ax = full_field.show_field(laser, Nt=None, offset_frac=2*offset_frac, forced_dt=des_dt, linthresh_frac=0.01, ret_ax=True)
+fig, ax = full_field.show_field(laser, linthresh_frac=0.01, ret_ax=True)
 fig.savefig("flying_focus_img/axiparabola.png")
-laser.propagate(f0)
+newGrid = Grid(laser.dim, (0., -1e-13), (0.0008, 2.5e-13), npoints, n_azimuthal_modes=1)
+laser.propagate(f0, grid_out=newGrid)
 #laser.show()
 print("time:", (time.time()-start)/60, "min")
-fig, ax = full_field.show_field(laser, Nr=npoints[0]//2, offset_frac=1*offset_frac, linthresh_frac=0.01, title="At the focus of the axiparabola", ret_ax=True)
+fig, ax = full_field.show_field(laser, linthresh_frac=0.01, title="At the focus of the axiparabola", ret_ax=True)
 fig.savefig("flying_focus_img/focus.png")
 print("w =", get_w0(laser.grid, laser.dim))
 tps = full_field.get_tpeak(laser)
@@ -105,7 +107,7 @@ wes = np.zeros(N+1)
 ws[0] = get_w0(laser.grid, laser.dim)
 for n in range(N):
     laser.propagate(delta/N)
-    fig, ax = full_field.show_field(laser, Nr=npoints[0]//2, ret_ax=True)
+    fig, ax = full_field.show_field(laser, ret_ax=True)
     fig.savefig(f"flying_focus_img/focus_step{n+1}.png")
     #laser.show()
     ts[n+1] = full_field.get_tpeak(laser) - tps

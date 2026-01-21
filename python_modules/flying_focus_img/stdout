@@ -7,75 +7,42 @@ points in file: 512
 (6207, 7500)
 0.0016439432381848056
 0.0022017657492894005
-time: 0.9608376940091451 min
-time: 1.0573969761530557 min
-time: 1.1837890227635701 min
-time: 1.2862213253974915 min
+time: 0.2881357510884603 min
+time: 0.386740247408549 min
+time: 0.515447986125946 min
+time: 0.620247733592987 min
 Extracting full field
-Nt = 7352
 Displaying
 Available backends are: NP
 NP is chosen
-time: 15.20386913617452 min
+time: 14.442451536655426 min
 Extracting full field
 Displaying
-w = 0.00013883629273778696
-6.769871516984355e-14
+w = 0.00013396461603705292
+3.939219148641594e-15
+Available backends are: NP
+NP is chosen
 Extracting full field
 Displaying
-t: -6.416307215295617e-15
-t expect 2.722972205698985e-14
-w: 0.00013943101540945906
+t: 3.0725452101993797e-15
+t expect -2.616188981948415e-14
+w: 0.00013478554048035023
 w expect 5.251384045331933e-05
 z: 0.0704
-time: 28.478273876508077 min
+time: 29.087769838174186 min
 Extracting full field
 Displaying
-t: -4.238105736154088e-15
-t expect 5.44594441139797e-14
-w: 0.00013998317321203802
+t: -4.603395617641131e-16
+t expect -5.23237796389166e-14
+w: 0.0001356968984921589
 w expect 3.7132892690690536e-05
 z: 0.0708
-time: 41.21242376963298 min
+time: 42.078637778759 min
 Extracting full field
 Displaying
-t: -3.856988686175066e-15
-t expect 8.168916617102125e-14
-w: 0.0001407093809880345
+t: 7.423100048067536e-16
+t expect -7.848566945834906e-14
+w: 0.00013647457276525136
 w expect 3.0318879921904972e-05
 z: 0.07120000000000001
-time: 53.85805725653966 min
-Extracting full field
-Displaying
-t: -2.923251741461387e-15
-t expect 1.089188882280111e-13
-w: 0.00014140213887089018
-w expect 2.6256920226659665e-05
-z: 0.07160000000000001
-time: 66.60476108392079 min
-Extracting full field
-Displaying
-t: -4.2239221300495584e-15
-t expect 1.3614861028500095e-13
-w: 0.00014228122469343992
-w expect 2.3484903402640077e-05
-z: 0.07200000000000001
-time: 79.3451451420784 min
-
-------------------------------
-- - - - - job epilog - - - - -
-------------------------------
-Job ID: 15537892
-was running on nodes: gv002
-by user: marqua27
-in partition: fwkt_v100
-using account: fwkt_v100
-number of CPUs used: 16
-number of nodes requested: 1
-------------------------------
-walltime reqd: 1-00:00:00
-walltime used: 01:19:47
-------------------------------
-Sat Jan 17 00:02:18 CET 2026
-------------------------------
-
+time: 55.16187787850698 min
