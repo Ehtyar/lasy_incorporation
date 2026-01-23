@@ -1,6 +1,6 @@
 import time
 
-starts = {"__rtime__": time.time()}
+_starts = {"__rtime__": time.time()}
 
 def _printf(string, filename):
     file = open(filename, "r")
@@ -29,7 +29,7 @@ def _format_time(t):
 def rtime():
     """returns the time since this module was imported.
     """
-    return time.time() - starts["__rtime__"]
+    return time.time() - _starts["__rtime__"]
 
 def ptime(title="runtime", filename=None):
     """prints the time since this module was imported with nice formatting.
@@ -62,9 +62,9 @@ def start_clock(name, value=0, start_paused=False):
     if name in starts:
         raise ValueError(f"clock '{name}' already exists")
     if start_paused:
-        starts[name] = (-1, value)
+        _starts[name] = (-1, value)
     else:
-        starts[name] = (time.time(), value)
+        _starts[name] = (time.time(), value)
 
 def read_clock(name):
     """returns the time on the clock.
@@ -73,15 +73,15 @@ def read_clock(name):
     name : str
         The name of the clock that should be read.
     """
-    assert name in starts, f"clock {name} does not exist"
+    assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
     if starts[name][0] > 0:
-        return time.time() - starts[name][0] + starts[name][1]
+        return time.time() - _starts[name][0] + _starts[name][1]
     else:
-        return starts[name][1]
+        return _starts[name][1]
 
 def set_clock(name, value):
-    """Sets the time on the clock to the specified value.
+    """Sets the time on the clock to the specified value. If the clock is paused it stays that way.
 
     Parameters:
     name : str
@@ -90,31 +90,34 @@ def set_clock(name, value):
     value : float
         The value the clock should be set to.
     """
-    assert name in starts, f"clock {name} does not exist"
+    assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
-    starts[name] = (time.time(), value)
+    if _starts[name][0] > 0:
+        _starts[name] = (time.time(), value)
+    else:
+        _starts[name] = (-1, value)
 
 def pause_clock(name):
-    """pauses the specified clock.
+    """pauses the specified clock. If it is already paused, nothing changes.
 
     Parameters:
     name : str
         The name of the clock that should be paused.
     """
-    assert name in starts, f"clock {name} does not exist"
+    assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
-    starts[name] = (-1, read_clock(name))
+    _starts[name] = (-1, read_clock(name))
 
 def unpause_clock(name):
-    """unpauses the specified clock.
+    """unpauses the specified clock. If it is already unpaused, nothing changes.
 
     Parameters:
     name : str
         The name of the clock that should be unpaused.
     """
-    assert name in starts, f"clock {name} does not exist"
+    assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
-    starts[name] = (time.time(), read_clock(name))
+    _starts[name] = (time.time(), read_clock(name))
 
 def print_clock(name, filename=None):
     """prints the time on the clock.
@@ -126,10 +129,17 @@ def print_clock(name, filename=None):
     filename : str (optional)
         If this is not None, the time will be appended to the specified fiel instead of printed.
     """
-    assert name in starts, f"clock {name} does not exist"
+    assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
     s = name+": "+_format_time(read_clock(name))
     if filename is None:
         print(s)
     else:
         _printf(s, filename)
+
+def get_clocks():
+    """returns a list of all active clocks
+    """
+    l = list(_starts.keys())
+    l.remove("__rtime__")
+    return l

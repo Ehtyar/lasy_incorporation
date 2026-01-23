@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as clr
 import numpy as np
 import openpmd_api as io
-import time
+from .ptime import (start_clock, set_clock, read_clock, get_clocks)
 from scipy.constants import c, mu_0, epsilon_0, e, m_e
 from scipy.optimize import curve_fit
 
@@ -1037,7 +1037,10 @@ def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=Fals
         Draw the plot only wwithin these bounds. In SI units.
     """
     if show_time:
-        start = time.time()
+        if "time showing file" in get_clocks():
+            set_clock("time showing file", 0)
+        else:
+            start_clock("time showing file")
     series = io.Series(filename, io.Access.read_only)
     
     if metadata:
@@ -1062,7 +1065,7 @@ def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=Fals
                 if n_i in series.iterations:
                     func(n_i, series, **kwargs)
                     if show_time:
-                        print("time:", time.time()-start, "s")
+                        print_clock("time showing file")
                 else:
                     print("Warning: Iteration", n_i, "does not exist.")
         else:
@@ -1070,14 +1073,14 @@ def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=Fals
             assert iteration in series.iterations, "Specified iteration does not exist."
             func(iteration, series, **kwargs)
             if show_time:
-                print("time:", time.time()-start, "s")
+                print_clock("time showing file")
     else:
         # show multiple iterations
         for n in range(int(max(series.iterations)/itstep)+1):
             if itstep * n in series.iterations:
                 func(itstep * n, series, **kwargs)
                 if show_time:
-                    print("time:", time.time()-start, "s")
+                    print_clock("time showing file")
     series.close()
     plt.show()
 
