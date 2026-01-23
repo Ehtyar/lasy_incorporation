@@ -1,0 +1,436 @@
+%
+% Presentation template for Beamer LaTeX class with HZDR/HIF styling
+%
+% (C) 2020--\today Alexander Grahn, HZDR, Institut fuer Ressourcenökologie
+%
+% Version 20230920
+%
+\documentclass[
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % enable this for SVG / disable for PDF output
+%  hypertex,dvisvgm,
+  % for SVG, typeset presentation multiple times with
+  % dvilualatex talk
+  % dvisvgm --zoom=-1 --font-format=woff2 --bbox=papersize --page=1- --linkmark=none talk.dvi
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % HIF people may want to uncomment this
+%  hif,
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  % really cool, but only available in SVG output
+%  laserspot,
+  %
+  %uncomment this to suppress the Dresden Concept logo
+%  noddclogo,
+  %
+  %uncomment this if you don't like the navigation buttons (prev/next slide, full-screen)
+  nonavigation,
+  %
+  %uncomment this if you want the title page and/or part page text to be aligned flushleft
+%  titlepageflushleft,
+%  partpageflushleft,
+  %
+%  aspectratio=169, % for wide-screen (16:9) projectors enable this
+  aspectratio=43, % old 4:3 projectors
+  %
+  % default font size
+  10pt
+]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%
+% language settings
+%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman,english]{babel} % primary: US-English
+%\usepackage[english,ngerman]{babel} % primary: German
+%%%%%%%%%%%%%%%%%%%%
+
+% font settings; change as needed
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usefonttheme[onlymath]{serif}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% add your packages here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% add directories to be searched for graphics files (in braces {...})
+\graphicspath{{img/}} % e. g. \graphicspath{{img/}{myfancyplots/}}
+
+\usepackage{booktabs} % nicely spaced tables
+
+\usepackage{fancyvrb} % \Verb and Verbatim (environment) for verbatim text
+\pdfstringdefDisableCommands{\def\Verb+#1+{#1}} % prevent hyperref warning
+
+%\usepackage{mathtools} % advanced formatting of math formulae
+
+\usepackage[normalem]{ulem} % \uline for underlining main author
+\ExplSyntaxOn
+\pdfstringdefDisableCommands{\def\uline#1{\str_uppercase:f{#1}}} % prevent hyperref warning
+\ExplSyntaxOff
+
+\usepackage{tikz}
+
+% packages below are needed for examples in the video and animations part
+%\ifpdf\else
+%\usepackage{media4svg} % video inclusion in SVG
+%\usepackage{menukeys}  % typesetting keyboard buttons
+%\usepackage{siunitx}   % SI units correctly formatted, e.g. \qty{1}{\kilogram}
+%\usepackage{pst-ode}   % solve systems of ODEs in LaTeX documents
+%\usepackage{pgfplots}  % scientific plots
+%\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{fillbetween}
+%\usetikzlibrary{arrows.meta, calc, decorations}
+%\usepackage{listofitems} % read lists of items into array-like structures
+%\usepackage{animate}   % PDF/SVG animations
+%\usepackage{xsavebox}  % efficient saveboxes for LaTeX
+%\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% load the HZDR theme, finally
+\makeatletter\def\input@path{{beamerthemehzdr/}}\makeatother
+\usetheme{hzdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    title, author, date, institute, additional logos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\title[short version, used in the footline]{long version in the title page}
+\title[Flying focus laser pulses for PIConGPU]{Generating and testing flying focus laser pulses with Lasy for PIConGPU simulations}
+\subtitle{---\,A Bachelors Defense\,---} % optional
+
+%\author[short version of authors (not used, currently)]{long version in the title page}
+\author[E. Marquardt]{Edgar Marquardt}
+
+%\date[short date]{long date}
+%
+% Examples using `datetime2' package
+\date[\today]{{\DTMsetregional[text]\today}}   % today's date
+%\DTMsavenoparsedate{piday22}{2022}{03}{14}{0} % a fixed date, e. g. Monday, 14th March '22 (international Pi Day)
+%\date[\DTMusedate{piday22}]{{\DTMsetregional[text]\DTMusedate{piday22}}}
+
+\institute[
+  %short version of main authors' institute, used in the footline (not used, currently)
+  \iflanguage{ngerman}{%
+    Institut für Strahlenphysik%
+  }{%
+    Institute of Radiation Physics%
+  }%
+]{%
+  %long version, used in the title page
+  \iflanguage{ngerman}{%
+    Institut für Strahlenphysik, HZDR\\und Institut für Kern- und Teilchenphysik, TU Dresden%
+  }{%
+    Institute of Radiation Physics, HZDR\\and Institute of Nuclear and Particle Physics, TU Dresden%
+  }%
+}
+
+%%%%%%%%%%%%%%%%%%
+% partner logos
+%%%%%%%%%%%%%%%%%%
+
+%every invocation of \partnerlogo{...} adds yet another logo to the
+%right of already inserted partner logos; logos are automatically scaled
+\partnerlogo{\includegraphics{img/TU_Logo_SW.pdf}}
+%\partnerlogo{\fboxsep=1em\colorbox{gray!40}{Logo 2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%hzdr colours used for various text highlights; see manual (texdoc beamer),
+%for further possibilities
+                                                 %colour will be used in:
+\setbeamercolor{alerted text}{fg=hzdr-orange-60} %\alert{text to be highlighted},
+                                                 %\begin{alertenv} ... \end{alertenv}
+                                                 %\begin{alertblock}{block title (highlighted)}
+                                                 %  ...
+                                                 %\end{alertblock}
+
+\setbeamercolor{example text}{fg=hzdr-blue-60} %\begin{exampleblock}{block title (highlighted)}
+                                               %  ...
+                                               %\end{exampleblock}
+\hypersetup{%
+  breaklinks,colorlinks,
+  pdfpagemode=FullScreen,
+  linkcolor=hzdr-blue,
+  anchorcolor=hzdr-blue,
+  citecolor=hzdr-blue,
+  filecolor=hzdr-blue,
+  menucolor=hzdr-blue,
+  runcolor=hzdr-blue,
+  urlcolor=hzdr-blue
+}
+
+
+\usepackage{pythonhighlight}
+\usepackage{listings}
+\usepackage{babelbib}
+\usepackage{blindtext}
+
+\usepackage{mathtools} % Mathe
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb} % Mathe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            document starts here                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frame{\titlepage}
+
+\frame{\tableofcontents}
+
+
+\section{Dephasingless Laser WakeField Acceleration (DLWFA)}
+\begin{frame}{Laser WakeField Acceleration (LWFA) \cite{LWFA}}
+    \begin{columns}
+        \begin{column}{1\textwidth}
+        \includegraphics[width=0.93\columnwidth]{Images/LWFA.png}
+        {\scriptsize Electric field and electrons in an LWFA simulation.}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{1. TWEAC \cite{LWFAd}}
+	\begin{columns}
+        \begin{column}{0.6\textwidth}
+        \begin{itemize}
+        \item Traveling-Wave Electron ACcelerator
+        \item Uses two laser pulses with tilted pulse fronts
+        \item The tilt controls the velocity of the overlapping region
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Image: TWEAC setup using two laser pulses. Image taken from Debus \cite{tweac}}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+        \only<1>{\includegraphics[width=0.9\columnwidth]{Images/tweac1.png}}\only<2>{\includegraphics[width=0.9\columnwidth]{Images/tweac2.png}}\only<3>{\includegraphics[width=0.9\columnwidth]{Images/tweac3.png}}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{2. Axiparabola laser \cite{Palastro:2020}}
+    \includegraphics[width=\textwidth]{Images/palastro_flfoc.png}
+    {\scriptsize The flying focus setup. Two optical elements: The Axiparabola (left) and the Radial Group Delay echelon (RGD) (right). Image taken from Palastro et al \cite{Palastro:2020}.}
+\end{frame}
+\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{2. Axiparabola laser \cite{Palastro:2020}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \begin{itemize}
+            \item Axiparabola \cite{Smartsev:2019}:\begin{itemize}
+            \item Near-parabolic mirror
+            \item Focuses light onto a line -- the focus region
+            \item[$\rightarrow$] Light at radius $r$ is focused at $f(r)=f_0+\delta\left(\frac{r}{R}\right)^2$
+            \end{itemize}
+            \item Radial Group Delay echelon (RGD) \cite{Ambat:2023}\cite{Palastro:2020}:\begin{itemize}
+            \item Stepped concentric mirror rings
+            \item Shape follows some function $\tau_D(r)$
+            \item[$\rightarrow$] controls the timing of the axiparabola focus
+            \end{itemize}
+        \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \includegraphics[width=\columnwidth]{Images/axiparabola.png}
+        {\scriptsize Axiparabola functionality. Image taken from Smartsev et al \cite{Smartsev:2019}.}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\section{Flying focus lasers in Lasy and PIConGPU}
+\begin{frame}{Lasy \cite{lasydoc}}{A python library}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item A python library for simulating Laser pulses in a vacuum
+        \item Uses complex envelope of the laser field
+        \item Uses angular spectrum propagation
+        \item Can use cylindrical coordinates for memory and CPU time efficiency
+        \item Offers a range of optical elements
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Example of a Gaussian pulse being propagated by Lasy. Top: generated at the focus, Bottom: 6 $z_R$ after the focus.}
+        \end{column}
+        \begin{column}{0.43\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_gauss_1.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_gauss_2.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{1. The Radial Group delay echelon (RGD)}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item Implemented from scratch as Lasy optical element
+        \item Following the description by Ambat et al \cite{Ambat:2023}
+        \item Shapes the pulse temporally without focusing or defocussing
+        \item Can generate any radially symmetric shape of delay $\tau_D(r)$
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: field envelope, Bottom: Test results. even after long distances the shape still holds.}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+        \includegraphics[width=0.9\columnwidth]{Images/lasy_rgd0.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_rgd_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{1. The Radial Group delay echelon (RGD)}
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_rgd_field.png}\\
+	{\scriptsize The electric field of the laser after interacting with the RGD.}
+	\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{2. The Axiparabola}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item Included in Lasy
+        \item Following Smartsev et al \cite{Smartsev:2019}
+        \item Focusing laser pulse in the focus region
+        \item Also implemented an axiparabola following Ambat et al \cite{Ambat:2023}\begin{itemize}
+            \item[$\rightarrow$] Very small differences
+        \end{itemize}
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: A super-Gaussian laser pulse after reflecting off the axiparabola. Top: in the near field, Bottom: in the far field at the beginning of the focus region.}
+        \end{column}
+        \begin{column}{0.44\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus2.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{2. The Axiparabola}
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus.png}\\
+	\end{column}
+	\end{columns}
+	\begin{center}
+	    {\scriptsize The electric field of the laser at the beginning of the focus region of the axiparabola.}
+	\end{center}
+\end{frame}
+\begin{frame}{Importing to PIConGPU}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item New module \pyth{full_field}
+        \item Generates full electric field and saves it using \texttt{openPMD-api}
+        \item \textsf{incidentField} method \textsf{FromOpenPMDPulse} \cite{fabia} imports the field into PIConGPU
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Top: Electric field of the complete flying focus laser at the beginning of the focus region, Bottom: That same electric field entering the simulation window of a PIConGPU simulation.}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_focus.png}
+        \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_start.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the method}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item Test with Gaussian laser pulse and parabolic mirror
+        \item Some artifacts are visible\begin{itemize}
+            \item Problem of the \textsf{incidentField} method
+            \item[$\rightarrow$] See \cite{PICartefact}
+        \end{itemize}
+        \item Test successful
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Top: Electric field of the Gaussian laser pulse $z_R$ before the focus as imported into a PIConGPU simulation, Bottom: The beam waist $w$ of the pulse over time, compared to theory.}
+        \end{column}
+        \begin{column}{0.43\textwidth}
+        \includegraphics[width=\columnwidth]{Images/pic_parabol_zr1.png}
+        \includegraphics[width=\columnwidth]{Images/pic_parabol_ws.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Testing the flying focus lasers}
+
+\begin{frame}{Testing the flying focus laser}{First results}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item Simulations in Lasy and PIConGPU
+            \item Input file for PIConGPU saved at the beginning of the focus region
+            \item Result: The flying focus effect cannot be seen
+            \item[$\rightarrow$] Test failed
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: From a Lasy simulation: $t-z/c$, Bottom: From a PIConGPU simulation: $z-t\cdot c$.}
+        \end{column}
+        \begin{column}{0.42\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
+        \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the flying focus laser}{Axiparabola only}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item With only the axiparabola differences appear already\begin{itemize}
+                \item[$\rightarrow$] Here must be the problem...
+            \end{itemize}
+            \item 
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Comparing measurements from a Lasy simulation with theoretical values using Ambat et al \cite{Ambat:2023}. Top: Arrival time $t-z/c$, Bottom: Beam waist $w$.}
+        \end{column}
+        \begin{column}{0.43\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_ts.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_ws.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+%\begin{frame}{Testing the flying focus laser}{More test?}
+%    \begin{columns}
+%        \begin{column}{0.55\textwidth}
+%        \begin{itemize}
+%            \item 
+%        \end{itemize}
+%        \vspace*{30pt}
+%        {\scriptsize Images: }
+%        \end{column}
+%        \begin{column}{0.41\textwidth}
+%        
+%        \end{column}
+%    \end{columns}
+%\end{frame}
+
+\section{Conclusion and Outlook}
+\begin{frame}{Conclusion}{Remaining Possible reasons for failure}
+    \begin{itemize}
+    \item The Axiparabola\begin{itemize}
+        \item The shape could still be wrong
+    \end{itemize}
+    \item The Propagation\begin{itemize}
+        \item Possibly the Lasy propagation gives incorrect/incomplete results
+    \end{itemize}
+    \item The Findings in the other papers\begin{itemize}
+        \item Maybe the Axiparabola does not work at all
+        \item Maybe it works in a different manner
+    \end{itemize}
+    \item Maybe something else...
+    \end{itemize}
+\end{frame}
+\begin{frame}{Outlook}
+    \begin{itemize}
+        \item Lasy lasers available in PIConGPU
+        \item[$\rightarrow$] LWFA with new laser setups possible
+        \item Some problems still need resolving
+        \item ?
+    \end{itemize}
+        
+    \definecolor{ow}{RGB}{250, 180, 0}
+    \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
+\end{frame}
+
+
+\section{References}
+\begin{frame}[allowframebreaks]{References}
+    \bibliographystyle{unsrt}
+    \bibliography{refs}
+\end{frame}
+
+\end{document}
