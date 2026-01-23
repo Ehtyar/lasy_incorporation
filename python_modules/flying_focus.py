@@ -1,5 +1,4 @@
-import time
-start = time.time()
+import ptime
 
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
@@ -55,7 +54,7 @@ print(npoints)
 print(np.pi*w0**2/l_w)
 print(100000*des_dt*c)
 
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
     GaussianLongitudinalProfile(l_w, tau, 0),
     #SuperGaussianTransverseProfile(w, n_order=6),
@@ -67,7 +66,7 @@ profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
 laser = Laser(dim, lo, hi, npoints, profile)
 #laser.add_propagator(propagator)
 #laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 axiparabola = axi.Axiparabola_Ambat(f0, delta, w)
 def tau_D(r):
     return RGD.tau_D_const_v(r, vf, axiparabola)
@@ -82,10 +81,10 @@ else:
     def ztime(z):
         r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
         return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 laser.apply_optics(axiparabola)
 #laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 fig, ax = full_field.show_field(laser, linthresh_frac=0.01, ret_ax=True)
 fig.savefig("flying_focus_img/axiparabola.png")
 newGrid = Grid(laser.dim, (0., -1e-13), (0.0008, 2.5e-13), npoints, n_azimuthal_modes=1)
@@ -120,7 +119,7 @@ for n in range(N):
     print("w expect", wes[n+1])
     zs[n+1] = (n+1)*delta/N
     print("z:", zs[n+1]+f0)
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
 
 fig = plt.figure()
 ax = fig.add_subplot()

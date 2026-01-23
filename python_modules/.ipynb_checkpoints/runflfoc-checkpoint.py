@@ -1,5 +1,4 @@
-import time
-start = time.time()
+import ptime
 
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
@@ -57,7 +56,7 @@ print(npoints)
 print(np.pi*w0**2/l_w)
 print(100000*des_dt*c)
 
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
     GaussianLongitudinalProfile(l_w, tau, 0),
@@ -69,7 +68,7 @@ profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
 laser = Laser(dim, lo, hi, npoints, profile)
 #laser.add_propagator(propagator)
 #laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 axiparabola = Axiparabola(f0, delta, 1.7*w)
 
@@ -85,22 +84,22 @@ else:
     def ztime(z):
         r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
         return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 laser.apply_optics(axiparabola)
 laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 laser.propagate(f0)
 laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 print("w =", get_w0(laser.grid, laser.dim))
 
 full_field.laser_to_openPMD(laser, "fl_foc_"+sys.argv[1], Nt=1536, Nx=int(1024/picpoints_per_p), Ny=int(1024/picpoints_per_p), conversion_safety=1.1,
                             points_between_r=p_per_r, forced_dt=des_dt, offset_frac=1*offset_frac, file_format="bp", data_step=picpoints_per_p)
 laser.show()
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 print(laser.grid.npoints)
 tps = full_field.get_tpeak(laser)
@@ -127,7 +126,7 @@ for n in range(N):
     print("w expect", wes[n+1])
     zs[n+1] = (n+1)*delta/N
     print("z:", zs[n+1]+f0)
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
 
 if do_rgd:
     name="flfoc_"+sys.argv[1]

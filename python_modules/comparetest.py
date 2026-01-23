@@ -1,5 +1,4 @@
-import time
-start = time.time()
+import ptime
 
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
@@ -43,12 +42,12 @@ elif dim == "rt":
     offset_frac = hi[1]/2 / (hi[1]-lo[1])
 print(npoints)
 
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
 
 laser = Laser(dim, lo, hi, npoints, profile)
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 axiparabola = Axiparabola(f0, delta, 1.5*w)
 import radialGroupDelay as RGD
@@ -56,18 +55,18 @@ def tau_D(r):
     return RGD.tau_D_const_v(r, vf, axiparabola)
 radial_delay = RGD.RadialGroupDelay(tau_D, l_w)
 laser.apply_optics(radial_delay)
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 laser.apply_optics(axiparabola)
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 laser.propagate(f0)
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 import full_field
 full_field.laser_to_openPMD(laser, "fl_foc_rough10_comp", Nt=1024, Nx=int(1024/picpoints_per_p), Ny=int(1024/picpoints_per_p), conversion_safety=1.1,
                             points_between_r=p_per_r, forced_dt=des_dt, offset_frac=offset_frac, file_format="bp", data_step=picpoints_per_p)
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 print(laser.grid.npoints)
 dist = des_dt * c * 6000
@@ -76,5 +75,5 @@ for n in range(16):
     full_field.laser_to_openPMD(laser, "fl_foc_rough10_comp", Nt=1024, iteration=n+1, Nx=int(1024/picpoints_per_p), Ny=int(1024/picpoints_per_p),
                                 forced_dt=des_dt, offset_frac=offset_frac, file_format="bp", data_step=picpoints_per_p, append=True)
     print(f0+(n+1)*dist)
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
 

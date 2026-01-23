@@ -1,5 +1,4 @@
-import time
-start = time.time()
+import ptime
 
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
@@ -80,7 +79,7 @@ printf(str(npoints))
 printf(str(np.pi*w0**2/l_w))
 printf(str(100000*des_dt*c))
 
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 
 profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
     GaussianLongitudinalProfile(l_w, tau, 0),
@@ -92,7 +91,7 @@ propagator = AngularSpectrumPropagator(profile.omega0, "xyt")
 laser = Laser(dim, lo, hi, npoints, profile)
 laser.add_propagator(propagator)
 #laser.show()
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
 axiparabola = Axiparabola(f0, delta, 1.7*w)
@@ -109,18 +108,18 @@ else:
     def ztime(z):
         r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
         return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
 laser.apply_optics(axiparabola)
 #laser.show()
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
 #newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
 laser.propagate(f0)#, grid_out=newGrid)
 #laser.show()
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
@@ -128,7 +127,7 @@ printf(f"w = {get_w0(laser.grid, laser.dim)}")
 #                            points_between_r=p_per_r, forced_dt=des_dt, offset_frac=1*offset_frac, file_format="bp", data_step=picpoints_per_p)
 
 #laser.show()
-printf(f"time: {(time.time()-start)/60} min")
+ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 
 tps = full_field.get_tpeak(laser)
 printf(f"{tps}")
@@ -163,7 +162,7 @@ for n in range(N):
     printf(f"w expect {wes[n+1]}")
     zs[n+1] = (n+1)*delta/N
     printf(f"z: {zs[n+1]+f0}")
-    printf(f"time: {(time.time()-start)/60} min")
+    ptime.ptime(filename=nameplus+"flfoc_angspec_out/printout")
 
 
 

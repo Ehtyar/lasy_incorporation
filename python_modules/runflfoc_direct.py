@@ -1,5 +1,4 @@
-import time
-start = time.time()
+import ptime
 
 from lasy.laser import Laser
 from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
@@ -57,7 +56,7 @@ print(npoints)
 print(np.pi*w0**2/l_w)
 print(100000*des_dt*c)
 
-print("time:", (time.time()-start)/60, "min")
+ptime.ptime()
 
 tps = 0
 
@@ -94,10 +93,10 @@ for n in range(N+1):
         def ztime(z):
             r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
             return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
     
     laser.apply_optics(axiparabola)
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
     laser.propagate(f0+n*delta/N)
     if n == 0:
         tps = full_field.get_tpeak(laser)
@@ -114,7 +113,7 @@ for n in range(N+1):
     print("w expect", wes[n])
     zs[n] = (n)*delta/N
     print("z:", zs[n])
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
 
 if do_rgd:
     name="flfoc_"+sys.argv[1]

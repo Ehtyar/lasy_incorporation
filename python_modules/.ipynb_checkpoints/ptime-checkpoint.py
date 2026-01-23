@@ -48,7 +48,7 @@ def ptime(title="runtime", filename=None):
     else:
         _printf(s, filename)
 
-def start_clock(name, value=0):
+def start_clock(name, value=0, start_paused=False):
     """start a clock that can later be read out. No process is running in the background for this.
 
     Parameters:
@@ -61,7 +61,10 @@ def start_clock(name, value=0):
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
     if name in starts:
         raise ValueError(f"clock '{name}' already exists")
-    starts[name] = (time.time(), value)
+    if start_paused:
+        starts[name] = (-1, value)
+    else:
+        starts[name] = (time.time(), value)
 
 def read_clock(name):
     """returns the time on the clock.
