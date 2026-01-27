@@ -1,0 +1,38 @@
+Running program...
+Running program...
+starting...
+=============================================
+Epilog started: Tue Jan 27 10:03:43 CET 2026
+User:           marqua27
+Job ID:         116821
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge059
+Job name:       axiprop
+Nodelist:       cge059
+No. of tasks:   16
+T used:           00:00:23 
+T requested:    1-00:00:00 
+Exit code:      256
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_r1_flfoc_axiprop_out
+Energy (J):     
+Energy (kWh):   
+---------------------------------------------
+starting...
+=============================================
+Epilog started: Tue Jan 27 10:03:45 CET 2026
+User:           marqua27
+Job ID:         116822
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge061
+Job name:       axiprop
+Nodelist:       cge061
+No. of tasks:   16
+T used:           00:00:18 
+T requested:    1-00:00:00 
+Exit code:      256
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_r1_flfoc_axiprop_out
+Energy (J):     2.35M
+Energy (kWh):   .653220
+---------------------------------------------

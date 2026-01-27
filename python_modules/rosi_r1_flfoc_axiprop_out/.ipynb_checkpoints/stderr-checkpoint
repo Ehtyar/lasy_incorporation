@@ -1,0 +1,8 @@
+  File "/data/home2/marqua27/jupyter_notebooks/runflfoc_axiprop_xyt.py", line 97
+    RectTransverseProfile(w)
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+  File "/data/home2/marqua27/jupyter_notebooks/runflfoc_axiprop_xyt.py", line 97
+    RectTransverseProfile(w)
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
