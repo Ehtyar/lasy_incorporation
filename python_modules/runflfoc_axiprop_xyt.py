@@ -100,20 +100,23 @@ if profile_setting == "r1":
                 GaussianLongitudinalProfile(l_w, tau, 0),
                 RectTransverseProfile(w),
                 laser_energy=E)
+    R = 1.*w
 elif profile_setting == "r3":
     profile = RectProfile(l_w, (1,0), w, tau, E)
+    R = 1.*w
 elif profile_setting == "sg":
     profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
                 GaussianLongitudinalProfile(l_w, tau, 0),
                 SuperGaussianTransverseProfile(w, n_order=6),
                 laser_energy=E)
+    R = 1.7*w
 #profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
 
 laser = Laser(dim, lo, hi, npoints, profile)
 #laser.show()
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
-axiparabola = Axiparabola(f0, delta, 1.7*w)
+axiparabola = Axiparabola(f0, delta, R)
 
 if do_rgd:
     def tau_D(r):
