@@ -13,7 +13,11 @@ To use the functions developed here, copy the lib directory or single files from
 
 If you want to use showdata outside the package, you need to change the imports of .full_field and .ptime (which it needs) by removing the dot.
 
-##Tests of the axiparabola laser
+## Tests of the axiparabola laser
+
+None of the tests done so far have successfully created an axiparabola flying focus laser, that actually moved as expected. However, there have been many smaller tests to figure out, why this is.
+
+### In the Bachelors thesis
 
 The bachelors thesis already contains a lot of tests for the modules in lib and the axiparabola laser in general. It can be found in bachlors_thesis/main.pdf. Here is an overview of the tests in it:
 - A test of Lasy propagation using Gaussian pulses.
@@ -28,4 +32,7 @@ The bachelors thesis already contains a lot of tests for the modules in lib and 
 - A test showing, that this shapesolves the differential equation it is derived from.
 - Multiple unsuccessful tests using the RGD and the axiparabola together.
 
-The following test have been done afterwards:
+### Not in the Bachelors thesis
+
+The following test have been done afterwards. All the files and directories described here can be found in the python_modules directory.
+- A test
