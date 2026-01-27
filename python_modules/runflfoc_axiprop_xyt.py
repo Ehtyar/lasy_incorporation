@@ -34,6 +34,10 @@ elif profile_setting == "sg":
 else:
     raise ValueError(f"Profile setting {profile_setting} not known.")
 
+file = open(nameplus+"flfoc_axiprop_out/printout", "w")
+file.writelines([])
+file.close()
+
 def printf(string, filename=nameplus+"flfoc_axiprop_out/printout"):
     file = open(filename, "r")
     lines = file.readlines()
@@ -128,8 +132,8 @@ ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 laser.apply_optics(axiparabola)
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
-newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
-laser.propagate(f0, grid_out=newGrid)
+#newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
+laser.propagate(f0)#, grid_out=newGrid)
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 printf(f"w = {get_w0(laser.grid, laser.dim)}")

@@ -5,14 +5,13 @@ w0 = 2.3484903402640077e-05
 w/w0 =42.580545589452335
 (2100, 2100, 2100)
 0.0016439432381848056
-runtime: 0.7164 s
-running on rosi
-settings: v=no% c; N=5; profile=sg
-w0 = 2.3484903402640077e-05
-w/w0 =42.580545589452335
-(2100, 2100, 2100)
-0.0016439432381848056
-runtime: 0.7520 s
-runtime: 4 min 47.420 s
-runtime: 4 min 48.299 s
-runtime: 4 min 48.308 s
+runtime: 0.7212 s
+runtime: 4 min 46.885 s
+runtime: 4 min 46.894 s
+runtime: 4 min 59.289 s
+runtime: 1 h 10 min 28.771 s
+runtime: 1 h 14 min 52.491 s
+runtime: 2 h 23 min 4.7707 s
+runtime: 2 h 45 min 17.104 s
+w = 3.312866546554906e-05
+1.0124607133426363e-16

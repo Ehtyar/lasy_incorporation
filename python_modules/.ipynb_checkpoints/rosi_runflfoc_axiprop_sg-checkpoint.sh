@@ -4,7 +4,7 @@
 # necessary to set the account also to the queue name because otherwise access is not allowed at the moment
 #SBATCH --time=1-00:00:00
 # Sets batch job's name
-#SBATCH --job-name=axiprop
+#SBATCH --job-name=sgaxiprop
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
