@@ -78,4 +78,6 @@ Some ideas for possible tests remain.
 - Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen - requires a large and pprobably very long simulation. Options:
   - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there
   - Try to generate the pulse in PIConGPU analytically
+- double checking the axiparabola derivation...
+- trying to solve the propagation integrals analytically...
 - idk
