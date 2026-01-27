@@ -10,19 +10,19 @@ Extracting full field
 Displaying
 done
 =============================================
-Epilog started: Wed Jan 21 12:53:16 CET 2026
+Epilog started: Sat Jan 24 09:42:55 CET 2026
 User:           marqua27
-Job ID:         113453
+Job ID:         116005
 Partition:      cpu-genoa
 Account:        default
-Batchhost:      cge013
+Batchhost:      cge038
 Job name:       fresnel
-Nodelist:       cge013
+Nodelist:       cge038
 No. of tasks:   16
-T used:           20:29:41 
+T used:           15:37:58 
 T requested:    1-00:00:00 
 Exit code:      0
 Working dir:    /home/marqua27/jupyter_notebooks/rosi_flfoc_fresnel_out
-Energy (J):     17.41M
-Energy (kWh):   4.836482
+Energy (J):     13.55M
+Energy (kWh):   3.764436
 ---------------------------------------------

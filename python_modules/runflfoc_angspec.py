@@ -24,8 +24,10 @@ if cluster == "rosi":
 else:
     nameplus = ""
     
-lines = []
 def printf(string, filename=nameplus+"flfoc_angspec_out/printout"):
+    file = open(filename, "r")
+    lines = file.readlines()
+    file.close()
     lines.append(string+"\n")
     file = open(filename, "w")
     file.writelines(lines)

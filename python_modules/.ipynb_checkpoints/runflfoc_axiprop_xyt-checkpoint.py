@@ -5,7 +5,6 @@ from lasy.profiles.combined_profile import CombinedLongitudinalTransverseProfile
 from lasy.profiles.longitudinal import GaussianLongitudinalProfile
 from lasy.profiles.transverse import SuperGaussianTransverseProfile
 from lasy.profiles.gaussian_profile import GaussianProfile
-from lasy.propagators import FresnelChirpZPropagator
 from lasy.optical_elements import Axiparabola
 from lasy.utils.laser_utils import get_w0
 from lasy.utils.grid import Grid
@@ -14,17 +13,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.constants import c
 import radialGroupDelay as RGD
+from rectProfile import RectProfile, RectTransverseProfile
 import full_field
 import sys
 
-assert len(sys.argv) >= 4, "all arguments need to be set."
+assert len(sys.argv) >= 5, "all arguments need to be set."
 cluster = sys.argv[3]
+profile_setting = sys.argv[4]
 if cluster == "rosi":
     nameplus = "rosi_"
 else:
     nameplus = ""
 
-def printf(string, filename=nameplus+"flfoc_fresnel_out/printout"):
+if profile_setting == "r1":
+    nameplus += "r1_"
+elif profile_setting == "r3":
+    nameplus += "r3_"
+elif profile_setting == "sg":
+    nameplus += "sg_"
+else:
+    raise ValueError(f"Profile setting {profile_setting} not known.")
+
+def printf(string, filename=nameplus+"flfoc_axiprop_out/printout"):
     file = open(filename, "r")
     lines = file.readlines()
     file.close()
@@ -34,7 +44,7 @@ def printf(string, filename=nameplus+"flfoc_fresnel_out/printout"):
     file.close()
 
 printf("running on "+cluster)
-printf("settings: v="+sys.argv[1]+"% c; N="+sys.argv[2])
+printf("settings: v="+sys.argv[1]+"% c; N="+sys.argv[2]+"; profile="+sys.argv[4])
 
 dim = "xyt"
 if sys.argv[1] == "no":
@@ -46,7 +56,7 @@ else:
 
 l_w = 10.54e-7
 f0 = 7e-2
-delta = 2e-3
+delta = 5e-3
 w = 1e-3
 tau = 1.5e-14
 E = 6.2
@@ -78,21 +88,26 @@ elif dim == "rt":
 printf(str(npoints))
 
 printf(str(np.pi*w0**2/l_w))
-printf(str(100000*des_dt*c))
 
-ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
-profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
-    GaussianLongitudinalProfile(l_w, tau, 0),
-    SuperGaussianTransverseProfile(w, n_order=6),
-    laser_energy=E)
+if profile_setting == "r1":
+    profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
+                GaussianLongitudinalProfile(l_w, tau, 0),
+                RectTransverseProfile(w),
+                laser_energy=E)
+elif profile_setting == "r3":
+    profile = RectProfile(l_w, (1,0), w, tau, E)
+elif profile_setting == "sg":
+    profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
+                GaussianLongitudinalProfile(l_w, tau, 0),
+                SuperGaussianTransverseProfile(w, n_order=6),
+                laser_energy=E)
 #profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
-propagator = FresnelChirpZPropagator()#profile.omega0, "xyt")
 
 laser = Laser(dim, lo, hi, npoints, profile)
-laser.add_propagator(propagator)
 #laser.show()
-ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 axiparabola = Axiparabola(f0, delta, 1.7*w)
 
@@ -108,14 +123,14 @@ else:
     def ztime(z):
         r2 = (z-axiparabola.f0) / axiparabola.delta*axiparabola.R**2
         return 1/c*(z+r2/2/z-2*axiparabola.R**2/4/axiparabola.delta*np.log(1+axiparabola.delta/axiparabola.f0*r2/axiparabola.R**2))
-ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 laser.apply_optics(axiparabola)
-ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
 laser.propagate(f0, grid_out=newGrid)
-ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
 
@@ -141,12 +156,12 @@ if do_rgd:
 else:
     name="axiparabola"
 fig, ax = full_field.show_field(laser, linthresh_frac=1., ret_ax=True)
-fig.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_focus.png")
+fig.savefig(nameplus+"flfoc_axiprop_out/lasy_"+name+"_focus.png")
 
 for n in range(N):
     laser.propagate(delta/N)
     fig, ax = full_field.show_field(laser, linthresh_frac=1., ret_ax=True)
-    fig.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_step"+str(n)+".png")
+    fig.savefig(nameplus+"flfoc_axiprop_out/lasy_"+name+"_step"+str(n)+".png")
     ts[n+1] = full_field.get_tpeak(laser) - tps
     printf(f"t: {ts[n+1]}")
     tes[n+1] = ztime(f0+(n+1)*delta/N) - (f0+(n+1)*delta/N) / c
@@ -157,7 +172,7 @@ for n in range(N):
     printf(f"w expect {wes[n+1]}")
     zs[n+1] = (n+1)*delta/N
     printf(f"z: {zs[n+1]+f0}")
-    ptime.ptime(filename=nameplus+"flfoc_fresnel_out/printout")
+    ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 
 fig = plt.figure()
@@ -169,7 +184,7 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$t-z/c$/fs")
 
-plt.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_ts.png")
+plt.savefig(nameplus+"flfoc_axiprop_out/lasy_"+name+"_ts.png")
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -180,6 +195,6 @@ ax.legend()
 ax.set_xlabel("$z-f_0$/mm")
 ax.set_ylabel("$w/\\mu$m")
 
-plt.savefig(nameplus+"flfoc_fresnel_out/lasy_"+name+"_ws.png")
+plt.savefig(nameplus+"flfoc_axiprop_out/lasy_"+name+"_ws.png")
 printf("done")
 print("done")
