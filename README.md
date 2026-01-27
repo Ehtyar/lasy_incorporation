@@ -35,4 +35,36 @@ The bachelors thesis already contains a lot of tests for the modules in lib and 
 ### Not in the Bachelors thesis
 
 The following test have been done afterwards. All the files and directories described here can be found in the python_modules directory.
-- A test
+- Multiple tests with different Lasy propagators, each with and without RGD:
+  - AngularSpectrumPropagator:
+    - Using the script runflfoc_angspec.py
+    - Results in flfoc_angspec_out/ and rosi_flfoc_angspec_out/
+    - Result: This propagator only works for very small numbers of points on the grid and is, therefore, unhelpful to this task
+  - FresnelChirpZPropagator:
+    - Using the script runflfoc_fresnel.py
+    - Results in flfoc_fresnel_out/ and rosi_flfoc_fresnel_out/
+    - In the images in flfoc_fresnel_out/ there are very weird lines visible next to the actually focused laser pulse.
+    - Therefore, it is neccessary to use the grid_out option of the propagate function to only resample the field near the focus (see Lasy docu for information on how to do that).
+    - The results of this, see rosi_flfoc_fresnel_out/, are very similar to the results of the standard propagator in Lasy (axiprop propagator). The main difference is the runtime per propagation step and because of this the number of steps.
+- Because some papers mentioned using rectangular laser profiles (for their ease of calculation) I implemented the rectProfile module and tested with that:
+  - The file flying_focus.ipynb (that was always the first test for new ideas and also contains other tests) shows, that the beam waist is larger with this new transverse profile (which is expected), but nothing else changes.
+  - Testing more properly with the script flying_focus.py:
+    - Results in flying_focus_img/
+    - (coming soon)
+- The beam waist in simulations with just the axiparabola looks similar to what one would expect from a parabolic mirror of similar focus length. Testing this:
+  - The notebook read_the_file.ipynb shows the results of a PIConGPU simulation initialised with a laser pulse focused by just an axiparabola at the beginning of the focus region.
+    - Near the end is a comparison between the beam waists in the simulation with the expectations of the axiparabola laser and a parabola mirror of the same focus length.
+    - The measurement is more similar to the beam from the parabolic mirror, just with larger w0.
+  - Testing this in Lasy using axiparabola_gauss.ipynb:
+    - (coming soon)
+- Trying axiprop propagator with cartesian coordinates again but with more points, different starting beam profiles and again both with and without RGD:
+  - Using the script runflfoc_axiprop_xyt.py.
+  - Longitudinal Gauss, Transverse superGauss:
+    - Results in rosi_sg_flfoc_axiprop_out/
+    - (coming soon)
+  - Longitudinal Gauss, Transverse rect:
+    - Results in rosi_r1_flfoc_axiprop_out/
+    - (coming soon)
+  - Complete rect profile:
+    - Results in rosi_r3_flfoc_axiprop_out/
+    - (coming soon)
