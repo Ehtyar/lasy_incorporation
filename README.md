@@ -32,7 +32,7 @@ The bachelors thesis already contains a lot of tests for the modules in lib and 
 - A test showing, that this shapesolves the differential equation it is derived from.
 - Multiple unsuccessful tests using the RGD and the axiparabola together.
 
-### Not in the Bachelors thesis
+### After the Bachelors thesis
 
 The following test have been done afterwards. All the files and directories described here can be found in the python_modules directory.
 - Multiple tests with different Lasy propagators, each with and without RGD:
@@ -50,13 +50,15 @@ The following test have been done afterwards. All the files and directories desc
   - The file flying_focus.ipynb (that was always the first test for new ideas and also contains other tests) shows, that the beam waist is larger with this new transverse profile (which is expected), but nothing else changes.
   - Testing more properly with the script flying_focus.py:
     - Results in flying_focus_img/
-    - (coming soon)
+    - Although the beam waist is again larger than when testing with a transversal super-Gauss (as expected) the rest of the results looks very similar to what has been done earlier - no flying focus achieved.
 - The beam waist in simulations with just the axiparabola looks similar to what one would expect from a parabolic mirror of similar focus length. Testing this:
   - The notebook read_the_file.ipynb shows the results of a PIConGPU simulation initialised with a laser pulse focused by just an axiparabola at the beginning of the focus region.
     - Near the end is a comparison between the beam waists in the simulation with the expectations of the axiparabola laser and a parabola mirror of the same focus length.
     - The measurement is more similar to the beam from the parabolic mirror, just with larger w0.
-  - Testing this in Lasy using axiparabola_gauss.ipynb:
-    - (coming soon)
+  - Testing this in Lasy using axiparabola_gauss.ipynb with a Gaussian pulse interacting with an axiparabola:
+    - At first reproduced a very similar plot.
+    - Then increased delta to make axiparabola and parabola more different - leads to the current state of the notebook.
+    - The measured beam waist is now between the two descriptions (axiparabola theory and parabola with the same f0), however, it looks like it could be described by a parabola with a slightly longer f0 and a larger w0.
 - Trying axiprop propagator with cartesian coordinates again but with more points, different starting beam profiles and again both with and without RGD:
   - Using the script runflfoc_axiprop_xyt.py.
   - Longitudinal Gauss, Transverse superGauss:
@@ -68,3 +70,12 @@ The following test have been done afterwards. All the files and directories desc
   - Complete rect profile:
     - Results in rosi_r3_flfoc_axiprop_out/
     - (coming soon)
+- Additional smaller tests to the ones mentioned in the Bachelors thesis can be found all over the python_modules directory in files and directories not directly mentioned in this section, as well as some additional images from tests in bachlors_thesis/Images/
+  
+### Open ideas
+
+Some ideas for possible tests remain.
+- Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen - requires a large and pprobably very long simulation. Options:
+  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there
+  - Try to generate the pulse in PIConGPU analytically
+- idk
