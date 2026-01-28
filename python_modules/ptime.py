@@ -59,7 +59,7 @@ def start_clock(name, value=0, start_paused=False):
         The value the clock should be set to.
     """
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
-    if name in starts:
+    if name in _starts:
         raise ValueError(f"clock '{name}' already exists")
     if start_paused:
         _starts[name] = (-1, value)
@@ -75,7 +75,7 @@ def read_clock(name):
     """
     assert name in _starts, f"clock {name} does not exist"
     assert name != "__rtime__", "clock name '__rtime__' cannot be used."
-    if starts[name][0] > 0:
+    if _starts[name][0] > 0:
         return time.time() - _starts[name][0] + _starts[name][1]
     else:
         return _starts[name][1]
