@@ -2,3 +2,65 @@ Running program...
 starting...
 Available backends are: NP
 NP is chosen
+Available backends are: NP
+NP is chosen
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+Extracting full field
+Displaying
+done
+=============================================
+Epilog started: Tue Jan 27 23:05:43 CET 2026
+User:           marqua27
+Job ID:         116876
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge012
+Job name:       axiprop
+Nodelist:       cge012
+No. of tasks:   16
+T used:           10:24:43 
+T requested:    1-00:00:00 
+Exit code:      0
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_sg_flfoc_axiprop_out
+Energy (J):     9.04M
+Energy (kWh):   2.510273
+---------------------------------------------
+Extracting full field
+Displaying
+done
+=============================================
+Epilog started: Tue Jan 27 23:30:19 CET 2026
+User:           marqua27
+Job ID:         116877
+Partition:      cpu-genoa
+Account:        default
+Batchhost:      cge061
+Job name:       axiprop
+Nodelist:       cge061
+No. of tasks:   16
+T used:           10:49:15 
+T requested:    1-00:00:00 
+Exit code:      0
+Working dir:    /home/marqua27/jupyter_notebooks/rosi_sg_flfoc_axiprop_out
+Energy (J):     19.84M
+Energy (kWh):   5.510636
+---------------------------------------------

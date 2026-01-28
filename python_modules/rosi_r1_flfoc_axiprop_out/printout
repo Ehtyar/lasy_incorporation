@@ -1,23 +1,8 @@
 running on rosi
-settings: v=102% c; N=5; profile=r1
+settings: v=102% c; N=10; profile=r1
 vf: 305788307.16
 w0 = 2.3484903402640077e-05
 w/w0 =42.580545589452335
 (2100, 2100, 2100)
 0.0016439432381848056
-runtime: 0.9186 s
-runtime: 4 min 39.099 s
-runtime: 4 min 39.106 s
-runtime: 4 min 39.191 s
-runtime: 57 min 46.606 s
-runtime: 1 h 8 min 44.549 s
-runtime: 1 h 51 min 41.859 s
-runtime: 2 h 2 min 1.4262 s
-w = 5.2419655209308806e-05
-9.64398049296095e-17
-t: -1.6923669408386942e-16
-t expect -9.652336705174954e-17
-w: 5.2343706324524534e-05
-w expect 3.0890494384305484e-05
-z: 0.07100000000000001
-runtime: 2 h 52 min 1.1947 s
+runtime: 0.7109 s
