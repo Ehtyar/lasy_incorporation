@@ -63,13 +63,15 @@ The following test have been done afterwards. All the files and directories desc
   - Using the script runflfoc_axiprop_xyt.py.
   - Longitudinal Gauss, Transverse superGauss:
     - Results in rosi_sg_flfoc_axiprop_out/
-    - (coming soon)
+    - Results are very similar to previous tests.
   - Longitudinal Gauss, Transverse rect:
     - Results in rosi_r1_flfoc_axiprop_out/
-    - (coming soon)
+    - Used a smaller radius of the axiparabola to just encompass the actual pulse -> theoretical values are slightly different.
+    - Nonetheless, the results are still similar to earlier tests with a transverse rect profile.
   - Complete rect profile:
     - Results in rosi_r3_flfoc_axiprop_out/
-    - (coming soon)
+    - still smaller radius of the axiparabola
+    - Results are very similar to the previous test with longitudinal Gaussian profile.
 - Additional smaller tests to the ones mentioned in the Bachelors thesis can be found all over the python_modules directory in files and directories not directly mentioned in this section, as well as some additional images from tests in bachlors_thesis/Images/
   
 ### Open ideas
