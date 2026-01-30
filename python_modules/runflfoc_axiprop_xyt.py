@@ -75,8 +75,15 @@ if dim == "xyt":
         npoints = (3000, 3000, 3000)
     else:
         raise ValueError("cluster settings only defined for rosi and hemera")
-    hi = (2*w, 2*w, 9*tau)
-    lo = (-2*w, -2*w, -15*tau)
+    if do_rgd == False:
+        hi = (2*w, 2*w, 9*tau)
+        lo = (-2*w, -2*w, -15*tau)
+    elif vf > c:
+        hi = (2*w, 2*w, 9*tau)
+        lo = (-2*w, -2*w, -25*tau)
+    elif vf < c:
+        hi = (2*w, 2*w, 19*tau)
+        lo = (-2*w, -2*w, -15*tau)
     offset_frac = hi[1]/4 / (hi[1]-lo[1])
 elif dim == "rt":
     p_per_r = 1./3
