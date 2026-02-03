@@ -13,6 +13,8 @@ To use the functions developed here, copy the lib directory or single files from
 
 If you want to use showdata outside the package, you need to change the imports of .full_field and .ptime (which it needs) by removing the dot.
 
+Examples of the usage of the functions provided here can be found in the notebooks in python_modules: flying_focus.ipynb, parabol_gauss.ipynb and read_the_file.ipynb each show some of the modules in use.
+
 ## Tests of the axiparabola laser
 
 None of the tests done so far have successfully created an axiparabola flying focus laser, that actually moved as expected. However, there have been many smaller tests to figure out, why this is.
