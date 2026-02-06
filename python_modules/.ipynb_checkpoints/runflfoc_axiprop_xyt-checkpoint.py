@@ -34,6 +34,10 @@ elif profile_setting == "sg":
 else:
     raise ValueError(f"Profile setting {profile_setting} not known.")
 
+file = open(nameplus+"flfoc_axiprop_out/printout", "w")
+file.writelines([])
+file.close()
+
 def printf(string, filename=nameplus+"flfoc_axiprop_out/printout"):
     file = open(filename, "r")
     lines = file.readlines()
@@ -71,8 +75,15 @@ if dim == "xyt":
         npoints = (3000, 3000, 3000)
     else:
         raise ValueError("cluster settings only defined for rosi and hemera")
-    hi = (2*w, 2*w, 9*tau)
-    lo = (-2*w, -2*w, -15*tau)
+    if do_rgd == False:
+        hi = (2*w, 2*w, 9*tau)
+        lo = (-2*w, -2*w, -15*tau)
+    elif vf > c:
+        hi = (2*w, 2*w, 9*tau)
+        lo = (-2*w, -2*w, -25*tau)
+    elif vf < c:
+        hi = (2*w, 2*w, 19*tau)
+        lo = (-2*w, -2*w, -15*tau)
     offset_frac = hi[1]/4 / (hi[1]-lo[1])
 elif dim == "rt":
     p_per_r = 1./3
@@ -96,20 +107,23 @@ if profile_setting == "r1":
                 GaussianLongitudinalProfile(l_w, tau, 0),
                 RectTransverseProfile(w),
                 laser_energy=E)
+    R = 1.*w
 elif profile_setting == "r3":
     profile = RectProfile(l_w, (1,0), w, tau, E)
+    R = 1.*w
 elif profile_setting == "sg":
     profile = CombinedLongitudinalTransverseProfile(l_w, (1,0),
                 GaussianLongitudinalProfile(l_w, tau, 0),
                 SuperGaussianTransverseProfile(w, n_order=6),
                 laser_energy=E)
+    R = 1.7*w
 #profile = GaussianProfile(l_w, (1,0), E, w, tau, 0.0)
 
 laser = Laser(dim, lo, hi, npoints, profile)
 #laser.show()
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
-axiparabola = Axiparabola(f0, delta, 1.7*w)
+axiparabola = Axiparabola(f0, delta, R)
 
 if do_rgd:
     def tau_D(r):
@@ -128,8 +142,8 @@ ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 laser.apply_optics(axiparabola)
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
-newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
-laser.propagate(f0, grid_out=newGrid)
+#newGrid = Grid(dim, (-0.5*w, -0.5*w, -5*tau), (0.5*w, 0.5*w, 5*tau), npoints, n_azimuthal_modes=1)
+laser.propagate(f0)#, grid_out=newGrid)
 ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 printf(f"w = {get_w0(laser.grid, laser.dim)}")
@@ -138,7 +152,7 @@ printf(f"w = {get_w0(laser.grid, laser.dim)}")
 #                            points_between_r=p_per_r, forced_dt=des_dt, offset_frac=1*offset_frac, file_format="bp", data_step=picpoints_per_p)
 
 
-#printf(f"time: {(time.time()-start)/60} min")
+#ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 tps = full_field.get_tpeak(laser)
 printf(f"{tps}")

@@ -451,6 +451,7 @@ def _rt_to_xyt(laser, Nx, Ny, points_between_r=1):
 
 def _cut_first_frac(laser, cut_frac):
     """cuts the first points in t direction"""
+    assert cut_frac < 1, "Can't cut the entire field"
     field = laser.grid.get_temporal_field()
     N = int(field.shape[-1] * cut_frac)
     if np.max(np.abs(field[:,:,:N])) > 0.01 * np.max(np.abs(field)):
@@ -763,8 +764,7 @@ def laser_to_openPMD(laser, file_prefix, Nt=None, Nx=None, Ny=None, write_dir="d
     append : bool (optional)
         needs to be set to True, if the file should be added to not overwritten.
     """
-    print("extracting full field...")
-    assert cut_first_frac < 1, "Can't cut the entire field"
+    print("preparing the laser...")
     changed = False
     if cut_first_frac > 0:
         laser_new = _cut_first_frac(laser, cut_first_frac)
@@ -779,6 +779,7 @@ def laser_to_openPMD(laser, file_prefix, Nt=None, Nx=None, Ny=None, write_dir="d
         changed = True
     if not changed:
         laser_new = laser
+    print("extracting full field...")
     if Nx is not None:
         Nx *= data_step
     if Ny is not None:

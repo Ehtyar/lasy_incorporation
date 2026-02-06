@@ -152,7 +152,7 @@ printf(f"w = {get_w0(laser.grid, laser.dim)}")
 #                            points_between_r=p_per_r, forced_dt=des_dt, offset_frac=1*offset_frac, file_format="bp", data_step=picpoints_per_p)
 
 
-#printf(f"time: {(time.time()-start)/60} min")
+#ptime.ptime(filename=nameplus+"flfoc_axiprop_out/printout")
 
 tps = full_field.get_tpeak(laser)
 printf(f"{tps}")

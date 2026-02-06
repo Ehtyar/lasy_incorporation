@@ -4,14 +4,14 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as clr
 import numpy as np
 import openpmd_api as io
-from .ptime import (start_clock, set_clock, read_clock, get_clocks)
+from .ptime import (start_clock, set_clock, print_clock, get_clocks)
 from scipy.constants import c, mu_0, epsilon_0, e, m_e
 from scipy.optimize import curve_fit
 
 try:
     from tqdm.auto import tqdm
     tqdm_available = True
-    bar_format='{l_bar}{bar}| {elapsed}<{remaining} [{rate_fmt}{postfix}]'
+    bar_format="{l_bar}{bar}| {elapsed}<{remaining} [{rate_fmt}{postfix}]"
 except Exception:
     tqdm_available = False
 
@@ -313,7 +313,10 @@ def plot_w(filename=None, series=None, forward=0, ret=False, startit=0, maxtime=
 
     if ret_ax:
         if ret:
-            return fig, ax, ts, ws
+            if apply_maxtime_to_measurement:
+                return fig, ax, ts[Nmin:Nmax], ws[Nmin:Nmax]
+            else:
+                return fig, ax, ts[Nmin:], ws[Nmin:]
         else:
             return fig, ax
             
@@ -321,7 +324,10 @@ def plot_w(filename=None, series=None, forward=0, ret=False, startit=0, maxtime=
     plt.show()
     
     if ret:
-        return ts, ws
+        if apply_maxtime_to_measurement:
+            return ts[Nmin:Nmax], ws[Nmin:Nmax]
+        else:
+            return ts[Nmin:], ws[Nmin:]
 
 def show_lpeak(filename=None, series=None, iteration=None, forward=0, density=None, spacing=None, method="stat", p=True):
     """Calculates the distance form the center of the peak of the pulse for the iteration in the series.
@@ -542,7 +548,10 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxt
 
     if ret_ax:
         if ret:
-            return fig, ax, ts, ws
+            if apply_maxtime_to_measurement:
+                return fig, ax, ts[Nmin:Nmax], lpeaks[Nmin:Nmax]
+            else:
+                return fig, ax, ts[Nmin:], lpeaks[Nmin:]
         else:
             return fig, ax
             
@@ -550,7 +559,10 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxt
     plt.show()
     
     if ret:
-        return ts, lpeaks
+        if apply_maxtime_to_measurement:
+            return ts[Nmin:Nmax], lpeaks[Nmin:Nmax]
+        else:
+            return ts[Nmin:], lpeaks[Nmin:]
 
 _w = show_w
 _lpeak = show_lpeak
@@ -914,7 +926,6 @@ def show_lwfa(filename=None, series=None, iteration=None, n=1, xmax=0.01, s=0.1,
     mz = (np.arange(Eshape[0]+1) - Eshape[0]/2) * Espacing[0]
     my = (np.arange(Eshape[1]+1) - Eshape[1]/2) * Espacing[1]
     mEx = np.max(np.abs(Ex))
-    mEy = np.max(np.abs(Ey))
 
     if close:
         series.close()
@@ -1061,7 +1072,7 @@ def show_file(filename, itstep=1, metadata=False, iteration=None, show_time=Fals
         
         if mul:
             # show the specified iterations
-            for n_i in iterations:
+            for n_i in iteration:
                 if n_i in series.iterations:
                     func(n_i, series, **kwargs)
                     if show_time:

@@ -77,7 +77,7 @@ for n in range(N+1):
     laser = Laser(dim, lo, hi, npoints, profile)
     #laser.add_propagator(propagator)
     #laser.show()
-    print("time:", (time.time()-start)/60, "min")
+    ptime.ptime()
     
     axiparabola = Axiparabola(f0, delta, 1.7*w)
     
