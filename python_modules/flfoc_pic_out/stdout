@@ -1,71 +1,47 @@
 Running program...
-starting 102
-vf: 305788307.16
-w0 = 2.3484903402640077e-05
-w/w0 = 42.580545589452335
-points in file: 512
-0.4
-(3000, 7500)
-0.0016439432381848056
-0.006164932106312
-steps to focus: 1135454.5158466566
-steps through focus: 32441.557595618757
-total: 1167896.0734422754
-runtime: 0.9799 s
-runtime: 3.8186 s
-runtime: 7.5479 s
-runtime: 10.627 s
-preparing the laser...
-extracting full field...
-Warning: Nt and forced_dt given. Can not return the entire field, just 58.49 percent.
-Offsetting by 40.0 percent of the original field
-saving...
-transposing
-Data type: float32
-flushing
-done
-runtime: 18 min 45.684 s
 starting 098
-vf: 293796608.84000003
-w0 = 2.3484903402640077e-05
-w/w0 = 42.580545589452335
-points in file: 512
-0
-(3000, 7500)
-0.0016439432381848056
-0.006164932106312
-steps to focus: 1135454.5158466566
-steps through focus: 32441.557595618757
-total: 1167896.0734422754
-runtime: 0.9234 s
-runtime: 3.7576 s
-runtime: 7.4975 s
-runtime: 10.590 s
-preparing the laser...
-extracting full field...
-Warning: Nt and forced_dt given. Can not return the entire field, just 58.49 percent.
-saving...
-transposing
-Data type: float32
-flushing
-done
-runtime: 18 min 57.309 s
-starting no
-w0 = 2.3484903402640077e-05
-w/w0 = 42.580545589452335
-points in file: 512
-0.2
-(3000, 7500)
-0.0016439432381848056
-0.006164932106312
-steps to focus: 1135454.5158466566
-steps through focus: 32441.557595618757
-total: 1167896.0734422754
-runtime: 0.9536 s
-runtime: 3.7991 s
-runtime: 3.7991 s
-runtime: 7.3882 s
-preparing the laser...
+
+------------------------------
+- - - - - job epilog - - - - -
+------------------------------
+Job ID: 15578507
+was running on nodes: gv019
+by user: marqua27
+in partition: fwkt_v100
+using account: fwkt_v100
+number of CPUs used: 16
+number of nodes requested: 1
+------------------------------
+walltime reqd: 1-00:00:00
+walltime used: 00:00:23
+------------------------------
+Fri Feb 6 16:38:40 CET 2026
+------------------------------
+
 extracting full field...
 Warning: Nt and forced_dt given. Can not return the entire field, just 58.49 percent.
 Offsetting by 20.0 percent of the original field
+saving...
+transposing
+Data type: float32
+flushing
+done
+runtime: 18 min 47.340 s
+
+------------------------------
+- - - - - job epilog - - - - -
+------------------------------
+Job ID: 15578503
+was running on nodes: gv014
+by user: marqua27
+in partition: fwkt_v100
+using account: fwkt_v100
+number of CPUs used: 16
+number of nodes requested: 1
+------------------------------
+walltime reqd: 1-00:00:00
+walltime used: 00:18:49
+------------------------------
+Fri Feb 6 16:55:13 CET 2026
+------------------------------
+
