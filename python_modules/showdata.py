@@ -572,7 +572,7 @@ def _prepcut(N, center_N, shape, spacing, direction, show_SI):
     if show_SI:
         extent = [-shape/2*spacing, shape/2*spacing]
     else:
-        extent = [0, shape*spacing]
+        extent = [0, shape]
     Nlo = 0
     Nhi = shape
     if N is not None:
