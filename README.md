@@ -74,13 +74,15 @@ The following test have been done afterwards. All the files and directories desc
     - Results in rosi_r3_flfoc_axiprop_out/
     - still smaller radius of the axiparabola
     - Results are very similar to the previous test with longitudinal Gaussian profile.
-- Additional smaller tests to the ones mentioned in the Bachelors thesis can be found all over the python_modules directory in files and directories not directly mentioned in this section, as well as some additional images from tests in bachlors_thesis/Images/
+- Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen
+  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there (in progress)
+- Additional smaller tests to the ones mentioned in the Bachelors thesis can be found all over the python_modules directory in files and directories not directly mentioned in this section, as well as some additional images from tests in bachelors_thesis/Images/
   
 ### Open ideas
 
 Some ideas for possible tests remain.
 - Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen - requires a large and pprobably very long simulation. Options:
-  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there
+  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there (in progress)
   - Try to generate the pulse in PIConGPU analytically
 - double checking the axiparabola derivation...
 - trying to solve the propagation integrals analytically...
