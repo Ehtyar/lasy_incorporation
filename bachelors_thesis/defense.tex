@@ -174,24 +174,29 @@
 
 \frame{\titlepage}
 
-\frame{\tableofcontents}
 
 
 \section{Dephasingless Laser WakeField Acceleration (DLWFA)}
-\begin{frame}{Laser WakeField Acceleration (LWFA) \cite{LWFA}}
+\frame{\sectionpage}
+\begin{frame}{Laser WakeField Acceleration (LWFA)}
     \begin{columns}
         \begin{column}{1\textwidth}
         \includegraphics[width=0.93\columnwidth]{Images/LWFA.png}
-        {\scriptsize Electric field and electrons in an LWFA simulation.}
+        {\scriptsize Electric field and electrons in an LWFA (see \cite{LWFA}) simulation.}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{1. TWEAC \cite{LWFAd}}
+\begin{frame}{The problem of dephasing}
+    
+\end{frame}
+
+\begin{frame}{Flying focus lasers -- solving the problem of dephasing}{1. TWEAC}
 	\begin{columns}
         \begin{column}{0.6\textwidth}
         \begin{itemize}
-        \item Traveling-Wave Electron ACcelerator
+        \item \textbf{T}raveling-\textbf{W}ave \textbf{E}lectron \textbf{AC}celerator
+        \item Developed by Debus et al \cite{LWFAd}
         \item Uses two laser pulses with tilted pulse fronts
         \item The tilt controls the velocity of the overlapping region
         \end{itemize}
@@ -203,11 +208,11 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{2. Axiparabola laser \cite{Palastro:2020}}
+\begin{frame}{Flying focus lasers -- solving the Problem of dephasing}{2. Axiparabola laser}
     \includegraphics[width=\textwidth]{Images/palastro_flfoc.png}
-    {\scriptsize The flying focus setup. Two optical elements: The Axiparabola (left) and the Radial Group Delay echelon (RGD) (right). Image taken from Palastro et al \cite{Palastro:2020}.}
+    {\scriptsize The flying focus setup of Palastro et al \cite{Palastro:2020}. Two optical elements: The Axiparabola (left) and the Radial Group Delay echelon (RGD) (right). Image taken from Palastro et al \cite{Palastro:2020}.}
 \end{frame}
-\begin{frame}{Flying focus lasers -- solving the Problem of Dephasing}{2. Axiparabola laser \cite{Palastro:2020}}
+\begin{frame}{Flying focus lasers -- solving the Problem of dephasing}{2. Axiparabola laser}
     \begin{columns}
         \begin{column}{0.5\textwidth}
         \begin{itemize}
@@ -216,7 +221,7 @@
             \item Focuses light onto a line -- the focus region
             \item[$\rightarrow$] Light at radius $r$ is focused at $f(r)=f_0+\delta\left(\frac{r}{R}\right)^2$
             \end{itemize}
-            \item Radial Group Delay echelon (RGD) \cite{Ambat:2023}\cite{Palastro:2020}:\begin{itemize}
+            \item \textbf{R}adial \textbf{G}roup \textbf{D}elay echelon (RGD) \cite{Ambat:2023}\cite{Palastro:2020}:\begin{itemize}
             \item Stepped concentric mirror rings
             \item Shape follows some function $\tau_D(r)$
             \item[$\rightarrow$] controls the timing of the axiparabola focus
@@ -230,20 +235,20 @@
     \end{columns}
 \end{frame}
 
-
 \section{Flying focus lasers in Lasy and PIConGPU}
-\begin{frame}{Lasy \cite{lasydoc}}{A python library}
+\frame{\sectionpage}
+\begin{frame}{Lasy}{A python library}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
-        \item A python library for simulating Laser pulses in a vacuum
+        \item A python library for simulating Laser pulses in a vacuum \cite{lasydoc}
         \item Uses complex envelope of the laser field
         \item Uses angular spectrum propagation
         \item Can use cylindrical coordinates for memory and CPU time efficiency
         \item Offers a range of optical elements
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Example of a Gaussian pulse being propagated by Lasy. Top: generated at the focus, Bottom: 6 $z_R$ after the focus.}
+        {\scriptsize Images: Example of a Gaussian pulse being propagated by Lasy. Top: Generated at the focus. Bottom: 6 $z_R$ after the focus.}
         \end{column}
         \begin{column}{0.43\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_gauss_1.png}
@@ -251,72 +256,16 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Implementing the flying focus}{1. The Radial Group delay echelon (RGD)}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-        \begin{itemize}
-        \item Implemented from scratch as Lasy optical element
-        \item Following the description by Ambat et al \cite{Ambat:2023}
-        \item Shapes the pulse temporally without focusing or defocussing
-        \item Can generate any radially symmetric shape of delay $\tau_D(r)$
-        \end{itemize}
-        \vspace*{30pt}
-        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: field envelope, Bottom: Test results. even after long distances the shape still holds.}
-        \end{column}
-        \begin{column}{0.45\textwidth}
-        \includegraphics[width=0.9\columnwidth]{Images/lasy_rgd0.png}
-        \includegraphics[width=\columnwidth]{Images/lasy_rgd_ts.png}
-        \end{column}
-    \end{columns}
-\end{frame}
-\begin{frame}{Implementing the flying focus}{1. The Radial Group delay echelon (RGD)}
-	\begin{columns}
-	\begin{column}{0.7\textwidth}
-	\includegraphics[width=\columnwidth]{Images/lasy_rgd_field.png}\\
-	{\scriptsize The electric field of the laser after interacting with the RGD.}
-	\end{column}
-	\end{columns}
-\end{frame}
-\begin{frame}{Implementing the flying focus}{2. The Axiparabola}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-        \begin{itemize}
-        \item Included in Lasy
-        \item Following Smartsev et al \cite{Smartsev:2019}
-        \item Focusing laser pulse in the focus region
-        \item Also implemented an axiparabola following Ambat et al \cite{Ambat:2023}\begin{itemize}
-            \item[$\rightarrow$] Very small differences
-        \end{itemize}
-        \end{itemize}
-        \vspace*{30pt}
-        {\scriptsize Images: A super-Gaussian laser pulse after reflecting off the axiparabola. Top: in the near field, Bottom: in the far field at the beginning of the focus region.}
-        \end{column}
-        \begin{column}{0.44\textwidth}
-        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola.png}
-        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus2.png}
-        \end{column}
-    \end{columns}
-\end{frame}
-\begin{frame}{Implementing the flying focus}{2. The Axiparabola}
-	\begin{columns}
-	\begin{column}{0.7\textwidth}
-	\includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus.png}\\
-	\end{column}
-	\end{columns}
-	\begin{center}
-	    {\scriptsize The electric field of the laser at the beginning of the focus region of the axiparabola.}
-	\end{center}
-\end{frame}
 \begin{frame}{Importing to PIConGPU}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
         \item New module \pyth{full_field}
         \item Generates full electric field and saves it using \texttt{openPMD-api}
-        \item \textsf{incidentField} method \textsf{FromOpenPMDPulse} \cite{fabia} imports the field into PIConGPU
+        \item \textsf{incidentField} method \textsf{FromOpenPMDPulse} (see Dietrich \cite{fabia}) imports the field into PIConGPU
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Top: Electric field of the complete flying focus laser at the beginning of the focus region, Bottom: That same electric field entering the simulation window of a PIConGPU simulation.}
+        {\scriptsize Images: Top: Electric field of the complete flying focus laser at the beginning of the focus region. Bottom: That same electric field entering the simulation window of a PIConGPU simulation.}
         \end{column}
         \begin{column}{0.45\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_focus.png}
@@ -336,7 +285,7 @@
         \item Test successful
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Top: Electric field of the Gaussian laser pulse $z_R$ before the focus as imported into a PIConGPU simulation, Bottom: The beam waist $w$ of the pulse over time, compared to theory.}
+        {\scriptsize Images: Top: Electric field of the Gaussian laser pulse $z_R$ before the focus as imported into a PIConGPU simulation. Bottom: The beam waist $w$ of the pulse over time, compared to theory.}
         \end{column}
         \begin{column}{0.43\textwidth}
         \includegraphics[width=\columnwidth]{Images/pic_parabol_zr1.png}
@@ -344,24 +293,160 @@
         \end{column}
     \end{columns}
 \end{frame}
+\begin{frame}{Implementing the flying focus}{1. The radial group delay echelon (RGD)}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item Implemented from scratch as Lasy optical element
+        \item Following the description by Ambat et al \cite{Ambat:2023}
+        \item Shapes the pulse temporally without focusing or defocusing
+        \item Can generate any radially symmetric shape of delay $\tau_D(r)$
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: Field envelope. Bottom: Test results. Even after long distances the shape still holds.}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+        \includegraphics[width=0.9\columnwidth]{Images/lasy_rgd0.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_rgd_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{1. The radial group delay echelon (RGD)}
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_rgd_field.png}\\
+	{\scriptsize The electric field of the laser after interacting with the RGD.}
+	\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{2. The axiparabola}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+        \item Included in Lasy
+        \item Following Smartsev et al \cite{Smartsev:2019}
+        \item Focusing laser pulse in the focus region
+        \item Also implemented an axiparabola following Ambat et al \cite{Ambat:2023}\begin{itemize}
+            \item[$\rightarrow$] Very small differences
+        \end{itemize}
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: A super-Gaussian laser pulse after reflecting off the axiparabola. Top: In the near field. Bottom: In the far field at the beginning of the focus region.}
+        \end{column}
+        \begin{column}{0.44\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus2.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{2. The axiparabola}
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_axiparabola_focus.png}\\
+	\end{column}
+	\end{columns}
+	\begin{center}
+	    {\scriptsize The electric field of the laser at the beginning of the focus region of the axiparabola.}
+	\end{center}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{The complete setup}
+    The simulation had the following steps:
+    \begin{enumerate}
+        \item Initialising the laser pulse with its pulse profile
+        \item Applying the RGD to the laser
+        \item Applying the axiparabola to the laser
+        \item Propagating the laser to the focus region\begin{itemize}
+            \item At this point the laser field can be saved to file
+        \end{itemize}
+        
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Implementing the flying focus}{The measurement}
+    \begin{itemize}
+        \item Beam waist $w$:
+        \begin{itemize}
+            \item ?
+        \end{itemize}
+        \item Relative focus position $t_{focus}-f_0/c$ or $z-t\cdot c$:
+        \begin{itemize}
+            \item ?
+        \end{itemize}
+        \item All measurements taken statistically
+    \end{itemize}
+\end{frame}
 
 \section{Testing the flying focus lasers}
-
+\frame{\sectionpage}
 \begin{frame}{Testing the flying focus laser}{First results}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
-            \item Simulations in Lasy and PIConGPU
-            \item Input file for PIConGPU saved at the beginning of the focus region
+            \item Simulation in Lasy
             \item Result: The flying focus effect cannot be seen
             \item[$\rightarrow$] Test failed
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: From a Lasy simulation: $t-z/c$, Bottom: From a PIConGPU simulation: $z-t\cdot c$.}
+        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: From a Lasy simulation: $t-z/c$, Bottom: .}
         \end{column}
         \begin{column}{0.42\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
+        %\includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the flying focus laser}{The same simulation in PIConGPU}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item Simulation in Lasy to the focus region, from there in PIConGPU
+            \item Input file for PIConGPU saved at the beginning of the focus region
+            \item Result: The flying focus effect cannot be seen here either
+            \item[$\rightarrow$] Test failed
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: , Bottom: From a PIConGPU simulation: $z-t\cdot c$.}
+        \end{column}
+        \begin{column}{0.42\textwidth}
+        %\includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
         \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the flying focus laser}{Testing all the used modules}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: }
+        \end{column}
+        \begin{column}{0.41\textwidth}
+        
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the flying focus laser}{Checking the shapes of the optical elements}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item Multiple differential equations for the shape of the RGD $\tau_D(r)$\begin{itemize}
+                \item All result in very similar shapes
+            \end{itemize}
+            \item Multiple equations for the shape of the axiparabola $s_f(r)$\begin{itemize}
+                \item All follow from the same differential equation (and solve it)
+                \item All are very similar shapes
+            \end{itemize}
+        \end{itemize}
+        \vspace*{30pt}
+        \only<1>{\scriptsize Image: The delay the RGD should achieve according to different sources. The shape of the RGD is similar to this, just stepped in $\lambda_0/2$ steps. Relative differences $\approx1/50$.}
+        \only<2>{\scriptsize Images: Top: The shape of the axiparabola according to different sources. Relative differences $\approx10^{-2}$. Bottom: The two sides of the differential equation the axiparabola is derived from. Relative differences $\approx10^{-5}$.}
+        \end{column}
+        \begin{column}{0.41\textwidth}
+        \only<1>{\includegraphics[width=\columnwidth]{Images/tau_Ds.png}
+        }
+        \only<2>{\includegraphics[width=\columnwidth]{Images/axiparabola_abs.png}
+        \includegraphics[width=\columnwidth]{Images/axiparabola_de.png}}
         \end{column}
     \end{columns}
 \end{frame}
@@ -370,12 +455,13 @@
         \begin{column}{0.55\textwidth}
         \begin{itemize}
             \item With only the axiparabola differences appear already\begin{itemize}
-                \item[$\rightarrow$] Here must be the problem...
+                \item[$\rightarrow$] Here must be the problem
             \end{itemize}
-            \item 
+            \item Using the axiparabola described by Ambat et al \cite{Ambat:2023} gives similar results
+            \item[$\rightarrow$] Contacted the Lasy developers to no avail (so far)
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Comparing measurements from a Lasy simulation with theoretical values using Ambat et al \cite{Ambat:2023}. Top: Arrival time $t-z/c$, Bottom: Beam waist $w$.}
+        {\scriptsize Images: Comparing measurements from a Lasy simulation with theoretical values using Ambat et al \cite{Ambat:2023}. Top: Arrival time $t-z/c$. Bottom: Beam waist $w$.}
         \end{column}
         \begin{column}{0.43\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_ts.png}
@@ -383,23 +469,35 @@
         \end{column}
     \end{columns}
 \end{frame}
-%\begin{frame}{Testing the flying focus laser}{More test?}
-%    \begin{columns}
-%        \begin{column}{0.55\textwidth}
-%        \begin{itemize}
-%            \item 
-%        \end{itemize}
-%        \vspace*{30pt}
-%        {\scriptsize Images: }
-%        \end{column}
-%        \begin{column}{0.41\textwidth}
-%        
-%        \end{column}
-%    \end{columns}
-%\end{frame}
 
-\section{Conclusion and Outlook}
-\begin{frame}{Conclusion}{Remaining Possible reasons for failure}
+\section{Summary and Outlook}
+\frame{\sectionpage}
+\begin{frame}{Summary}{Tests}
+    \begin{itemize}
+        \item All the code was tested with Gaussian laser pulses
+        \item The shapes of the optical elements were compared to different sources
+        \item the flying focus pulse was simulated and compared in Lasy and PIConGPU
+        \item 
+        \item The Lasy developers were contacted
+    \end{itemize}
+\end{frame}
+\begin{frame}{Outlook}
+    \begin{itemize}
+        \item Lasy lasers available in PIConGPU
+        \item[$\rightarrow$] LWFA with new laser setups possible
+        \item Some problems still need resolving
+        \item Some tests conducted after writing the bachelors thesis:\begin{itemize}
+            \item Trying different propagation methods
+            \item Initialising the pulse with other pulse profiles
+            \item Using Cartesian coordinates on nodes with lots of memory
+        \end{itemize}
+    \end{itemize}
+    \vspace*{20pt}
+    \definecolor{ow}{RGB}{250, 180, 0}
+    \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
+\end{frame}
+
+\begin{frame}{Remaining Possible reasons for failure}
     \begin{itemize}
     \item The Axiparabola\begin{itemize}
         \item The shape could still be wrong
@@ -411,22 +509,9 @@
         \item Maybe the Axiparabola does not work at all
         \item Maybe it works in a different manner
     \end{itemize}
-    \item Maybe something else...
     \end{itemize}
 \end{frame}
-\begin{frame}{Outlook}
-    \begin{itemize}
-        \item Lasy lasers available in PIConGPU
-        \item[$\rightarrow$] LWFA with new laser setups possible
-        \item Some problems still need resolving
-    \end{itemize}
-    \vspace*{20pt}
-    \definecolor{ow}{RGB}{250, 180, 0}
-    \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
-\end{frame}
 
-
-\section{References}
 \begin{frame}[allowframebreaks]{References}
     \bibliographystyle{unsrt}
     \bibliography{refs}
