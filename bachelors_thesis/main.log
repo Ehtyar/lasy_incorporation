@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  10 FEB 2026 10:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  10 FEB 2026 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1156,11 +1156,11 @@ Package pdftex.def Info: Images/lasy_parabol_saved.png  used on input line 193.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12 <./Images/lasy_parabol_focus.png> <./Images/lasy_parabol_saved.png>]
-<Images/pic_parabol_focus.png, id=325, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_focus.png, id=325, 630.1944pt x 393.8715pt>
 File: Images/pic_parabol_focus.png Graphic file (type png)
 <use Images/pic_parabol_focus.png>
 Package pdftex.def Info: Images/pic_parabol_focus.png  used on input line 254.
-(pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
+(pdftex.def)             Requested size: 314.99863pt x 196.87515pt.
  [13] [14 <./Images/pic_parabol_focus.png>]
 Chapter 3.
 <Images/lasy_gauss_1.png, id=367, 450.2421pt x 326.6604pt>
@@ -1207,22 +1207,22 @@ LaTeX Font Info:    Try loading font information for T1+cmss on input line 336.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-<Images/pic_parabol_zr1.png, id=410, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_zr1.png, id=410, 630.1944pt x 393.8715pt>
 File: Images/pic_parabol_zr1.png Graphic file (type png)
 <use Images/pic_parabol_zr1.png>
 Package pdftex.def Info: Images/pic_parabol_zr1.png  used on input line 357.
-(pdftex.def)             Requested size: 215.99808pt x 168.4804pt.
+(pdftex.def)             Requested size: 215.99808pt x 134.99632pt.
 <Images/pic_parabol_zr1_lin.png, id=411, 985.0401pt x 727.7589pt>
 File: Images/pic_parabol_zr1_lin.png Graphic file (type png)
 <use Images/pic_parabol_zr1_lin.png>
 Package pdftex.def Info: Images/pic_parabol_zr1_lin.png  used on input line 358
 .
 (pdftex.def)             Requested size: 215.99808pt x 159.57442pt.
-<Images/pic_parabol_zr2.png, id=412, 933.0057pt x 727.7589pt>
+<Images/pic_parabol_zr2.png, id=412, 630.1944pt x 393.8715pt>
 File: Images/pic_parabol_zr2.png Graphic file (type png)
 <use Images/pic_parabol_zr2.png>
 Package pdftex.def Info: Images/pic_parabol_zr2.png  used on input line 364.
-(pdftex.def)             Requested size: 314.99863pt x 245.70242pt.
+(pdftex.def)             Requested size: 314.99863pt x 196.87515pt.
 <Images/pic_parabol_ws.png, id=413, 411.2163pt x 312.9291pt>
 File: Images/pic_parabol_ws.png Graphic file (type png)
 <use Images/pic_parabol_ws.png>
@@ -1234,10 +1234,8 @@ Underfull \vbox (badness 7595) has occurred while \output is active []
  [18
 
 ]
-Underfull \vbox (badness 1067) has occurred while \output is active []
-
- [19 <./Images/pic_parabol_zr1.png> <./Images/pic_parabol_zr1_lin.png> <./Image
-s/pic_parabol_zr2.png>] [20 <./Images/pic_parabol_ws.png>]
+[19 <./Images/pic_parabol_zr1.png> <./Images/pic_parabol_zr1_lin.png> <./Images
+/pic_parabol_zr2.png>] [20 <./Images/pic_parabol_ws.png>]
 Chapter 5.
 <Images/lasy_rgd0.png, id=450, 456.7464pt x 325.215pt>
 File: Images/lasy_rgd0.png Graphic file (type png)
@@ -1527,7 +1525,7 @@ super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb><
 ts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (39 pages, 5682742 bytes).
+Output written on main.pdf (39 pages, 5275856 bytes).
 PDF statistics:
  916 PDF objects out of 1000 (max. 8388607)
  722 compressed objects within 8 object streams
