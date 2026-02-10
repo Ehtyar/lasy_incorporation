@@ -227,10 +227,11 @@
             \item[$\rightarrow$] controls the timing of the axiparabola focus
             \end{itemize}
         \end{itemize}
+        {\scriptsize Images: Top: Axiparabola functionality. Image taken from Smartsev et al \cite{Smartsev:2019}. Bottom: RGD functionality. Image taken from Palastro et al \cite{Palastro:2020}.}
         \end{column}
         \begin{column}{0.5\textwidth}
         \includegraphics[width=\columnwidth]{Images/axiparabola.png}
-        {\scriptsize Axiparabola functionality. Image taken from Smartsev et al \cite{Smartsev:2019}.}
+        \includegraphics[width=\columnwidth]{Images/palastro_rgd.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -265,11 +266,11 @@
         \item \textsf{incidentField} method \textsf{FromOpenPMDPulse} (see Dietrich \cite{fabia}) imports the field into PIConGPU
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Top: Electric field of the complete flying focus laser at the beginning of the focus region. Bottom: That same electric field entering the simulation window of a PIConGPU simulation.}
+        {\scriptsize Images: Top: Electric field of a Gaussian laser pulse, $1z_R$ befor the focus, as saved to the file. Bottom: That same electric field entering the simulation window of a PIConGPU simulation.}
         \end{column}
         \begin{column}{0.45\textwidth}
-        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_focus.png}
-        \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_start.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_parabol_saved.png}
+        \includegraphics[width=\columnwidth]{Images/pic_parabol_zr1.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -285,10 +286,10 @@
         \item Test successful
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Top: Electric field of the Gaussian laser pulse $z_R$ before the focus as imported into a PIConGPU simulation. Bottom: The beam waist $w$ of the pulse over time, compared to theory.}
+        {\scriptsize Images: Top: Electric field of the Gaussian laser pulse at the focus according to the PIConGPU simulation. Bottom: The beam waist $w$ of the pulse over time, compared to theory.}
         \end{column}
         \begin{column}{0.43\textwidth}
-        \includegraphics[width=\columnwidth]{Images/pic_parabol_zr1.png}
+        \includegraphics[width=\columnwidth]{Images/pic_parabol_focus.png}
         \includegraphics[width=\columnwidth]{Images/pic_parabol_ws.png}
         \end{column}
     \end{columns}
@@ -357,22 +358,42 @@
         \item Applying the axiparabola to the laser
         \item Propagating the laser to the focus region\begin{itemize}
             \item At this point the laser field can be saved to file
+            \item The next steps can happen in Lasy or PIConGPU
         \end{itemize}
-        
+        \item \label{measure_point} Measure the beam waist $w$ and relative focus position $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$
+        \item \label{prop_point} Propagate the laser some distance through the focus region
+        \item Repeat steps \ref{measure_point} and \ref{prop_point} until the end of the focus region is reached
     \end{enumerate}
 \end{frame}
+\begin{frame}{Implementing the flying focus}{The complete setup}
+	\begin{columns}
+	\begin{column}{0.7\textwidth}
+	\includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_focus.png}\\
+	\end{column}
+	\end{columns}
+	\begin{center}
+	    {\scriptsize The electric field of the laser at the beginning of the focus region of the complete setup.}
+	\end{center}
+\end{frame}
 \begin{frame}{Implementing the flying focus}{The measurement}
-    \begin{itemize}
-        \item Beam waist $w$:
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
         \begin{itemize}
-            \item ?
+            \item Beam waist $w$:
+            \begin{itemize}
+                \item ?
+            \end{itemize}
+            \item Relative focus position $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$:
+            \begin{itemize}
+                \item ?
+            \end{itemize}
+            \item All measurements taken statistically
         \end{itemize}
-        \item Relative focus position $t_{focus}-f_0/c$ or $z-t\cdot c$:
-        \begin{itemize}
-            \item ?
-        \end{itemize}
-        \item All measurements taken statistically
-    \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+        
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Testing the flying focus lasers}
@@ -390,7 +411,7 @@
         \end{column}
         \begin{column}{0.42\textwidth}
         \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
-        %\includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ws.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -407,25 +428,12 @@
         {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: , Bottom: From a PIConGPU simulation: $z-t\cdot c$.}
         \end{column}
         \begin{column}{0.42\textwidth}
-        %\includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
         \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
+        \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ws.png}
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Testing the flying focus laser}{Testing all the used modules}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-        \begin{itemize}
-            \item 
-        \end{itemize}
-        \vspace*{30pt}
-        {\scriptsize Images: }
-        \end{column}
-        \begin{column}{0.41\textwidth}
-        
-        \end{column}
-    \end{columns}
-\end{frame}
+
 \begin{frame}{Testing the flying focus laser}{Checking the shapes of the optical elements}
     \begin{columns}
         \begin{column}{0.55\textwidth}
@@ -447,6 +455,20 @@
         }
         \only<2>{\includegraphics[width=\columnwidth]{Images/axiparabola_abs.png}
         \includegraphics[width=\columnwidth]{Images/axiparabola_de.png}}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Testing the flying focus laser}{Testing all the used modules}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: }
+        \end{column}
+        \begin{column}{0.41\textwidth}
+        
         \end{column}
     \end{columns}
 \end{frame}
@@ -472,14 +494,18 @@
 
 \section{Summary and Outlook}
 \frame{\sectionpage}
-\begin{frame}{Summary}{Tests}
+\begin{frame}{Summary}{These tests were done:}
     \begin{itemize}
         \item All the code was tested with Gaussian laser pulses
         \item The shapes of the optical elements were compared to different sources
-        \item the flying focus pulse was simulated and compared in Lasy and PIConGPU
+        \item The flying focus pulse was simulated and compared in Lasy and PIConGPU
         \item 
         \item The Lasy developers were contacted
     \end{itemize}
+    \vspace*{20pt}
+    \includegraphics[width=0.63\textwidth]{Images/ambat_axisim_res.png}
+    \includegraphics[width=0.33\textwidth]{Images/smartsev_axisim.png}\\
+    {\scriptsize Simulation results from other papers using only the axiparabola, showing it worked for them without Lasy. Left (Fluence and Focal trajectory): Ambat et al \cite{Ambat:2023}. Right (b): Smartsev et al \cite{Smartsev:2019}}
 \end{frame}
 \begin{frame}{Outlook}
     \begin{itemize}
@@ -497,6 +523,11 @@
     \colorbox{black}{\textcolor{ow}{\texttt{(*) There's more to explore here.}}}
 \end{frame}
 
+\begin{frame}[allowframebreaks]{References}
+    \bibliographystyle{unsrt}
+    \bibliography{refs}
+\end{frame}
+
 \begin{frame}{Remaining Possible reasons for failure}
     \begin{itemize}
     \item The Axiparabola\begin{itemize}
@@ -509,12 +540,7 @@
         \item Maybe the Axiparabola does not work at all
         \item Maybe it works in a different manner
     \end{itemize}
+    \item The chosen parameters might not fulfill some important approximation condition
     \end{itemize}
 \end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-    \bibliographystyle{unsrt}
-    \bibliography{refs}
-\end{frame}
-
 \end{document}

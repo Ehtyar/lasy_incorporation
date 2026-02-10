@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  19 DEC 2025 13:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2025.9.10)  10 FEB 2026 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,24 +1285,24 @@ File: Images/ambat_axisim.png Graphic file (type png)
 <use Images/ambat_axisim.png>
 Package pdftex.def Info: Images/ambat_axisim.png  used on input line 421.
 (pdftex.def)             Requested size: 440.99808pt x 111.35587pt.
-<Images/lasy_axiparabola_ws.png, id=504, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_ws.png, id=504, 416.2752pt x 306.4248pt>
 File: Images/lasy_axiparabola_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_ws.png>
 Package pdftex.def Info: Images/lasy_axiparabola_ws.png  used on input line 436
 .
-(pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
+(pdftex.def)             Requested size: 215.99808pt x 159.00047pt.
 <Images/lasy_axiparabola_dir_ws.png, id=505, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ws.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ws.png>
 Package pdftex.def Info: Images/lasy_axiparabola_dir_ws.png  used on input line
  437.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_axiparabola_ts.png, id=506, 462.528pt x 346.896pt>
+<Images/lasy_axiparabola_ts.png, id=506, 418.4433pt x 305.7021pt>
 File: Images/lasy_axiparabola_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_ts.png>
 Package pdftex.def Info: Images/lasy_axiparabola_ts.png  used on input line 438
 .
-(pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
+(pdftex.def)             Requested size: 215.99808pt x 157.79984pt.
 <Images/lasy_axiparabola_dir_ts.png, id=507, 462.528pt x 346.896pt>
 File: Images/lasy_axiparabola_dir_ts.png Graphic file (type png)
 <use Images/lasy_axiparabola_dir_ts.png>
@@ -1337,26 +1337,26 @@ mages/lasy_axiparabola_focus.png> <./Images/ambat_axisim.png>] [26 <./Images/la
 sy_axiparabola_ws.png> <./Images/lasy_axiparabola_dir_ws.png> <./Images/lasy_ax
 iparabola_ts.png> <./Images/lasy_axiparabola_dir_ts.png> <./Images/pic_axiparab
 ola_ws.png> <./Images/pic_axiparabola_lps.png>]
-<Images/axiparabola_abs.png, id=556, 409.7709pt x 312.9291pt>
+<Images/axiparabola_abs.png, id=556, 412.6617pt x 312.9291pt>
 File: Images/axiparabola_abs.png Graphic file (type png)
 <use Images/axiparabola_abs.png>
 Package pdftex.def Info: Images/axiparabola_abs.png  used on input line 460.
-(pdftex.def)             Requested size: 215.99808pt x 164.94916pt.
-<Images/axiparabola_rel.png, id=557, 403.2666pt x 324.4923pt>
+(pdftex.def)             Requested size: 215.99808pt x 163.79362pt.
+<Images/axiparabola_rel.png, id=557, 432.1746pt x 312.9291pt>
 File: Images/axiparabola_rel.png Graphic file (type png)
 <use Images/axiparabola_rel.png>
 Package pdftex.def Info: Images/axiparabola_rel.png  used on input line 461.
-(pdftex.def)             Requested size: 215.99808pt x 173.80714pt.
-<Images/axiparabola_de.png, id=564, 430.7292pt x 324.4923pt>
+(pdftex.def)             Requested size: 215.99808pt x 156.39731pt.
+<Images/axiparabola_de.png, id=564, 401.8212pt x 324.4923pt>
 File: Images/axiparabola_de.png Graphic file (type png)
 <use Images/axiparabola_de.png>
 Package pdftex.def Info: Images/axiparabola_de.png  used on input line 467.
-(pdftex.def)             Requested size: 215.99808pt x 162.72603pt.
-<Images/axiparabola_dde.png, id=565, 424.2249pt x 324.4923pt>
+(pdftex.def)             Requested size: 215.99808pt x 174.43102pt.
+<Images/axiparabola_dde.png, id=565, 411.939pt x 324.4923pt>
 File: Images/axiparabola_dde.png Graphic file (type png)
 <use Images/axiparabola_dde.png>
 Package pdftex.def Info: Images/axiparabola_dde.png  used on input line 468.
-(pdftex.def)             Requested size: 215.99808pt x 165.21655pt.
+(pdftex.def)             Requested size: 215.99808pt x 170.14314pt.
  [27
 
 ]
@@ -1429,11 +1429,11 @@ File: Images/lasy_flfoc_102_dir_ws.png Graphic file (type png)
 Package pdftex.def Info: Images/lasy_flfoc_102_dir_ws.png  used on input line 5
 12.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
-<Images/lasy_flfoc_102_ts.png, id=596, 462.528pt x 346.896pt>
+<Images/lasy_flfoc_102_ts.png, id=596, 418.4433pt x 304.2567pt>
 File: Images/lasy_flfoc_102_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_ts.png>
 Package pdftex.def Info: Images/lasy_flfoc_102_ts.png  used on input line 513.
-(pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
+(pdftex.def)             Requested size: 215.99808pt x 157.05374pt.
 <Images/lasy_flfoc_102_dir_ts.png, id=597, 462.528pt x 346.896pt>
 File: Images/lasy_flfoc_102_dir_ts.png Graphic file (type png)
 <use Images/lasy_flfoc_102_dir_ts.png>
@@ -1441,7 +1441,7 @@ Package pdftex.def Info: Images/lasy_flfoc_102_dir_ts.png  used on input line 5
 14.
 (pdftex.def)             Requested size: 215.99808pt x 161.99837pt.
 
-Underfull \vbox (badness 1107) has occurred while \output is active []
+Underfull \vbox (badness 1325) has occurred while \output is active []
 
  [28 <./Images/axiparabola_abs.png> <./Images/axiparabola_rel.png> <./Images/ax
 iparabola_de.png> <./Images/axiparabola_dde.png>] [29 <./Images/lasy_flfoc_102_
@@ -1527,7 +1527,7 @@ super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1000.pfb><
 ts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sftt0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (39 pages, 6040047 bytes).
+Output written on main.pdf (39 pages, 5682742 bytes).
 PDF statistics:
  916 PDF objects out of 1000 (max. 8388607)
  722 compressed objects within 8 object streams
