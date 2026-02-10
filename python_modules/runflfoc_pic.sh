@@ -22,7 +22,11 @@ source /home/marqua27/jupyter.profile
 cd /home/marqua27/jupyter_notebooks/
 
 
+echo 'starting 102'
+python runflfoc_pic.py 102
 echo 'starting 098'
 python runflfoc_pic.py 098
+echo 'starting no'
+python runflfoc_pic.py no
 
 
