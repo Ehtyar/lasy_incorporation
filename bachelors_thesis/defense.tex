@@ -177,6 +177,7 @@
 
 
 \section{Dephasingless Laser WakeField Acceleration (DLWFA)}
+\addtocounter{framenumber}{-2}
 \frame{\sectionpage}
 \begin{frame}{Laser WakeField Acceleration (LWFA)}
     \begin{columns}
@@ -238,6 +239,7 @@
 
 \section{Flying focus lasers in Lasy and PIConGPU}
 \frame{\sectionpage}
+\addtocounter{framenumber}{-1}
 \begin{frame}{Lasy}{A python library}
     \begin{columns}
         \begin{column}{0.55\textwidth}
@@ -360,9 +362,9 @@
             \item At this point the laser field can be saved to file
             \item The next steps can happen in Lasy or PIConGPU
         \end{itemize}
-        \item \label{measure_point} Measure the beam waist $w$ and relative focus position $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$
-        \item \label{prop_point} Propagate the laser some distance through the focus region
-        \item Repeat steps \ref{measure_point} and \ref{prop_point} until the end of the focus region is reached
+        \item \label{measure_point} Measuring the relative focus position $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$ and the beam waist $w$
+        \item \label{prop_point} Propagating the laser some distance through the focus region
+        \item Repeating steps \ref{measure_point} and \ref{prop_point} until the end of the focus region is reached
     \end{enumerate}
 \end{frame}
 \begin{frame}{Implementing the flying focus}{The complete setup}
@@ -379,25 +381,29 @@
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
+            
+            \item Relative focus position $t_{focus}-f_0/c$ (Lasy) or $z_{focus}-t\cdot c$ (PIConGPU):
+            \begin{itemize}
+                \item A central line-out is taken from the field energy, already in relative coordinates
+                \item Then $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$ is calculated as the expected value of the resulting distribution
+            \end{itemize}
             \item Beam waist $w$:
             \begin{itemize}
-                \item ?
+                \item The field energy is longitudinally and azimuthally summed
+                \item Then $w$ is calculated from the statistical standard deviation of the resulting distribution
             \end{itemize}
-            \item Relative focus position $t_{focus}-f_0/c$ or $z_{focus}-t\cdot c$:
-            \begin{itemize}
-                \item ?
-            \end{itemize}
-            \item All measurements taken statistically
         \end{itemize}
+        {\scriptsize Image: An example of where the measurements can be found in the plots.}
         \end{column}
         \begin{column}{0.45\textwidth}
-        
+        \includegraphics[width=\columnwidth]{Images/measured.png}
         \end{column}
     \end{columns}
 \end{frame}
 
 \section{Testing the flying focus lasers}
 \frame{\sectionpage}
+\addtocounter{framenumber}{-1}
 \begin{frame}{Testing the flying focus laser}{First results}
     \begin{columns}
         \begin{column}{0.55\textwidth}
@@ -407,11 +413,11 @@
             \item[$\rightarrow$] Test failed
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: From a Lasy simulation: $t-z/c$, Bottom: .}
+        {\scriptsize Image: Comparing relative focus position measurements $t_{focus}-z/c$ from a Lasy simulation to the expected evolution.}
         \end{column}
         \begin{column}{0.42\textwidth}
-        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}
-        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ws.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ts.png}\\
+        %\includegraphics[width=\columnwidth]{Images/lasy_flfoc_102_ws.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -420,16 +426,15 @@
         \begin{column}{0.55\textwidth}
         \begin{itemize}
             \item Simulation in Lasy to the focus region, from there in PIConGPU
-            \item Input file for PIConGPU saved at the beginning of the focus region
             \item Result: The flying focus effect cannot be seen here either
-            \item[$\rightarrow$] Test failed
+            \item[$\rightarrow$] Test also failed
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: Comparing measurements from the simulations to the expected evolution. Top: , Bottom: From a PIConGPU simulation: $z-t\cdot c$.}
+        {\scriptsize Image: Comparing relative focus position measurements $z_{focus}-t\cdot c$ from a PIConGPU simulation to the expected evolution.}
         \end{column}
         \begin{column}{0.42\textwidth}
         \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ts.png}
-        \includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ws.png}
+        %\includegraphics[width=\columnwidth]{Images/pic_flfoc_102_ws.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -462,7 +467,13 @@
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
-            \item 
+            \item Some successful tests were already shown:\begin{itemize}
+                \item A test of Lasy itself
+                \item A test of the methods to import Lasy pulses into PIConGPU
+                \item Tests of the RGD
+            \end{itemize}
+            \item[$\rightarrow$] These modules work as intended
+            \item The field plots corroborate the measured values
         \end{itemize}
         \vspace*{30pt}
         {\scriptsize Images: }
@@ -494,13 +505,14 @@
 
 \section{Summary and Outlook}
 \frame{\sectionpage}
+\addtocounter{framenumber}{-1}
 \begin{frame}{Summary}{These tests were done:}
     \begin{itemize}
         \item All the code was tested with Gaussian laser pulses
         \item The shapes of the optical elements were compared to different sources
         \item The flying focus pulse was simulated and compared in Lasy and PIConGPU
-        \item 
-        \item The Lasy developers were contacted
+        \item Simulations with just the axiparabola already show differences between theory and measurement
+        \item[$\rightarrow$] The Lasy developers were contacted
     \end{itemize}
     \vspace*{20pt}
     \includegraphics[width=0.63\textwidth]{Images/ambat_axisim_res.png}
