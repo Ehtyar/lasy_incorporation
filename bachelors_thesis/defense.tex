@@ -306,7 +306,7 @@
         \item Can generate any radially symmetric shape of delay $\tau_D(r)$
         \end{itemize}
         \vspace*{30pt}
-        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: Field envelope. Bottom: Test results. Even after long distances the shape still holds.}
+        {\scriptsize Images: A Gaussian pulse after interacting with the RGD. Top: Field envelope. Bottom: Test results. Even after long distances the shape still holds. For comparison: $z_R\approx290$\,m}
         \end{column}
         \begin{column}{0.45\textwidth}
         \includegraphics[width=0.9\columnwidth]{Images/lasy_rgd0.png}
@@ -377,7 +377,11 @@
 	    {\scriptsize The electric field of the laser at the beginning of the focus region of the complete setup.}
 	\end{center}
 \end{frame}
-\begin{frame}{Implementing the flying focus}{The measurement}
+
+\section{Verifying the flying focus}
+\frame{\sectionpage}
+\addtocounter{framenumber}{-1}
+\begin{frame}{Verifying the flying focus}{The measurement}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
@@ -401,10 +405,7 @@
     \end{columns}
 \end{frame}
 
-\section{Testing the flying focus lasers}
-\frame{\sectionpage}
-\addtocounter{framenumber}{-1}
-\begin{frame}{Testing the flying focus laser}{First results}
+\begin{frame}{Verifying the flying focus}{First results}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
@@ -421,7 +422,11 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Testing the flying focus laser}{The same simulation in PIConGPU}
+
+\section{What went wrong?}
+\frame{\sectionpage}
+\addtocounter{framenumber}{-1}
+\begin{frame}{What went wrong?}{The same simulation in PIConGPU}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
@@ -439,7 +444,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Testing the flying focus laser}{Checking the shapes of the optical elements}
+\begin{frame}{What went wrong?}{Checking the shapes of the optical elements}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
@@ -453,37 +458,28 @@
         \end{itemize}
         \vspace*{30pt}
         \only<1>{\scriptsize Image: The delay the RGD should achieve according to different sources. The shape of the RGD is similar to this, just stepped in $\lambda_0/2$ steps. Relative differences $\approx1/50$.}
-        \only<2>{\scriptsize Images: Top: The shape of the axiparabola according to different sources. Relative differences $\approx10^{-2}$. Bottom: The two sides of the differential equation the axiparabola is derived from. Relative differences $\approx10^{-5}$.}
+        \only<2>{\scriptsize Images: Top: The shape of the axiparabola according to different sources. Relative differences $\approx10^{-2}$. Bottom: The difference between the two sides of the differential equation the axiparabola is derived from.}
         \end{column}
         \begin{column}{0.41\textwidth}
         \only<1>{\includegraphics[width=\columnwidth]{Images/tau_Ds.png}
         }
         \only<2>{\includegraphics[width=\columnwidth]{Images/axiparabola_abs.png}
-        \includegraphics[width=\columnwidth]{Images/axiparabola_de.png}}
+        \includegraphics[width=\columnwidth]{Images/axiparabola_dde.png}}
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Testing the flying focus laser}{Testing all the used modules}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-        \begin{itemize}
-            \item Some successful tests were already shown:\begin{itemize}
-                \item A test of Lasy itself
-                \item A test of the methods to import Lasy pulses into PIConGPU
-                \item Tests of the RGD
-            \end{itemize}
-            \item[$\rightarrow$] These modules work as intended
-            \item The field plots corroborate the measured values
+\begin{frame}{What went wrong?}{Testing all the used modules}
+    \begin{itemize}
+        \item Some successful tests were already shown:\begin{itemize}
+            \item A test of Lasy itself
+            \item A test of the methods to import Lasy pulses into PIConGPU
+            \item Tests of the RGD
         \end{itemize}
-        \vspace*{30pt}
-        {\scriptsize Images: }
-        \end{column}
-        \begin{column}{0.41\textwidth}
-        
-        \end{column}
-    \end{columns}
+        \item[$\rightarrow$] These modules work as intended
+        \item The field plots corroborate the measured values
+    \end{itemize}
 \end{frame}
-\begin{frame}{Testing the flying focus laser}{Axiparabola only}
+\begin{frame}{What went wrong?}{Testing the axiparabola alone}
     \begin{columns}
         \begin{column}{0.55\textwidth}
         \begin{itemize}
@@ -519,15 +515,40 @@
     \includegraphics[width=0.33\textwidth]{Images/smartsev_axisim.png}\\
     {\scriptsize Simulation results from other papers using only the axiparabola, showing it worked for them without Lasy. Left (Fluence and Focal trajectory): Ambat et al \cite{Ambat:2023}. Right (b): Smartsev et al \cite{Smartsev:2019}}
 \end{frame}
+\begin{frame}{Further tests after writing}{Using different propagation methods}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+        \begin{itemize}
+            \item Propagation methods tried:\begin{itemize}
+                \item Lasy's own angular spectrum propagator\begin{itemize}
+                    \item[$\rightarrow$] Can only handle small numbers of points, useless for us
+                \end{itemize}
+                \item Fresnel chirp-z transform propagator\begin{itemize}
+                    \item Slow, but can handle larger numbers of points
+                    \item Very similar results to previous tests
+                \end{itemize}
+
+            \end{itemize}
+            \item So far, no test successfully showed the flying focus effect
+        \end{itemize}
+        \vspace*{30pt}
+        {\scriptsize Images: Comparing measurements from a Lasy simulation, using Fresnel chirp-z transform propagation, with theoretical values using Ambat et al \cite{Ambat:2023}. Top: Arrival time $t-z/c$. Bottom: Beam waist $w$.}
+        \end{column}
+        \begin{column}{0.43\textwidth}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_ts.png}
+        \includegraphics[width=\columnwidth]{Images/lasy_axiparabola_ws.png}
+        \end{column}
+    \end{columns}
+\end{frame}
 \begin{frame}{Outlook}
     \begin{itemize}
         \item Lasy lasers available in PIConGPU
         \item[$\rightarrow$] LWFA with new laser setups possible
-        \item Some problems still need resolving
-        \item Some tests conducted after writing the bachelors thesis:\begin{itemize}
+        \item Specific problems with the axiparabola still need resolving
+        \item Some tests conducted after writing the bachelors thesis, did not help:\begin{itemize}
             \item Trying different propagation methods
-            \item Initialising the pulse with other pulse profiles
-            \item Using Cartesian coordinates on nodes with lots of memory
+            \item Initialising the pulse with other pulse profiles (Gaussian, Super-Gaussian, Rect)
+            \item Using Cartesian coordinates on nodes with 1.5\,TB memory 
         \end{itemize}
     \end{itemize}
     \vspace*{20pt}
