@@ -474,7 +474,7 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxt
     ts : array of float (optional)
         The times of the iterations. Only returned if ret is True.
         
-    lpeakss : array of float (optional)
+    lpeaks : array of float (optional)
         The values of lpeak in the iterations. Only returned if ret is True.
     """
     close = False
@@ -503,7 +503,6 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxt
     ts = np.zeros(N)
     if tqdm_available:
         pbar = tqdm(total=N, bar_format=bar_format)
-    lps = 0
     Nmax = N
     Nmin = 0
     lps = None
@@ -563,6 +562,195 @@ def plot_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxt
             return ts[Nmin:Nmax], lpeaks[Nmin:Nmax]
         else:
             return ts[Nmin:], lpeaks[Nmin:]
+
+def plot_w_lpeak(filename=None, series=None, forward=0, ret=False, startit=0, maxtime=np.inf, 
+                 apply_maxtime_to_measurement=True, comp_func_w=None, title_w="", ret_ax=False, 
+                 comp_func_lpeak=None, title_lpeak="", unit_w=1, unitname_w="m"):
+    """calculates the values of w and lpeak for all the iterations in the series and plots them against time.
+    
+    Parameters:
+    filename : str
+        The full path at which the file can be found.
+        Either filename or series must be given.
+        
+    series : openpmd_api Series object
+        The series for which w should be calculated
+        Either filename or series must be given.
+
+    forward : int or str (optional)
+        The forward direction of the pulse.
+        Can either be the index of the field as it is in the file or a direction from x, y and z.
+
+    ret : bool (optional)
+        Wether to return the found arrays after plotting
+
+    startit : int (optional)
+        The iteration at which the calculation should be started.
+        Meant for PIC-simulations where the pulse needs to move into the moving window first.
+
+    maxtime : float (optional)
+        A maximum time of the iterations beyond which the values are neither calculated nor plotted.
+        Assumes, that the iterations are in time order in the file.
+
+    apply_maxtime_to_measurement : bool (optional)
+        Whether to apply maxtime to the measured data as well as the theoretical values.
+
+    comp_func_w and comp_func_lpeak : function or list of functions (optional)
+        if not None it will plot both the w or lpeak values respectively and this function/these functions.
+        The functions docstring will be used as label in the plot.
+
+    title_w and title_lpeak : str (optional)
+        The title of each plot
+
+    ret_ax : bool (optional)
+        Whether to return the axes oject and the fig object instead of showing it.
+
+    unit_w : float (optional)
+        plots the values of w divided by this number. Set unitname_w for axis to be correct.
+        If ret is True the returned values are still in SI units (i.e. as if unit=1).
+
+    unitname_w : str(optional)
+        The name that should be displayed as the unit of w.
+
+    Returns:
+    fig : pyplot figure object (optional)
+        only returned if ret_ax is True.
+
+    axw : pyplot axes object (optional)
+        only returned if ret_ax is True. The axes containing the w plot.
+
+    axl : pyplot axes object (optional)
+        only returned if ret_ax is True. The axes containing the lpeak plot.
+
+    ts : array of float (optional)
+        The times of the iterations. Only returned if ret is True.
+
+    ws : array of float (optional)
+        The values of w in the iterations. Only returned if ret is True.
+    
+    lpeaks : array of float (optional)
+        The values of lpeak in the iterations. Only returned if ret is True.
+    """
+    close = False
+    if series is None:
+        assert filename is not None, "filename or series must be given."
+        close = True
+        series = io.Series(filename, io.Access.read_only)
+    else:
+        assert filename is None, "can not work with both series and filename being given."
+
+    if forward in ["x", "y", "z"]:
+        n_1 = min(series.iterations)
+        if "E" in series.iterations[n_1].meshes:
+            labels = series.iterations[n_1].meshes["E"].get_attribute("axisLabels")
+        elif "laserEnvelope" in series.iterations[n_1].meshes:
+            labels = series.iterations[n_1].meshes["laserEnvelope"].get_attribute("axisLabels")
+        else:
+            raise ValueError("cannot calculate lpeak: no mesh E or laserEnvelope found")
+        forward = labels.index(forward)
+    else:
+        assert forward in [0, 1, 2], "forward must be a direction or valid index."
+        
+    print("calculating w and lpeak")
+    N = len(series.iterations)
+    ws = np.zeros(N)
+    lpeaks = np.zeros(N)
+    ts = np.zeros(N)
+    if tqdm_available:
+        pbar = tqdm(total=N, bar_format=bar_format)
+    Nmax = N
+    Nmin = 0
+    lps = None
+    for n, n_i in enumerate(series.iterations):
+        if n_i < startit:
+            Nmin = n+1
+        else:
+            ts[n] = series.iterations[n_i].get_attribute("time") * series.iterations[n_i].get_attribute("timeUnitSI")
+            if (ts[n] >= maxtime) and (Nmax == N):
+                Nmax = n
+                if apply_maxtime_to_measurement:
+                    print("maxtime reached")
+                    break
+            density, spacing = _get_density(series=series, iteration=n_i)
+            ws[n] = show_w(density=density, spacing=spacing, forward=forward, method="stat", p=False)
+            if lps is None:
+                lps = show_lpeak(density=density, spacing=spacing, forward=forward, method="stat", p=False)
+            else:
+                lpeaks[n] = show_lpeak(density=density, spacing=spacing, forward=forward, method="stat", p=False) - lps
+        if tqdm_available:
+            pbar.update(1)
+        else:
+            print(n+1, "out of", N, "complete")
+
+    if tqdm_available:
+        pbar.close()
+    if close:
+        series.close()
+
+    print("plotting w")
+    axw = fig.add_subplot(2,1,1)
+    if comp_func is not None:
+        try:
+            comp_func_w[0]
+            mul=True
+        except (TypeError, IndexError):
+            mul=False
+        if mul:
+            for func in comp_func_w:
+                axw.plot(ts[Nmin:Nmax], func(ts[Nmin:Nmax])/unit, label=func.__doc__)
+        else:
+            axw.plot(ts[Nmin:Nmax], comp_func_w(ts[Nmin:Nmax])/unit, label=comp_func_w.__doc__)
+    axw.set_xlabel("$t$/s")
+    axw.set_ylabel("$w$/"+unitname)
+    if apply_maxtime_to_measurement:
+        axw.plot(ts[Nmin:Nmax], ws[Nmin:Nmax]/unit, ".", label="measured w")
+    else:
+        axw.plot(ts[Nmin:], ws[Nmin:]/unit, ".", label="measured w")
+    axw.set_title(title_w)
+    if comp_func_w is not None:
+        axw.legend()
+    
+    print("plotting lpeak")
+    fig = plt.figure()
+    axl = fig.add_subplot(2,1,2)
+    if comp_func_lpeak is not None:
+        try:
+            comp_func_lpeak[0]
+            mul=True
+        except (TypeError, IndexError):
+            mul=False
+        if mul:
+            for func in comp_func_lpeak:
+                axl.plot(ts[Nmin:Nmax], func(ts[Nmin:Nmax])/unit, label=func.__doc__)
+        else:
+            axl.plot(ts[Nmin:Nmax], comp_func_lpeak(ts[Nmin:Nmax])/unit, label=comp_func_lpeak.__doc__)
+    if apply_maxtime_to_measurement:
+        axl.plot(ts[Nmin:Nmax], lpeaks[Nmin:Nmax], ".", label="measured lpeak")
+    else:
+        axl.plot(ts[Nmin:], lpeaks[Nmin:], ".", label="measured lpeak")
+    axl.set_xlabel("$t$/s")
+    axl.set_ylabel("$l_{peak}$/m")
+    axl.set_title(title_lpeak)
+    if comp_func_lpeak is not None:
+        axl.legend()
+
+    if ret_ax:
+        if ret:
+            if apply_maxtime_to_measurement:
+                return fig, axw, axl, ts[Nmin:Nmax], ws[Nmin:Nmax], lpeaks[Nmin:Nmax]
+            else:
+                return fig, axw, axl, ts[Nmin:], ws[Nmin:], lpeaks[Nmin:]
+        else:
+            return fig, axw, axl
+    
+    fig.show()
+    plt.show()
+    
+    if ret:
+        if apply_maxtime_to_measurement:
+            return ts[Nmin:Nmax], ws[Nmin:Nmax], lpeaks[Nmin:Nmax]
+        else:
+            return ts[Nmin:], ws[Nmin:], lpeaks[Nmin:]
 
 _w = show_w
 _lpeak = show_lpeak
