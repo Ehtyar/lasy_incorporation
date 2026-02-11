@@ -13,8 +13,9 @@ def _printf(string, filename):
 
 def _format_time(t):
     """format the given time"""
-    s = t % 60
-    t_str = str(s)[:6] + " s"
+    ms = int(t * 1000) % 1000
+    s = int(t) % 60
+    t_str = str(s) + " s " + str(ms) + " ms"
     if t > 60:
         m = (int(t) // 60) % 60
         t_str = str(m) + " min " + t_str
@@ -23,7 +24,7 @@ def _format_time(t):
         t_str = str(h) + " h " + t_str
     if t > 86400:
         d = int(t) // 86400
-        t_str = str(d) + "d " + t_str
+        t_str = str(d) + " d " + t_str
     return t_str
 
 def rtime():
