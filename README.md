@@ -75,16 +75,31 @@ The following test have been done afterwards. All the files and directories desc
     - still smaller radius of the axiparabola
     - Results are very similar to the previous test with longitudinal Gaussian profile.
 - Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen
-  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there (in progress)
+  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there
+  - Using the transverse rect profile
+  - Axiparabola only
+    - Results in read_flfoc_no_PIC.ipynb
+    - No better than Lasy propagation
+    - in fact, the peak position is going in the wrong direction
+  - Flying focus set to v_f=1.02*c
+    - Results in read_flfoc_102_PIC.ipynb
+    - The flying focus effect can not be observed
+    - Results seem very similar to equivalent Lasy simulations
+  - Flying focus set to v_f=0.98*c
+    - Results in read_flfoc_098_PIC.ipynb
+    - The flying focus effect can not be observed here either
+    - Results seem very similar to equivalent Lasy simulations
 - Additional smaller tests to the ones mentioned in the Bachelors thesis can be found all over the python_modules directory in files and directories not directly mentioned in this section, as well as some additional images from tests in bachelors_thesis/Images/
-  
+- All in all it seems like the axiparabola is still the main problem
+
 ### Open ideas
 
 Some ideas for possible tests remain.
-- Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen - requires a large and pprobably very long simulation. Options:
-  - Generate the pulse in Lasy, apply the axiparabola and save to openPMD compatible file and simulate in PIConGPU from there (in progress)
+- Bringing the axiparabola near field directly into a PIConGPU simulation to see what will hapen - requires a large and probably very long simulation. Remaining option:
   - Try to generate the pulse in PIConGPU analytically
 - double checking the axiparabola derivation...
 - trying to solve the propagation integrals analytically...
 - For some combination of parameters it might still work.
 - idk
+
+Maybe the axiparabola actually doesn't work at all.
