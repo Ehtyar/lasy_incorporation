@@ -103,7 +103,7 @@
 %\date[short date]{long date}
 %
 % Examples using `datetime2' package
-\date[\today]{{\DTMsetregional[text]\today}}   % today's date
+\date[19.02.2026]{19.02.2026}   % today's date
 %\DTMsavenoparsedate{piday22}{2022}{03}{14}{0} % a fixed date, e. g. Monday, 14th March '22 (international Pi Day)
 %\date[\DTMusedate{piday22}]{{\DTMsetregional[text]\DTMusedate{piday22}}}
 
@@ -189,7 +189,12 @@
 \end{frame}
 
 \begin{frame}{The problem of dephasing}
-    
+    \begin{columns}
+        \begin{column}{1\textwidth}
+        \includegraphics[width=0.93\columnwidth]{Images/LWFA_deph.png}
+        {\scriptsize Dephasing in LWFA. Schematic.}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Flying focus lasers -- solving the problem of dephasing}{1. TWEAC}
