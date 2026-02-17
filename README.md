@@ -9,7 +9,7 @@ This repository contains three directories:
 
 ## Using the modules
 
-To use the functions developed here, copy the lib directory or single files from it into your project directory or your python site-packages directory (and potentially rename it to fit your needs; lib is not a good name in most circumstances).
+To use the functions developed here, run `pip install -e [path to this repository]/lib/python` or copy single files to your project.
 
 If you want to use showdata outside the package, you need to change the imports of .full_field and .ptime (which it needs) by removing the dot.
 
