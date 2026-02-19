@@ -1,0 +1,6 @@
+matplotlib
+numpy>=1.26.2
+openpmd-api>=0.16.1
+scipy>=1.12
+lasy>=0.6.0
+tqdm

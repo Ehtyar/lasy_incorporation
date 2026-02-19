@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: lasy_incorporation
+Version: 1.0
+Summary: Python package for lasy_incorporation
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: <3.14,>=3.10
+Requires-Dist: matplotlib
+Requires-Dist: numpy>=1.26.2
+Requires-Dist: openpmd-api>=0.16.1
+Requires-Dist: scipy>=1.12
+Requires-Dist: lasy>=0.6.0
+Requires-Dist: tqdm

@@ -5,10 +5,10 @@ requires = [ "setuptools>=61", "wheel" ]
 
 [project]
 name = "lasy_incorporation"
+version = "1.0"
 
 description = "Python package for lasy_incorporation"
-# Our hand-rolled type-safety infrastructure is getting in the way of 3.14.
-# Planning to fix (and remove this again) in the near future:
+
 requires-python = ">=3.10,<3.14"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
